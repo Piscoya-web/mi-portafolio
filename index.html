@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Miguel Piscoya | Director Creativo & Fotógrafo</title>
+
+  <meta name="description" content="Miguel Piscoya — Director Creativo, fotógrafo y productor audiovisual. Branding, retrato, moda, eventos, producto y video." />
+
+  <meta property="og:title" content="Miguel Piscoya — Director Creativo & Fotógrafo" />
+  <meta property="og:description" content="Portafolio bilingüe (ES/EN). Branding, retrato, moda, eventos, producto y producción audiovisual." />
+  <meta property="og:image" content="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358674/CV_-_Perfil_Completo_gvxvkw.jpg" />
+  <meta property="og:type" content="website" />
+
+  <style>
+
+    :root{
+      --bg:#f7f7f3;
+      --text:#111;
+      --muted:#666;
+      --line:#e6e6e0;
+      --card:#fff;
+      --shadow:0 10px 24px rgba(0,0,0,.06);
+      --radius:18px;
+      --max:1120px;
+      --btn:#111;
+      --btnText:#fff;
+      --btn2:#fff;
+      --btn2Text:#111;
+      --focus: rgba(17,17,17,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* Top bar */
+    .top{
+      position:sticky; top:0; z-index:50;
+      background:rgba(247,247,243,.86);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .top .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:650; letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .brand small{font-weight:500;color:var(--muted)}
+    .nav{
+      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:rgba(17,17,17,.9);
+      font-size:13px;
+    }
+    .nav a:hover{border-color:var(--line); background:#fff}
+    .lang{
+      display:flex; gap:8px; align-items:center;
+    }
+    .chip{
+      font-size:12px;
+      border:1px solid var(--line);
+      padding:7px 10px;
+      border-radius:999px;
+      background:#fff;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip.active{
+      border-color:#111;
+      box-shadow: 0 0 0 3px var(--focus);
+    }
+
+    /* Layout */
+    main{padding:0 18px}
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+    }
+    .section{
+      padding:56px 0;
+      border-top:1px solid var(--line);
+    }
+    .section:first-child{border-top:0}
+    .kicker{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    h1,h2,h3{margin:0}
+    h1{font-size:44px; line-height:1.05; letter-spacing:-.02em}
+    h2{font-size:28px; letter-spacing:-.01em}
+    p{margin:10px 0 0; color:rgba(17,17,17,.85); line-height:1.6}
+    .muted{color:var(--muted)}
+
+    /* Hero */
+    .hero{padding:56px 0 24px;}
+    .hero-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card .inner{
+      padding:22px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    .hero-card img{
+      width:100%;
+      height:100%;
+      min-height:340px;
+      object-fit:cover;
+      border-radius:14px;
+    }
+    @media(max-width:980px){
+      h1{font-size:36px}
+      .hero-card .inner{grid-template-columns:1fr}
+      .hero-card img{min-height:260px}
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:var(--btn2);
+      color:var(--btn2Text);
+      cursor:pointer;
+      font-size:14px;
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background:var(--btn);
+      color:var(--btnText);
+      border-color:#111;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0px)}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--line);
+      padding:10px 12px;
+      border-radius:999px;
+      background:#fff;
+      font-size:13px;
+      color:rgba(17,17,17,.86);
+    }
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:14px;
+    }
+
+    /* Services */
+    .service-grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top:16px;
+    }
+    @media(max-width:980px){
+      .service-grid{grid-template-columns: repeat(2, 1fr)}
+    }
+    @media(max-width:560px){
+      .service-grid{grid-template-columns: 1fr}
+    }
+    .service{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .service h3{font-size:16px}
+    .service p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+
+    /* Work cards */
+    .cards{
+      display:grid;
+      gap:16px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top:18px;
+    }
+    @media(max-width:980px){ .cards{grid-template-columns: repeat(2, 1fr)} }
+    @media(max-width:560px){ .cards{grid-template-columns: 1fr} }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .thumb{
+      position:relative;
+      aspect-ratio: 4/3;
+      overflow:hidden;
+      background:#eee;
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .25s ease;
+    }
+    .card:hover .thumb img{transform:scale(1.02)}
+    .card .meta{padding:14px 14px 16px;}
+    .card .meta h3{font-size:16px;margin:0;}
+    .meta p{margin-top:6px;font-size:13px;color:var(--muted);}
+
+    /* Videos */
+    .video-grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top:18px;
+    }
+    @media(max-width:980px){ .video-grid{grid-template-columns: repeat(2, 1fr)} }
+    @media(max-width:560px){ .video-grid{grid-template-columns: 1fr} }
+
+    .video-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .video-thumb{ aspect-ratio: 16/9; background:#000; position:relative; }
+    .video-thumb iframe{ width:100%; height:100%; border:0; }
+    .video-meta{padding:14px 14px 16px}
+    .video-meta h3{font-size:15px}
+    .video-meta p{font-size:13px;color:var(--muted)}
+
+    /* About */
+    .about{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:start;
+      margin-top:18px;
+    }
+    @media(max-width:980px){ .about{grid-template-columns: 1fr} }
+    .about .panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .profile{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .profile img{
+      width:100%;
+      height:100%;
+      max-height:520px;
+      object-fit:contain;
+      background:#fff;
+      padding:10px;
+    }
+
+    /* Footer CTA */
+    .footer{padding:38px 0 70px;}
+    .cta-row{display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;}
+    .cta-text{font-size:18px; line-height:1.4; max-width:720px;}
+    .cta-actions{display:flex; gap:10px; flex-wrap:wrap;}
+
+    /* Rotator fade */
+    .hero-img{transition:opacity .6s ease; opacity:1;}
+    .hero-img.is-fading{opacity:0;}
+
+    /* Videos toggle */
+    .videos-actions{
+      display:flex;
+      justify-content:flex-start;
+      margin-top:14px;
+    }
+  
+
+    /* Gallery Modal */
+    .gmodal{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:18px;}
+    .gmodal.open{display:flex;}
+    .gpanel{width:min(1200px,100%);max-height:min(86vh,860px);background:rgba(15,15,15,.96);border:1px solid rgba(255,255,255,.14);border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);}
+    .ghead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 16px 12px;}
+    .gtitle{color:#fff;font-weight:700;font-size:16px;line-height:1.2;margin:0;}
+    .gcount{color:rgba(255,255,255,.72);font-size:12px;margin-top:4px;}
+    .gclose{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#fff;border-radius:999px;padding:10px 14px;cursor:pointer;font-size:13px;}
+    .gclose:hover{background:rgba(255,255,255,.12)}
+    .ghint{padding:0 16px 12px;color:rgba(255,255,255,.72);font-size:13px;border-top:1px solid rgba(255,255,255,.10);}
+    .gbody{padding:14px 14px 18px;overflow:auto;max-height:calc(min(86vh,860px) - 92px);}
+    .ggrid{display:grid;gap:12px;grid-template-columns:repeat(5, 1fr);} 
+    @media(max-width:1100px){.ggrid{grid-template-columns:repeat(4,1fr);}}
+    @media(max-width:860px){.ggrid{grid-template-columns:repeat(3,1fr);}}
+    @media(max-width:560px){.ggrid{grid-template-columns:repeat(2,1fr);}}
+    .gitem{position:relative;border-radius:16px;overflow:hidden;background:#0b0b0b;border:1px solid rgba(255,255,255,.12);}
+    .gitem::after{content:"";display:block;aspect-ratio:4/3;}
+    .gitem img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .gitem:hover{transform:translateY(-1px);}
+
+  </style>
+</head>
+
+
+<body>
+  <div class="top">
+    <div class="wrap">
+      <div class="brand">
+        <span>Miguel Piscoya</span>
+        <small class="muted" data-i18n="brandTag">Director Creativo · Fotógrafo</small>
+      </div>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="#home" data-i18n="navHome">Inicio</a>
+        <a href="#services" data-i18n="navServices">Servicios</a>
+        <a href="#work" data-i18n="navWork">Portafolio</a>
+        <a href="#videos" data-i18n="navVideos">Videos</a>
+        <a href="#about" data-i18n="navAbout">Sobre mí</a>
+        <a href="#contact" data-i18n="navContact">Contacto</a>
+      </nav>
+
+      <div class="lang">
+        <div class="chip active" id="langES">ES</div>
+        <div class="chip" id="langEN">EN</div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap">
+
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-card">
+          <div class="inner">
+            <div>
+              <div class="kicker" data-i18n="heroKicker">Portafolio</div>
+              <h1 data-i18n="heroHeadline">15 años transformando ideas en impacto visual.</h1>
+              <p class="muted" data-i18n="heroSub">Estrategia de comunicación y dirección de arte para marcas que buscan trascender.</p>
+
+              <div class="badges">
+                <span class="badge" data-i18n="badge1">Branding</span>
+                <span class="badge" data-i18n="badge2">Retrato & Moda</span>
+                <span class="badge" data-i18n="badge3">Eventos</span>
+                <span class="badge" data-i18n="badge4">Producto</span>
+                <span class="badge" data-i18n="badge5">Video</span>
+              </div>
+
+              <div class="hero-actions">
+                <a class="btn primary" id="btnWhatsHero" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="btn" id="btnMailHero">Email</a>
+                <a class="btn" href="#work" data-i18n="btnSeeWork">Ver trabajo</a>
+              </div>
+            </div>
+
+            <div>
+              <img id="heroImg" class="hero-img" alt="Hero image" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="section">
+        <div class="kicker" data-i18n="servicesKicker">Qué hago</div>
+        <h2 data-i18n="servicesTitle">Servicios</h2>
+
+        <div class="service-grid">
+          <div class="service">
+            <h3 data-i18n="svcBrandTitle">Identidad de Marca & Branding</h3>
+            <p data-i18n="svcBrandDesc">Creación de universos visuales coherentes. Desde el logotipo hasta el tono de voz, diseño marcas que perduran en la memoria.</p>
+          </div>
+
+          <div class="service">
+            <h3 data-i18n="svcPhotoTitle">Fotografía Editorial & Retrato</h3>
+            <p data-i18n="svcPhotoDesc">Imágenes con narrativa propia. Dirección de arte y fotografía para campañas, moda, corporativo y documental.</p>
+          </div>
+
+          <div class="service">
+            <h3 data-i18n="svcVideoTitle">Producción Audiovisual</h3>
+            <p data-i18n="svcVideoDesc">Storytelling en movimiento. Guionización, dirección y realización de piezas audiovisuales que emocionan y comunican.</p>
+          </div>
+
+          <div class="service">
+            <h3 data-i18n="svcStratTitle">Consultoría Creativa</h3>
+            <p data-i18n="svcStratDesc">Dirección de equipos y estrategias 360°. Aporto la visión macro para que tu proyecto tenga un norte claro y efectivo.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK -->
+      <section id="work" class="section">
+        <div class="kicker" data-i18n="workKicker">Selección</div>
+        <h2 data-i18n="workTitle">Portafolio</h2>
+        <p class="muted" data-i18n="workSub">Explora mis categorías principales. En el Home verás 3 imágenes destacadas por sección; “Mostrar más” abre la galería completa.</p>
+
+        <div id="workCards" class="cards"></div>
+      </section>
+
+      <!-- VIDEOS -->
+      <section id="videos" class="section">
+        <div class="kicker" data-i18n="videosKicker">Audiovisual</div>
+        <h2 data-i18n="videosTitle">Videos</h2>
+        <p class="muted" data-i18n="videosSub">Una selección de trabajos institucionales, corporativos y contenido corto.</p>
+
+        <div id="videoGrid" class="video-grid"></div>
+
+        <div class="videos-actions">
+          <button class="btn" id="toggleVideosBtn" type="button" data-i18n="btnMoreVideos">Mostrar más</button>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="kicker" data-i18n="aboutKicker">Perfil</div>
+        <h2 data-i18n="aboutTitle">Sobre mí</h2>
+
+        <div class="about">
+          <div class="panel">
+            <p data-i18n="aboutBio">Soy un comunicador que piensa como estratega y mira como artista. Mi carrera se ha forjado en la intersección entre la dirección creativa y la fotografía documental y de moda. Me inspira la atemporalidad de los grandes maestros y la agilidad del mundo digital actual. Tras dos décadas gestionando proyectos de alto impacto en educación y branding, hoy pongo mi experiencia al servicio de marcas que necesitan algo más que estética: necesitan alma, narrativa y coherencia visual.</p>
+            <p class="muted" style="margin-top:12px" data-i18n="aboutSectors">Experiencia en: educación, salud, entretenimiento, energía y minas, infraestructura e inmobiliarias. Disponible para viajar.</p>
+
+            <div class="hero-actions" style="margin-top:16px">
+              <a class="btn primary" id="btnWhatsAbout" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn" id="btnMailAbout">Email</a>
+            </div>
+          </div>
+
+          <div class="profile">
+            <img id="profileImg" alt="Foto de perfil" />
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="kicker" data-i18n="contactKicker">Hablemos</div>
+        <h2 data-i18n="contactTitle">Contacto</h2>
+        <p class="muted" data-i18n="contactSub">Escríbeme por WhatsApp o correo. Respondo rápido.</p>
+
+        <div class="hero-actions">
+          <a class="btn primary" id="btnWhatsContact" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn" id="btnMailContact">Email</a>
+        </div>
+      </section>
+
+      <!-- CTA Footer -->
+      <section class="section" style="padding-top:26px">
+        <div class="wrap footer">
+          <div class="cta-row">
+            <div class="cta-text" data-i18n="cta">¿Tienes un proyecto en mente? Conversemos sobre cómo elevarlo al siguiente nivel.</div>
+            <div class="cta-actions">
+              <a class="btn primary" id="btnWhatsCTA" target="_blank" rel="noopener" data-i18n="ctaWhats">WhatsApp</a>
+              <a class="btn" id="btnMailCTA" data-i18n="ctaEmail">Email</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- GALLERY MODAL -->
+  <div class="gmodal" id="galleryModal" aria-hidden="true">
+    <div class="gpanel" role="dialog" aria-modal="true" aria-labelledby="gTitle">
+      <div class="ghead">
+        <div>
+          <h3 class="gtitle" id="gTitle">Galería</h3>
+          <div class="gcount" id="gCount">0 fotos</div>
+        </div>
+        <button class="gclose" id="gClose" type="button" data-i18n="close">Cerrar</button>
+      </div>
+      <div class="ghint" data-i18n="galleryHint">Click en cualquier foto para abrirla en una nueva pestaña. Presiona Esc para cerrar.</div>
+      <div class="gbody">
+        <div class="ggrid" id="gGrid"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // ==============================
+    // DATA
+    // ==============================
+    const DATA = {"name": "Miguel Piscoya", "email": "piscoyacampos@gmail.com", "whatsapp": "51943753742", "instagram": "https://www.instagram.com/miguel_piscoya/", "linkedin": "https://www.linkedin.com/in/miguel-piscoya-38762637/", "profileImage": "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358674/CV_-_Perfil_Completo_gvxvkw.jpg", "heroRotator": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358605/Paisajes_70_zvxxfb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358601/Paisajes_69_hmruyx.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358603/Paisajes_70_i1hbrq.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358600/Paisajes_68_rqbsia.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358599/Paisajes_67_a1s3am.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358597/Paisajes_66_nlnnj1.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358596/Paisajes_65_h89hlc.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358594/Paisajes_64_hcga1p.jpg"], "featured": {"Branding": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517951/Branding_11_jq0pfn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517460/Branding_6_djmu6t.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517459/Branding_1_mhr3o7.gif"], "Portraits": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358672/Portraits_35_pfmvk9.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358631/Portraits_9_mqv52o.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358628/Portraits_9_t3obpd.jpg"], "Eventos": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396499/Eventos_29_sgb5br.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396499/Eventos_28_c3lffs.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396498/Eventos_27_cp7csy.jpg"], "Producto": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396124/Producto_12_vzjsbj.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396117/Producto_3_agh09y.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396115/Producto_1_gxwhzt.jpg"], "Fashion": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358483/Fashion_73_eqxtmw.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358457/Fashion_49_hqiahh.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358439/Fashion_33_ekb9c1.png"], "Paisajes": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358562/Paisajes_45_ch44ke.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358490/Paisajes_2_ww4swn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358543/Paisajes_31_er9ivw.jpg"]}, "galleries": {"Branding": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517515/Branding_10_bemdqw.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517497/Branding_9_ujr9z0.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517484/Branding_8_hyxasj.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517461/Branding_7_ojughu.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517460/Branding_1_nllbmf.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517460/Branding_6_djmu6t.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517460/Branding_5_zoofr7.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517460/Branding_1_exab1r.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517460/Branding_3_dzvoxs.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517460/Branding_2_bipyez.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517460/Branding_4_rtfth9.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517459/Branding_1_f3nhjm.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517459/Branding_2_kr4n2u.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517459/Branding_1_mhr3o7.gif", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517951/Branding_16_a3xufy.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517951/Branding_11_jq0pfn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517951/Branding_14_sxodvd.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517951/Branding_15_gwyfwt.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517951/Branding_12_g4y1zs.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517951/Branding_13_duwm6j.png"], "Portraits": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358666/Portraits_30_da7z9s.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358669/Portraits_33_hqzzt2.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358664/Portraits_28_xre6tw.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358671/Portraits_34_aieb4j.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358652/Portraits_20_a4enit.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358657/Portraits_23_z6wfn5.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358649/Portraits_18_dckd8d.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358645/Portraits_16_ctc7tk.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358646/Portraits_17_novo0r.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358642/Portraits_14_j3noyf.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358641/Portraits_13_refdpp.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358643/Portraits_15_eghtao.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358639/Portraits_13_dcveak.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358636/Portraits_12_p4oxuu.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396945/Portraits_46_q7buiv.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396945/Portraits_47_jbpkmy.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396944/Portraits_44_leh9fz.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396943/Portraits_43_peujgo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396527/Portraits_42_vagc41.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396512/Portraits_41_f1v2n9.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396509/Portraits_39_vusr7j.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396509/Portraits_39_t1ursd.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396504/Portraits_37_pjq4lm.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396506/Portraits_38_vzmrsm.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396504/Portraits_37_ahrjth.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396502/Portraits_36_yo9yyj.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358672/Portraits_35_pfmvk9.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396503/Portraits_36_p7xbs2.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396510/Portraits_40_ga7g6x.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358628/Portraits_9_t3obpd.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358627/Portraits_8_rgtyhk.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358625/Portraits_7_vkcbjr.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358624/Portraits_7_ov9ecx.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358622/Portraits_6_jdqnyd.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358621/Portraits_6_cgjhqk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358620/Portraits_5_ctrbst.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358618/Portraits_5_dlerdq.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358616/Portraits_4_hskirr.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358615/Portraits_4_fiykiy.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358613/Portraits_3_avirvk.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358612/Portraits_3_qps9uy.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358612/Portraits_2_bkzypy.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358659/Portraits_24_mitmlv.png"], "Eventos": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396499/Eventos_29_sgb5br.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396499/Eventos_28_c3lffs.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396498/Eventos_27_cp7csy.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396497/Eventos_26_olytwx.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396495/Eventos_25_wude8h.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396494/Eventos_24_vdc7js.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396492/Eventos_23_ql7fdb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396492/Eventos_22_ukcseh.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396491/Eventos_21_p6prcg.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396489/Eventos_20_fu0qmy.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396488/Eventos_19_mwkx1u.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396485/Eventos_18_digbsh.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396484/Eventos_17_quetj8.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396484/Eventos_16_h8hb9o.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396482/Eventos_15_zbxupt.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396481/Eventos_14_ukk9xv.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396481/Eventos_13_bofi5a.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396480/Eventos_12_qvpv8z.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396479/Eventos_11_kec1rw.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396478/Eventos_10_fpme1h.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396477/Eventos_9_u9tgq7.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396476/Eventos_8_eoqgob.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396475/Eventos_7_lgjurh.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396474/Eventos_6_oysqeg.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396473/Eventos_5_iesllw.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396472/Eventos_4_yuqpm7.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396471/Eventos_3_kg4mwb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396470/Eventos_2_khtzvj.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396470/Eventos_2_flugrh.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396470/Eventos_1_gsr7tb.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396469/Eventos_1_bpi6fo.jpg"], "Producto": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396126/Producto_14_ot9ojz.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396124/Producto_12_vzjsbj.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396124/Producto_13_mm13jf.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396122/Producto_11_aerpz9.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396122/Producto_9_e8ioxo.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396122/Producto_10_ayfmc3.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396121/Producto_8_yozuau.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396120/Producto_7_ua28sz.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396119/Producto_6_cmwnt1.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396119/Producto_6_qxbj84.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396118/Producto_5_ej1qlb.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396118/Producto_5_urd5im.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396117/Producto_4_tqndts.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396117/Producto_3_agh09y.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396117/Producto_4_zvcqyk.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396116/Producto_3_bhpjf2.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396116/Producto_2_x8ocup.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396116/Producto_2_qkhxpa.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396115/Producto_1_st5ogi.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396115/Producto_1_gxwhzt.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517974/Producto_13_ojxz0z.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517973/Producto_9_hidxok.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517973/Producto_10_hrx07u.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517973/Producto_12_jlg6k5.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517973/Producto_11_bzx55y.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517972/Producto_8_isi1g6.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517970/Producto_7_szik8y.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517969/Producto_5_s2ggpc.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517968/Producto_6_kih59f.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517968/Producto_4_gtfg9p.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517968/Producto_3_isxgln.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517967/Producto_2_j5h4ao.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517967/Producto_1_xuf8ld.jpg"], "Fashion": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358485/Fashion_75_nrkesx.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358484/Fashion_74_onlwfn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358483/Fashion_73_eqxtmw.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358482/Fashion_72_yrwwwb.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358482/Fashion_70_whxyfc.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358480/Fashion_71_mzzwij.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358477/Fashion_68_xatacw.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358478/Fashion_69_qmdqtj.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358476/Fashion_67_id4k1s.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358475/Fashion_66_nlzxho.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358473/Fashion_64_c3ljce.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358474/Fashion_65_fk7zqj.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358472/Fashion_63_yqpf30.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358471/Fashion_62_o1l47y.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358469/Fashion_60_cbpkhy.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358470/Fashion_61_otahcp.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358467/Fashion_59_mvg8zl.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358467/Fashion_58_puixrj.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358465/Fashion_57_ujyyq5.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358464/Fashion_56_znhyox.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358461/Fashion_53_qyfz5t.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358460/Fashion_52_jhiff5.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358459/Fashion_51_xj2p5b.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358458/Fashion_50_lxsuaj.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358457/Fashion_49_hqiahh.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358455/Fashion_48_c0kl5s.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358454/Fashion_47_jsjggw.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358453/Fashion_46_jkilra.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358452/Fashion_45_je6km7.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358451/Fashion_44_qegirh.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358450/Fashion_43_sfwcqm.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358449/Fashion_42_xjwgwr.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358448/Fashion_41_xijyse.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358445/Fashion_39_k7za9j.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358447/Fashion_40_vlglyw.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358444/Fashion_38_zcnuif.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358443/Fashion_37_huuo6p.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358442/Fashion_36_uvkeue.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358441/Fashion_35_hpkpam.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358440/Fashion_34_epqir1.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358439/Fashion_33_ekb9c1.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358438/Fashion_32_mfh2dk.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358436/Fashion_31_ncmwp2.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358436/Fashion_30_dndxnv.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358435/Fashion_29_exffag.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358433/Fashion_28_vnap2h.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358432/Fashion_27_xib57a.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358431/Fashion_26_dbbtcp.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358430/Fashion_25_mlt547.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358429/Fashion_24_mid8tw.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358428/Fashion_23_emvo5n.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358427/Fashion_22_ylqdue.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358425/Fashion_21_qck5af.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358424/Fashion_20_fzttbf.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358422/Fashion_19_x9pkcd.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358420/Fashion_18_rz6vel.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358419/Fashion_17_xzxa9e.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358417/Fashion_16_vdo2rg.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358416/Fashion_15_khquin.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358415/Fashion_14_ljahdc.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358413/Fashion_13_o95wiu.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358412/Fashion_12_ixsdsy.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358410/Fashion_11_kqjtw6.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358409/Fashion_10_r1ojff.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358409/Fashion_9_jq336l.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358408/Fashion_7_dnurzk.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358407/Fashion_8_nuv0na.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358404/Fashion_6_hdg1ww.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358403/Fashion_5_ueetmk.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358402/Fashion_4_qjjvoj.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358401/Fashion_3_a07ezn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358400/Fashion_2_cjpyxz.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358399/Fashion_1_ui2lde.png"], "Paisajes": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358605/Paisajes_70_zvxxfb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358601/Paisajes_69_hmruyx.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358603/Paisajes_70_i1hbrq.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358600/Paisajes_68_rqbsia.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358599/Paisajes_67_a1s3am.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358597/Paisajes_66_nlnnj1.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358596/Paisajes_65_h89hlc.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358594/Paisajes_64_hcga1p.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358593/Paisajes_63_zh7ini.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358592/Paisajes_62_wcu8la.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358590/Paisajes_61_ooydqu.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358589/Paisajes_60_xtzemh.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358587/Paisajes_59_iipy2s.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358586/Paisajes_58_fd9mqg.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358585/Paisajes_57_jsytpn.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358583/Paisajes_56_cuwr8o.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358582/Paisajes_55_vqzhye.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358581/Paisajes_54_b9tmtw.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358578/Paisajes_53_l2c4vs.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358578/Paisajes_52_fnbxgf.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358577/Paisajes_51_xsvjhk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358575/Paisajes_50_esiuss.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358573/Paisajes_49_ryssjf.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358572/Paisajes_48_k4cqmk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358570/Paisajes_47_obobth.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358565/Paisajes_46_tohaeo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358562/Paisajes_45_ch44ke.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358561/Paisajes_44_pibhss.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358559/Paisajes_43_phegba.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358558/Paisajes_42_kbnhxt.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358556/Paisajes_41_ju1cda.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358555/Paisajes_40_q6fudm.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358553/Paisajes_39_vmvdrg.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358552/Paisajes_38_vynib6.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358551/Paisajes_37_rlqhuo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358550/Paisajes_36_x7lidl.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358548/Paisajes_35_fsguka.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358547/Paisajes_34_ffqswq.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358545/Paisajes_33_y8m6xv.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358544/Paisajes_32_taisrr.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358543/Paisajes_31_er9ivw.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358541/Paisajes_30_zz68c4.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358540/Paisajes_29_zjbhpd.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358539/Paisajes_28_ktgkpk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358537/Paisajes_27_hopywb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358535/Paisajes_26_ebtft0.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358535/Paisajes_25_opjwou.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358533/Paisajes_24_xiwpgo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358532/Paisajes_23_tmcoh1.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358530/Paisajes_22_phzgpr.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358529/Paisajes_21_ddb9ed.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358527/Paisajes_20_kkmiys.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358525/Paisajes_18_wdssbn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358526/Paisajes_19_bxwpyl.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358524/Paisajes_17_hv9ejs.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358522/Paisajes_16_w0jh3p.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358506/Paisajes_14_wv1wvb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358521/Paisajes_15_bdwxii.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358505/Paisajes_13_evw0s2.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358503/Paisajes_12_uqwc8v.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358500/Paisajes_11_x7te0v.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358499/Paisajes_10_k8wo6e.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358498/Paisajes_9_clrnei.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358497/Paisajes_8_gboybl.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358496/Paisajes_7_lesco6.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358495/Paisajes_6_o0g9q7.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358494/Paisajes_5_n7hmdp.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358492/Paisajes_4_o0f2vr.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358491/Paisajes_3_rkxvs3.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358490/Paisajes_2_ww4swn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358488/Paisajes_1_mcwxqh.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358487/Paisajes_1_eiymmb.jpg"]}, "videos": [{"title": "Implementación del programa de formación docente en EIB en alianza con la UNAP", "type": "Institucional", "url": "https://youtu.be/I22CJX57ajg?si=UowNrWni0vNjtDfz", "duration": ""}, {"title": "Testimonio PID2025: una experiencia transformadora en el aula", "type": "Institucional", "url": "https://youtu.be/Ucbk65ek7Ig?si=UIzgdOS2rnwrwRYI", "duration": ""}, {"title": "Programa de Formación Docente en Educación Intercultural Bilingüe", "type": "Reel animado - Minedu", "url": "https://youtube.com/shorts/XxuHPYqxmuA?si=XU_0_HoykwPP0i-v", "duration": ""}, {"title": "4 TIPS QUE FORTALECEN TUS COMPETENCIAS", "type": "Reel Institucional", "url": "https://youtube.com/shorts/q0pj552EGUI?si=E9nyt0kx--B6BmGi", "duration": ""}, {"title": "¿Eres docente novel y te sumas a la Carrera Pública Magisterial este 2025?", "type": "Reel Institucional", "url": "https://youtube.com/shorts/dWN5g-ZsiHo?si=S91nilVHlbOHy_LB", "duration": ""}, {"title": "Formación Docente en Servicio 2025", "type": "Reel Institucional", "url": "https://youtube.com/shorts/RQBU3gqTfQM?si=7QNvfVhw_feDFX1g", "duration": ""}, {"title": "EIB Secundaria Pucallpa 2025", "type": "Institucional", "url": "https://youtu.be/i1zB8GGnS0s?si=pLOf45BlDCdDBiFT", "duration": ""}, {"title": "Programa de Formación docente en competencia lectora en en el distrito de Santa Rosa", "type": "Institucional", "url": "https://youtu.be/zAeSJq-sBkY?si=Ck9j5f2zeLaVyaW-", "duration": ""}, {"title": "Conoce a los docentes que ya viven el Programa de Inducción Docente – PID 2025", "type": "Institucional", "url": "https://youtu.be/K0Gkj-LBObo?si=L4ZSDcFIGbTihA87", "duration": ""}, {"title": "Programa de Formación para la integración de las tecnologías digitales en la práctica pedagógica", "type": "Institucional", "url": "https://youtu.be/1xYK2U5qp_k?si=UJJdt2CH6b-jVWUB", "duration": ""}, {"title": "Video Hogar San Judas 2013", "type": "Corporativo", "url": "https://youtu.be/QSh7i8oN1VM?si=wVXrh7iUmd_9BNnz", "duration": ""}, {"title": "Caminata a Rúpac 2014", "type": "Viajes", "url": "https://youtu.be/7_eUuxHeNOU?si=uA2BF2arxG8YoEZn", "duration": ""}, {"title": "Reel - Lagunas San Ignacio", "type": "Corporativo", "url": "https://youtu.be/mLJ0kkmpRJs?si=60J5T2UFtV1P_0L_", "duration": ""}, {"title": "PID Testimonio Alicia Arones - Moquegua", "type": "Corporativo", "url": "https://youtu.be/Xf4qjB2WWNQ?si=LyBwa2ckqYtw-ZBQ", "duration": ""}, {"title": "Activación - Campeonato de Remo interescolar - Regatas Lima", "type": "Corporativo", "url": "https://youtube.com/shorts/8y2aTw3dYqo?si=UR7bL1lQILk1LKep", "duration": ""}, {"title": "Graduación Sonia Baca en UCW - Un sueño hecho realidad", "type": "Corporativo", "url": "https://youtube.com/shorts/lp8Pvzcc8dI?si=uDYMCmtUAbfBcIZv", "duration": ""}, {"title": "EXPO UNIVERSIDAD VIDEO RESUMEN", "type": "Corporativo", "url": "https://youtu.be/-cgXsr_Rc7M?si=YoEspp6vfw4Y_KZT", "duration": ""}, {"title": "CPF - UNO DE LOS EVENTOS EDUCATIVOS MÁS GRANDES DE CANADÁ 🇨🇦", "type": "Corporativo", "url": "https://youtu.be/3vCr6eOFYqM?si=ZWRI6P9m3n5lURPd", "duration": ""}], "videosHome": [{"title": "Implementación del programa de formación docente en EIB en alianza con la UNAP", "type": "Institucional", "url": "https://youtu.be/I22CJX57ajg?si=UowNrWni0vNjtDfz", "duration": ""}, {"title": "Testimonio PID2025: una experiencia transformadora en el aula", "type": "Institucional", "url": "https://youtu.be/Ucbk65ek7Ig?si=UIzgdOS2rnwrwRYI", "duration": ""}, {"title": "Programa de Formación Docente en Educación Intercultural Bilingüe", "type": "Reel animado - Minedu", "url": "https://youtube.com/shorts/XxuHPYqxmuA?si=XU_0_HoykwPP0i-v", "duration": ""}]};
+
+    // ==============================
+    // i18n
+    // ==============================
+    const I18N = {
+      es: {
+        brandTag: "Director Creativo · Fotógrafo",
+        navHome: "Inicio",
+        navServices: "Servicios",
+        navWork: "Portafolio",
+        navVideos: "Videos",
+        navAbout: "Sobre mí",
+        navContact: "Contacto",
+
+        heroKicker: "Portafolio",
+        heroHeadline: "15 años transformando ideas en impacto visual.",
+        heroSub: "Estrategia de comunicación y dirección de arte para marcas que buscan trascender.",
+        btnSeeWork: "Ver trabajo",
+
+        badge1: "Branding",
+        badge2: "Retrato & Moda",
+        badge3: "Eventos",
+        badge4: "Producto",
+        badge5: "Video",
+
+        servicesKicker: "Qué hago",
+        servicesTitle: "Servicios",
+        svcBrandTitle: "Identidad de Marca & Branding",
+        svcBrandDesc: "Creación de universos visuales coherentes. Desde el logotipo hasta el tono de voz, diseño marcas que perduran en la memoria.",
+        svcPhotoTitle: "Fotografía Editorial & Retrato",
+        svcPhotoDesc: "Imágenes con narrativa propia. Dirección de arte y fotografía para campañas, moda, corporativo y documental.",
+        svcVideoTitle: "Producción Audiovisual",
+        svcVideoDesc: "Storytelling en movimiento. Guionización, dirección y realización de piezas audiovisuales que emocionan y comunican.",
+        svcStratTitle: "Consultoría Creativa",
+        svcStratDesc: "Dirección de equipos y estrategias 360°. Aporto la visión macro para que tu proyecto tenga un norte claro y efectivo.",
+
+        workKicker: "Selección",
+        workTitle: "Portafolio",
+        workSub: "Explora mis categorías principales. En el Home verás 3 imágenes destacadas por sección; “Mostrar más” abre la galería completa.",
+        btnMore: "Mostrar más",
+
+        videosKicker: "Audiovisual",
+        videosTitle: "Videos",
+        videosSub: "Una selección de trabajos institucionales, corporativos y contenido corto.",
+        btnMoreVideos: "Mostrar más",
+        btnLessVideos: "Mostrar menos",
+
+        aboutKicker: "Perfil",
+        aboutTitle: "Sobre mí",
+        aboutBio: "Soy un comunicador que piensa como estratega y mira como artista. Mi carrera se ha forjado en la intersección entre la dirección creativa y la fotografía documental y de moda. Me inspira la atemporalidad de los grandes maestros y la agilidad del mundo digital actual. Tras dos décadas gestionando proyectos de alto impacto en educación y branding, hoy pongo mi experiencia al servicio de marcas que necesitan algo más que estética: necesitan alma, narrativa y coherencia visual.",
+        aboutSectors: "Experiencia en: educación, salud, entretenimiento, energía y minas, infraestructura e inmobiliarias. Disponible para viajar.",
+
+        contactKicker: "Hablemos",
+        contactTitle: "Contacto",
+        contactSub: "Escríbeme por WhatsApp o correo. Respondo rápido.",
+
+        cta: "¿Tienes un proyecto en mente? Conversemos sobre cómo elevarlo al siguiente nivel.",
+        ctaWhats: "WhatsApp",
+        ctaEmail: "Email",
+        ctaWhatsMsg: "Hola Miguel, vi tu portafolio y quisiera conversar sobre un proyecto.",
+        ctaEmailSubject: "Consulta desde tu portafolio",
+        ctaEmailBody: "Hola Miguel,%0D%0A%0D%0AVi tu portafolio y me gustaría conversar sobre un proyecto.%0D%0A%0D%0AGracias,%0D%0A",
+        galleryHint: "Click en cualquier foto para abrirla en una nueva pestaña. Presiona Esc para cerrar.",
+        close: "Cerrar"
+      },
+      en: {
+        brandTag: "Creative Director · Photographer",
+        navHome: "Home",
+        navServices: "Services",
+        navWork: "Portfolio",
+        navVideos: "Videos",
+        navAbout: "About",
+        navContact: "Contact",
+
+        heroKicker: "Portfolio",
+        heroHeadline: "15 years turning ideas into visual impact.",
+        heroSub: "Communication strategy and art direction for brands that want to stand out.",
+        btnSeeWork: "See work",
+
+        badge1: "Branding",
+        badge2: "Portrait & Fashion",
+        badge3: "Events",
+        badge4: "Product",
+        badge5: "Video",
+
+        servicesKicker: "What I do",
+        servicesTitle: "Services",
+        svcBrandTitle: "Brand Identity & Branding",
+        svcBrandDesc: "Coherent visual worlds. From logo to tone of voice, I design brands that stay in people’s minds.",
+        svcPhotoTitle: "Editorial Photography & Portrait",
+        svcPhotoDesc: "Images with narrative. Art direction and photography for campaigns, fashion, corporate and documentary.",
+        svcVideoTitle: "Audiovisual Production",
+        svcVideoDesc: "Storytelling in motion. Script, direction and production of videos that move and communicate.",
+        svcStratTitle: "Creative Consulting",
+        svcStratDesc: "Team leadership and 360° strategy. Big-picture guidance so your project stays focused and effective.",
+
+        workKicker: "Selection",
+        workTitle: "Portfolio",
+        workSub: "Explore the main categories. Home shows 3 featured images per section; “Show more” opens the full gallery.",
+        btnMore: "Show more",
+
+        videosKicker: "Audiovisual",
+        videosTitle: "Videos",
+        videosSub: "A selection of institutional, corporate and short-form work.",
+        btnMoreVideos: "Show more",
+        btnLessVideos: "Show less",
+
+        aboutKicker: "Profile",
+        aboutTitle: "About",
+        aboutBio: "I’m a communicator who thinks like a strategist and sees like an artist. My career sits at the intersection of creative direction and documentary/fashion photography. Inspired by timeless masters and the agility of today’s digital world, I bring my experience to brands that need more than aesthetics: they need soul, narrative and visual coherence.",
+        aboutSectors: "Experience across: education, healthcare, entertainment, energy & mining, infrastructure and real estate. Available to travel.",
+
+        contactKicker: "Let’s talk",
+        contactTitle: "Contact",
+        contactSub: "Message me on WhatsApp or email. I reply quickly.",
+
+        cta: "Have a project in mind? Let’s talk about taking it to the next level.",
+        ctaWhats: "WhatsApp",
+        ctaEmail: "Email",
+        ctaWhatsMsg: "Hi Miguel, I saw your portfolio and I'd love to discuss a project.",
+        ctaEmailSubject: "Inquiry from your portfolio",
+        ctaEmailBody: "Hi Miguel,%0D%0A%0D%0AI saw your portfolio and I'd love to discuss a project.%0D%0A%0D%0AThanks,%0D%0A",
+        galleryHint: "Click any photo to open it in a new tab. Press Esc to close.",
+        close: "Close"
+      }
+    };
+
+    
+
+    let LANG = "es";
+
+    function t(key){ return (I18N[LANG] && I18N[LANG][key]) ? I18N[LANG][key] : (I18N.es[key] || key); }
+
+    // --- Cloudinary helpers (NO 404 by construction) ---
+    function insertTransform(url, transform){
+      const marker = "/image/upload/";
+      const i = url.indexOf(marker);
+      if (i === -1) return url;
+      const before = url.slice(0, i + marker.length);
+      const after = url.slice(i + marker.length);
+      // if already has transforms (starts with something like "q_auto" or "c_fill"), keep original
+      if (/^[a-z_]+\d*[,/]/i.test(after) || after.startsWith("q_auto") || after.startsWith("f_auto")) return url;
+      return before + transform + "/" + after;
+    }
+
+    function cldFull(url){
+      return insertTransform(url, "f_auto,q_auto,w_1800");
+    }
+
+    function cldThumb(url){
+      // square-ish thumbnails, fast & consistent
+      return insertTransform(url, "f_auto,q_auto,w_520,c_fill,g_auto");
+    }
+
+    function safeImg(el, url){
+      // 1) try transformed thumb; 2) fallback to original
+      const thumb = cldThumb(url);
+      el.src = thumb;
+      el.onerror = () => {
+        el.onerror = null;
+        el.src = url; // fallback
+      };
+    }
+
+    // --- contact links ---
+    function updateContactLinks(){
+      const msg = encodeURIComponent(t("ctaWhatsMsg"));
+      const wa = (DATA.whatsapp && DATA.whatsapp.trim())
+        ? `https://wa.me/${DATA.whatsapp}?text=${msg}`
+        : `https://wa.me/?text=${msg}`;
+
+      const mail = `mailto:${DATA.email}?subject=${t("ctaEmailSubject")}&body=${t("ctaEmailBody")}`;
+
+      ["btnWhatsHero","btnWhatsAbout","btnWhatsContact","btnWhatsCTA"].forEach(id=>{
+        const a=document.getElementById(id); if(a) a.href=wa;
+      });
+      ["btnMailHero","btnMailAbout","btnMailContact","btnMailCTA"].forEach(id=>{
+        const a=document.getElementById(id); if(a) a.href=mail;
+      });
+
+      const profile = document.getElementById("profileImg");
+      if (profile){
+        profile.src = cldFull(DATA.profileImage);
+      }
+    }
+
+    // --- language switching ---
+    function setLang(next){
+      LANG = next;
+      document.getElementById("langES").classList.toggle("active", LANG==="es");
+      document.getElementById("langEN").classList.toggle("active", LANG==="en");
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        el.textContent = t(k);
+      });
+      updateContactLinks();
+      renderWorkCards();
+      renderVideos();
+    }
+
+    // --- Hero rotator ---
+    let _heroTimer=null;
+    function startHeroRotation(){
+      const el = document.getElementById("heroImg");
+      if (!el || !DATA.heroRotator || DATA.heroRotator.length===0) return;
+      let i=0;
+      el.src = cldFull(DATA.heroRotator[0]);
+      if (DATA.heroRotator.length<2) return;
+      clearInterval(_heroTimer);
+      _heroTimer=setInterval(()=>{
+        i=(i+1)%DATA.heroRotator.length;
+        el.classList.add("is-fading");
+        setTimeout(()=>{
+          el.src = cldFull(DATA.heroRotator[i]);
+          el.classList.remove("is-fading");
+        }, 320);
+      }, 6500);
+    }
+
+    // --- Portfolio cards ---
+    const SECTIONS = [
+      { key:"Branding",   es:{title:"Branding", desc:"Identidad visual y campañas."}, en:{title:"Branding", desc:"Visual identity & campaigns."} },
+      { key:"Portraits",  es:{title:"Retratos", desc:"Retrato editorial y corporativo."}, en:{title:"Portraits", desc:"Editorial & corporate portraits."} },
+      { key:"Fashion",    es:{title:"Moda", desc:"Editorial, styling y dirección de arte."}, en:{title:"Fashion", desc:"Editorial, styling & art direction."} },
+      { key:"Eventos",    es:{title:"Eventos", desc:"Corporativo, institucional y familiar."}, en:{title:"Events", desc:"Corporate, institutional & family."} },
+      { key:"Producto",   es:{title:"Producto", desc:"Fotografía para marcas y producto."}, en:{title:"Product", desc:"Brand & product photography."} },
+      { key:"Paisajes",   es:{title:"Paisajes / Viajes", desc:"Fotografía de viaje y paisaje."}, en:{title:"Landscapes / Travel", desc:"Travel & landscape photography."} }
+    ];
+
+    function renderWorkCards(){
+      const wrap = document.getElementById("workCards");
+      if (!wrap) return;
+      wrap.innerHTML = "";
+
+      SECTIONS.forEach(s=>{
+        const featured = (DATA.featured && DATA.featured[s.key]) ? DATA.featured[s.key] : [];
+        const all = (DATA.galleries && DATA.galleries[s.key]) ? DATA.galleries[s.key] : featured;
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const thumb = document.createElement("div");
+        thumb.className = "thumb";
+
+        const img = document.createElement("img");
+        img.alt = s.key;
+        img.loading = "lazy";
+        safeImg(img, featured[0] || all[0] || "");
+        thumb.appendChild(img);
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+
+        const h3 = document.createElement("h3");
+        h3.textContent = (LANG==="es") ? s.es.title : s.en.title;
+
+        const p = document.createElement("p");
+        p.textContent = (LANG==="es") ? s.es.desc : s.en.desc;
+
+        const actions = document.createElement("div");
+        actions.className = "hero-actions";
+        actions.style.marginTop = "12px";
+
+        const more = document.createElement("button");
+        more.className = "btn";
+        more.type = "button";
+        more.textContent = t("btnMore");
+        more.addEventListener("click", ()=> openGallery(s.key));
+
+        actions.appendChild(more);
+        meta.appendChild(h3);
+        meta.appendChild(p);
+        meta.appendChild(actions);
+
+        card.appendChild(thumb);
+        card.appendChild(meta);
+
+        thumb.addEventListener("click", ()=> openGallery(s.key));
+
+        wrap.appendChild(card);
+      });
+    }
+
+    // --- Gallery modal (B: solo grid) ---
+    const modal = document.getElementById("galleryModal");
+    const gTitle = document.getElementById("gTitle");
+    const gCount = document.getElementById("gCount");
+    const gGrid  = document.getElementById("gGrid");
+    const gClose = document.getElementById("gClose");
+
+    function openGallery(key){
+      const list = (DATA.galleries && DATA.galleries[key]) ? DATA.galleries[key] : [];
+      const name = SECTIONS.find(s=>s.key===key);
+      const title = name ? ((LANG==="es") ? name.es.title : name.en.title) : key;
+
+      gTitle.textContent = title;
+      gCount.textContent = `${list.length} ${LANG==="es" ? "fotos" : "photos"}`;
+
+      gGrid.innerHTML = "";
+      list.forEach((url, idx)=>{
+        const a = document.createElement("a");
+        a.className = "gitem";
+        a.href = url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.title = `${title} — ${idx+1}`;
+
+        const img = document.createElement("img");
+        img.loading = "lazy";
+        img.alt = `${title} ${idx+1}`;
+        safeImg(img, url);
+
+        a.appendChild(img);
+        gGrid.appendChild(a);
+      });
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      // scroll top
+      const body = modal.querySelector('.gbody');
+      if (body) body.scrollTop = 0;
+    }
+
+    function closeGallery(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    gClose.addEventListener("click", closeGallery);
+    modal.addEventListener("click", (e)=>{ if (e.target === modal) closeGallery(); });
+    document.addEventListener("keydown", (e)=>{ if (e.key === "Escape" && modal.classList.contains("open")) closeGallery(); });
+
+    // --- Videos ---
+    const VIDEO_PREVIEW_COUNT = 3;
+    let videosExpanded = false;
+
+    function youtubeId(url){
+      try{
+        const u = new URL(url);
+        if (u.hostname.includes("youtu.be")) return u.pathname.replace("/","");
+        if (u.searchParams.get("v")) return u.searchParams.get("v");
+        if (u.pathname.includes("/shorts/")) return u.pathname.split("/shorts/")[1].split("/")[0];
+        return null;
+      }catch(e){ return null; }
+    }
+
+    function updateVideosToggleLabel(){
+      const btn = document.getElementById("toggleVideosBtn");
+      if (!btn) return;
+      btn.textContent = videosExpanded ? t("btnLessVideos") : t("btnMoreVideos");
+    }
+
+    function renderVideos(){
+      const grid = document.getElementById("videoGrid");
+      if (!grid) return;
+      grid.innerHTML = "";
+
+      const list = videosExpanded ? DATA.videos : DATA.videos.slice(0, VIDEO_PREVIEW_COUNT);
+
+      list.forEach(v=>{
+        const id = youtubeId(v.url);
+        const card = document.createElement("div");
+        card.className = "video-card";
+
+        const thumb = document.createElement("div");
+        thumb.className = "video-thumb";
+
+        const iframe = document.createElement("iframe");
+        iframe.loading = "lazy";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        iframe.src = id ? `https://www.youtube-nocookie.com/embed/${id}` : "";
+
+        thumb.appendChild(iframe);
+
+        const meta = document.createElement("div");
+        meta.className = "video-meta";
+
+        const h3 = document.createElement("h3");
+        h3.textContent = v.title;
+
+        const p = document.createElement("p");
+        p.textContent = [v.type, v.duration].filter(Boolean).join(" · ");
+
+        meta.appendChild(h3);
+        meta.appendChild(p);
+
+        card.appendChild(thumb);
+        card.appendChild(meta);
+
+        grid.appendChild(card);
+      });
+
+      const btn = document.getElementById("toggleVideosBtn");
+      if (btn) btn.style.display = (DATA.videos.length > VIDEO_PREVIEW_COUNT) ? "inline-flex" : "none";
+      updateVideosToggleLabel();
+    }
+
+    document.getElementById("toggleVideosBtn").addEventListener("click", ()=>{
+      videosExpanded = !videosExpanded;
+      renderVideos();
+    });
+
+    // --- init ---
+    document.getElementById("langES").addEventListener("click", ()=> setLang("es"));
+    document.getElementById("langEN").addEventListener("click", ()=> setLang("en"));
+
+    (function init(){
+      updateContactLinks();
+      startHeroRotation();
+      renderWorkCards();
+      renderVideos();
+    })();
+  </script>
+
+</body>
+</html>
