@@ -425,8 +425,8 @@
       position:fixed;
       inset:0;
       z-index:999;
-      background:rgba(0,0,0,.92);
-      backdrop-filter:blur(8px);
+      background:rgba(12,12,12,.96);
+      backdrop-filter:blur(10px);
       display:none;
       flex-direction:column;
       color:#fff;
@@ -437,27 +437,29 @@
       justify-content:space-between;
       align-items:center;
       padding:20px 32px;
-      border-bottom:1px solid rgba(255,255,255,.1);
+      border-bottom:1px solid rgba(255,255,255,.15);
     }
     .gtitle{
-      font-size:18px;
+      font-size:20px;
       font-weight:700;
     }
     .gcount{
-      font-size:13px;
-      color:#aaa;
+      font-size:14px;
+      color:#ccc;
       margin-left:12px;
     }
     .gclose{
-      background:rgba(255,255,255,.1);
+      background:rgba(255,255,255,.15);
       border:0;
       color:#fff;
-      padding:8px 16px;
+      padding:8px 18px;
       border-radius:20px;
-      font-size:13px;
+      font-size:14px;
+      font-weight:600;
       cursor:pointer;
+      transition:all .2s ease;
     }
-    .gclose:hover{background:rgba(255,255,255,.2)}
+    .gclose:hover{background:rgba(255,255,255,.3)}
     .gbody{
       flex:1;
       overflow-y:auto;
@@ -543,7 +545,7 @@
         <div class="services-grid">
           <div class="svc-card">
             <h3 data-i18n="svcBrandTitle">Identidad de Marca & Branding</h3>
-            <p data-i18n="svcBrandDesc">Creación de universos visuales coherentes. Desde el logotipo hasta el tono de voz, diseño marcas que perduran en la memoria.</p>
+            <p data-i18n="svcBrandDesc">Creación de universos visuales coherentes. Desde el logotipo hasta el tono de voz, diseño marcas que perdunan en la memoria.</p>
           </div>
           <div class="svc-card">
             <h3 data-i18n="svcPhotoTitle">Fotografía Editorial & Retrato</h3>
@@ -672,7 +674,8 @@
       "heroRotator": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358605/Paisajes_70_zvxxfb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358601/Paisajes_69_hmruyx.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358603/Paisajes_70_i1hbrq.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358600/Paisajes_68_rqbsia.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358599/Paisajes_67_a1s3am.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358597/Paisajes_66_nlnnj1.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358596/Paisajes_65_h89hlc.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358594/Paisajes_64_hcga1p.jpg"], 
       
       "featured": {
-        "Branding": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517515/Branding_10_bemdqw.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517497/Branding_9_ujr9z0.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517484/Branding_8_hyxasj.jpg"], 
+        // PORTADA BRANDING ACTUALIZADA:
+        "Branding": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517460/Branding_5_zoofr7.jpg"], 
         "Portraits": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358666/Portraits_30_da7z9s.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358669/Portraits_33_hqzzt2.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358664/Portraits_28_xre6tw.jpg"], 
         "Inmobiliarias": [
           "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1784907972/Inmo_19_zjceau.jpg"
@@ -909,11 +912,11 @@
         key: "Inmobiliarias", 
         es: {
           title: "Inmobiliarias & Arquitectura", 
-          desc: "Fotografía de arquitectura, espacios y proyectos. Ofrezco un servicio integral de consultoría y creación de contenido estratégico diseñado para el rubro inmobiliario, enfocado en proyectar valor y generar leads de calidad a través de narrativas visuales potentes."
+          desc: "Creación de contenidos y marketing inmobiliario."
         }, 
         en: {
           title: "Real Estate & Architecture", 
-          desc: "Architecture, spaces, and project photography. I offer an integrated consulting and strategic content creation service tailored for the real estate market, focused on projecting value and generating high-quality leads through powerful visual narratives."
+          desc: "Content creation and real estate marketing."
         } 
       },
       { key:"Fashion",    es:{title:"Moda", desc:"Editorial, styling y dirección de arte."}, en:{title:"Fashion", desc:"Editorial, styling & art direction."} },
@@ -992,82 +995,82 @@
 
       gGrid.innerHTML = "";
 
-      // ---- INYECCIÓN DE TEXTO Y TARIFARIO EXCLUSIVO PARA EVENTOS ----
+      // ---- INYECCIÓN DE TEXTO Y TARIFARIO DE EVENTOS CON LECTURABILIDAD OPTIMIZADA ----
       const extraInfoContainer = modal.querySelector('.g-extra-info');
       if (extraInfoContainer) extraInfoContainer.remove();
 
       if (key === "Eventos") {
         const infoDiv = document.createElement("div");
         infoDiv.className = "g-extra-info";
-        infoDiv.style.color = "#fff";
-        infoDiv.style.marginBottom = "24px";
+        infoDiv.style.color = "#ffffff";
+        infoDiv.style.marginBottom = "32px";
         infoDiv.style.padding = "0 4px";
-        infoDiv.style.fontSize = "14px";
-        infoDiv.style.lineHeight = "1.6";
+        infoDiv.style.fontSize = "16px";
+        infoDiv.style.lineHeight = "1.65";
 
         if (LANG === "es") {
           infoDiv.innerHTML = `
-            <p style="margin: 0 0 12px 0; font-weight: 600; font-size: 16px; color: #f7f7f3;">Cobertura Fotográfica Institucional y Narrativa Visual</p>
-            <p style="color: rgba(255,255,255,0.8); margin-bottom: 16px;">
+            <p style="margin: 0 0 12px 0; font-weight: 700; font-size: 20px; color: #ffffff;">Cobertura Fotográfica Institucional y Narrativa Visual</p>
+            <p style="color: #e2e8f0; margin-bottom: 24px; font-size: 15px;">
               Un evento institucional no es solo un acto protocolar; es una pieza clave de contenido estratégico para reputación corporativa, marketing y publicidad. Mi enfoque se basa en traducir la visión y los valores de la organización en imágenes potentes, atemporales y de alto impacto, respaldado por más de 20 años de trayectoria en el sector.
             </p>
-            <div style="overflow-x: auto; background: rgba(255,255,255,0.05); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
-              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13px;">
+            <div style="overflow-x: auto; background: rgba(255,255,255,0.07); padding: 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); margin-bottom: 28px;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 15px;">
                 <thead>
-                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.2); color: #fff;">
-                    <th style="padding: 8px;">Servicio / Concepto</th>
-                    <th style="padding: 8px;">Descripción del Alcance</th>
-                    <th style="padding: 8px; text-align: right;">Inversión</th>
+                  <tr style="border-bottom: 2px solid rgba(255,255,255,0.3); color: #ffffff;">
+                    <th style="padding: 12px; font-size: 16px;">Servicio / Concepto</th>
+                    <th style="padding: 12px; font-size: 16px;">Descripción del Alcance</th>
+                    <th style="padding: 12px; font-size: 16px; text-align: right;">Inversión</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.9);">
-                    <td style="padding: 8px; font-weight: 600;">Hora de Cobertura Premium</td>
-                    <td style="padding: 8px; color: rgba(255,255,255,0.7);">Fotógrafo principal, equipamiento de alta gama, dirección y cobertura integral. (Mínimo 2 horas).</td>
-                    <td style="padding: 8px; text-align: right; font-weight: 600; white-space: nowrap;">S/ 200.00 <span style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.5);">/ h</span></td>
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.12); color: #ffffff;">
+                    <td style="padding: 14px 12px; font-weight: 700; font-size: 16px;">Hora de Cobertura Premium</td>
+                    <td style="padding: 14px 12px; color: #cbd5e1; font-size: 14px;">Fotógrafo principal, equipamiento de alta gama, dirección y cobertura integral. (Mínimo 2 horas).</td>
+                    <td style="padding: 14px 12px; text-align: right; font-weight: 700; font-size: 17px; white-space: nowrap; color: #ffffff;">S/ 200.00 <span style="font-size:12px; font-weight:400; color:#94a3b8;">/ h</span></td>
                   </tr>
-                  <tr style="color: rgba(255,255,255,0.9);">
-                    <td style="padding: 8px; font-weight: 600;">Jornada Completa (8 horas)</td>
-                    <td style="padding: 8px; color: rgba(255,255,255,0.7);">Tarifa preferencial corporativa para congresos de larga duración o jornadas académicas continuas.</td>
-                    <td style="padding: 8px; text-align: right; font-weight: 600; white-space: nowrap;">S/ 170.00 <span style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.5);">/ h</span></td>
+                  <tr style="color: #ffffff;">
+                    <td style="padding: 14px 12px; font-weight: 700; font-size: 16px;">Jornada Completa (8 horas)</td>
+                    <td style="padding: 14px 12px; color: #cbd5e1; font-size: 14px;">Tarifa preferencial corporativa para congresos de larga duración o jornadas académicas continuas.</td>
+                    <td style="padding: 14px 12px; text-align: right; font-weight: 700; font-size: 17px; white-space: nowrap; color: #ffffff;">S/ 170.00 <span style="font-size:12px; font-weight:400; color:#94a3b8;">/ h</span></td>
                   </tr>
                 </tbody>
               </table>
-              <p style="font-size: 11px; color: rgba(255,255,255,0.4); margin: 8px 0 0 8px;">* Valores base referenciales. No incluyen IGV. Disponibilidad para viajes y servicio Fast-Track inmediato para redes.</p>
+              <p style="font-size: 12px; color: #94a3b8; margin: 12px 0 0 8px;">* Valores base referenciales. No incluyen IGV. Disponibilidad para viajes y servicio Fast-Track inmediato para redes.</p>
             </div>
-            <p style="margin: 0 0 12px 0; font-weight: 600; font-size: 14px; color: #f7f7f3;">Galería de Muestra:</p>
+            <p style="margin: 0 0 16px 0; font-weight: 700; font-size: 17px; color: #ffffff;">Galería de Muestra:</p>
           `;
         } else {
           infoDiv.innerHTML = `
-            <p style="margin: 0 0 12px 0; font-weight: 600; font-size: 16px; color: #f7f7f3;">Corporate Event Coverage & Visual Storytelling</p>
-            <p style="color: rgba(255,255,255,0.8); margin-bottom: 16px;">
+            <p style="margin: 0 0 12px 0; font-weight: 700; font-size: 20px; color: #ffffff;">Corporate Event Coverage & Visual Storytelling</p>
+            <p style="color: #e2e8f0; margin-bottom: 24px; font-size: 15px;">
               An institutional event is not just a protocol; it is a key piece of strategic content for corporate reputation, marketing, and PR. Backed by over 20 years of experience, my focus translates your organization's vision into high-impact, timeless images.
             </p>
-            <div style="overflow-x: auto; background: rgba(255,255,255,0.05); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
-              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13px;">
+            <div style="overflow-x: auto; background: rgba(255,255,255,0.07); padding: 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); margin-bottom: 28px;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 15px;">
                 <thead>
-                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.2); color: #fff;">
-                    <th style="padding: 8px;">Service / Concept</th>
-                    <th style="padding: 8px;">Scope Description</th>
-                    <th style="padding: 8px; text-align: right;">Investment</th>
+                  <tr style="border-bottom: 2px solid rgba(255,255,255,0.3); color: #ffffff;">
+                    <th style="padding: 12px; font-size: 16px;">Service / Concept</th>
+                    <th style="padding: 12px; font-size: 16px;">Scope Description</th>
+                    <th style="padding: 12px; font-size: 16px; text-align: right;">Investment</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.9);">
-                    <td style="padding: 8px; font-weight: 600;">Premium Hourly Coverage</td>
-                    <td style="padding: 8px; color: rgba(255,255,255,0.7);">Lead photographer, high-end equipment, art direction, and full program coverage. (2-hour minimum).</td>
-                    <td style="padding: 8px; text-align: right; font-weight: 600; white-space: nowrap;">S/ 200.00 <span style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.5);">/ h</span></td>
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.12); color: #ffffff;">
+                    <td style="padding: 14px 12px; font-weight: 700; font-size: 16px;">Premium Hourly Coverage</td>
+                    <td style="padding: 14px 12px; color: #cbd5e1; font-size: 14px;">Lead photographer, high-end equipment, art direction, and full program coverage. (2-hour minimum).</td>
+                    <td style="padding: 14px 12px; text-align: right; font-weight: 700; font-size: 17px; white-space: nowrap; color: #ffffff;">S/ 200.00 <span style="font-size:12px; font-weight:400; color:#94a3b8;">/ h</span></td>
                   </tr>
-                  <tr style="color: rgba(255,255,255,0.9);">
-                    <td style="padding: 8px; font-weight: 600;">Full-Day Fee (8 Hours)</td>
-                    <td style="padding: 8px; color: rgba(255,255,255,0.7);">Preferred corporate rate for long-duration congresses, symposiums, or continuous sessions.</td>
-                    <td style="padding: 8px; text-align: right; font-weight: 600; white-space: nowrap;">S/ 170.00 <span style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.5);">/ h</span></td>
+                  <tr style="color: #ffffff;">
+                    <td style="padding: 14px 12px; font-weight: 700; font-size: 16px;">Full-Day Fee (8 Hours)</td>
+                    <td style="padding: 14px 12px; color: #cbd5e1; font-size: 14px;">Preferred corporate rate for long-duration congresses, symposiums, or continuous sessions.</td>
+                    <td style="padding: 14px 12px; text-align: right; font-weight: 700; font-size: 17px; white-space: nowrap; color: #ffffff;">S/ 170.00 <span style="font-size:12px; font-weight:400; color:#94a3b8;">/ h</span></td>
                   </tr>
                 </tbody>
               </table>
-              <p style="font-size: 11px; color: rgba(255,255,255,0.4); margin: 8px 0 0 8px;">* Reference base values. Tax not included. Available to travel. Fast-Track real-time delivery available for social media.</p>
+              <p style="font-size: 12px; color: #94a3b8; margin: 12px 0 0 8px;">* Reference base values. Tax not included. Available to travel. Fast-Track real-time delivery available for social media.</p>
             </div>
-            <p style="margin: 0 0 12px 0; font-weight: 600; font-size: 14px; color: #f7f7f3;">Sample Gallery:</p>
+            <p style="margin: 0 0 16px 0; font-weight: 700; font-size: 17px; color: #ffffff;">Sample Gallery:</p>
           `;
         }
         
