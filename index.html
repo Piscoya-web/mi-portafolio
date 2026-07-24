@@ -231,6 +231,15 @@
       border-radius:var(--radius);
       border:1px solid var(--line);
       box-shadow:var(--shadow);
+      cursor:pointer;
+      transition:transform .3s ease, border-color .3s ease;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .svc-card:hover{
+      transform:translateY(-3px);
+      border-color:#111;
     }
     .svc-card h3{
       font-size:18px;
@@ -241,7 +250,15 @@
       font-size:14px;
       color:var(--muted);
       line-height:1.6;
-      margin:0;
+      margin:0 0 16px 0;
+    }
+    .svc-more-link{
+      font-size:13px;
+      font-weight:700;
+      color:#111;
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
     }
 
     /* PORTFOLIO GRID */
@@ -420,7 +437,7 @@
       gap:16px;
     }
 
-    /* MODAL GALLERY */
+    /* MODAL GALLERY & MODAL SERVICES */
     .gmodal{
       position:fixed;
       inset:0;
@@ -485,11 +502,52 @@
     }
     .gitem:hover img{transform:scale(1.04)}
 
+    /* ESTILOS ESPECÍFICOS PARA EL MODAL DE SERVICIOS */
+    .svc-detail-card{
+      max-width:800px;
+      margin:0 auto;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.15);
+      padding:32px;
+      border-radius:18px;
+      line-height:1.65;
+    }
+    .svc-detail-card h3{
+      font-size:24px;
+      margin:0 0 12px 0;
+      color:#fff;
+    }
+    .svc-detail-card .prop-value{
+      font-size:16px;
+      color:#e2e8f0;
+      background:rgba(255,255,255,0.08);
+      padding:16px 20px;
+      border-radius:12px;
+      border-left:4px solid #fff;
+      margin-bottom:24px;
+    }
+    .svc-detail-card h4{
+      font-size:16px;
+      color:#cbd5e1;
+      margin:24px 0 12px 0;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+    }
+    .svc-detail-card ul{
+      margin:0 0 24px 0;
+      padding-left:20px;
+      color:#cbd5e1;
+    }
+    .svc-detail-card ul li{
+      margin-bottom:8px;
+    }
+
     @media(max-width:768px){
       .hero-grid, .about-grid{grid-template-columns:1fr}
       nav.links{display:none}
       .ghead{padding:16px}
-      .gbody{padding:16px}
+      .gbody{padding:20px 16px}
+      .svc-detail-card{padding:20px}
     }
   </style>
 </head>
@@ -542,24 +600,7 @@
           <div class="section-kicker" data-i18n="servicesKicker">Qué hago</div>
           <h2 class="section-title" data-i18n="servicesTitle">Servicios</h2>
         </div>
-        <div class="services-grid">
-          <div class="svc-card">
-            <h3 data-i18n="svcBrandTitle">Identidad de Marca & Branding</h3>
-            <p data-i18n="svcBrandDesc">Creación de universos visuales coherentes. Desde el logotipo hasta el tono de voz, diseño marcas que perduran en la memoria.</p>
-          </div>
-          <div class="svc-card">
-            <h3 data-i18n="svcPhotoTitle">Fotografía Editorial & Retrato</h3>
-            <p data-i18n="svcPhotoDesc">Imágenes con narrativa propia. Dirección de arte y fotografía para campañas, moda, corporativo y documental.</p>
-          </div>
-          <div class="svc-card">
-            <h3 data-i18n="svcVideoTitle">Producción Audiovisual</h3>
-            <p data-i18n="svcVideoDesc">Storytelling en movimiento. Guionización, dirección y realización de piezas audiovisuales que emocionan y comunican.</p>
-          </div>
-          <div class="svc-card">
-            <h3 data-i18n="svcStratTitle">Consultoría Creativa</h3>
-            <p data-i18n="svcStratDesc">Dirección de equipos y estrategias 360°. Aporto la visión macro para que tu proyecto tenga un norte claro y efectivo.</p>
-          </div>
-        </div>
+        <div class="services-grid" id="servicesGrid"></div>
       </div>
     </section>
 
@@ -646,7 +687,7 @@
 
   </div>
 
-  <!-- MODAL GALLERY -->
+  <!-- MODAL GALLERY / SERVICE DETAIL -->
   <div class="gmodal" id="galleryModal" aria-hidden="true">
     <div class="ghead">
       <div>
@@ -676,10 +717,7 @@
       "featured": {
         "Branding": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517497/Branding_9_ujr9z0.jpg"], 
         "Portraits": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358666/Portraits_30_da7z9s.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358669/Portraits_33_hqzzt2.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358664/Portraits_28_xre6tw.jpg"], 
-        "Inmobiliarias": [
-          "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1784907972/Inmo_19_zjceau.jpg"
-        ],
-        // PORTADA EVENTOS Y PRODUCTO ACTUALIZADAS:
+        "Inmobiliarias": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1784907972/Inmo_19_zjceau.jpg"],
         "Eventos": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396495/Eventos_25_wude8h.jpg"], 
         "Producto": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768517974/Producto_13_ojxz0z.jpg"], 
         "Fashion": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358483/Fashion_73_eqxtmw.png"], 
@@ -723,8 +761,135 @@
         "Paisajes": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358605/Paisajes_70_zvxxfb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358601/Paisajes_69_hmruyx.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358603/Paisajes_70_i1hbrq.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358600/Paisajes_68_rqbsia.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358599/Paisajes_67_a1s3am.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358597/Paisajes_66_nlnnj1.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358596/Paisajes_65_h89hlc.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358594/Paisajes_64_hcga1p.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358593/Paisajes_63_zh7ini.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358592/Paisajes_62_wcu8la.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358590/Paisajes_61_ooydqu.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358589/Paisajes_60_xtzemh.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358587/Paisajes_59_iipy2s.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358586/Paisajes_58_fd9mqg.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358585/Paisajes_57_jsytpn.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358583/Paisajes_56_cuwr8o.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358582/Paisajes_55_vqzhye.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358581/Paisajes_54_b9tmtw.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358578/Paisajes_53_l2c4vs.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358578/Paisajes_52_fnbxgf.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358577/Paisajes_51_xsvjhk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358575/Paisajes_50_esiuss.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358573/Paisajes_49_ryssjf.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358572/Paisajes_48_k4cqmk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358570/Paisajes_47_obobth.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358565/Paisajes_46_tohaeo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358562/Paisajes_45_ch44ke.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358561/Paisajes_44_pibhss.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358559/Paisajes_43_phegba.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358558/Paisajes_42_kbnhxt.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358556/Paisajes_41_ju1cda.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358555/Paisajes_40_q6fudm.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358553/Paisajes_39_vmvdrg.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358552/Paisajes_38_vynib6.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358551/Paisajes_37_rlqhuo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358550/Paisajes_36_x7lidl.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358548/Paisajes_35_fsguka.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358547/Paisajes_34_ffqswq.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358545/Paisajes_33_y8m6xv.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358544/Paisajes_32_taisrr.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358543/Paisajes_31_er9ivw.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358541/Paisajes_30_zz68c4.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358540/Paisajes_29_zjbhpd.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358539/Paisajes_28_ktgkpk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358537/Paisajes_27_hopywb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358535/Paisajes_26_ebtft0.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358535/Paisajes_25_opjwou.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358533/Paisajes_24_xiwpgo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358532/Paisajes_23_tmcoh1.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358530/Paisajes_22_phzgpr.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358529/Paisajes_21_ddb9ed.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358527/Paisajes_20_kkmiys.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358525/Paisajes_18_wdssbn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358526/Paisajes_19_bxwpyl.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358524/Paisajes_17_hv9ejs.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358522/Paisajes_16_w0jh3p.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358506/Paisajes_14_wv1wvb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358521/Paisajes_15_bdwxii.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358505/Paisajes_13_evw0s2.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358503/Paisajes_12_uqwc8v.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358500/Paisajes_11_x7te0v.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358499/Paisajes_10_k8wo6e.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358498/Paisajes_9_clrnei.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358497/Paisajes_8_gboybl.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358496/Paisajes_7_lesco6.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358495/Paisajes_6_o0g9q7.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358494/Paisajes_5_n7hmdp.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358492/Paisajes_4_o0f2vr.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358491/Paisajes_3_rkxvs3.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358490/Paisajes_2_ww4swn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358488/Paisajes_1_mcwxqh.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358487/Paisajes_1_eiymmb.jpg"]
       }, 
       
-      "videos": [{"title": "Implementación del programa de formación docente en EIB en alianza con la UNAP", "type": "Institucional", "url": "https://youtu.be/I22CJX57ajg?si=UowNrWni0vNjtDfz", "duration": ""}, {"title": "Testimonio PID2025: una experiencia transformadora en el aula", "type": "Institucional", "url": "https://youtu.be/Ucbk65ek7Ig?si=UIzgdOS2rnwrwRYI", "duration": ""}, {"title": "Programa de Formación Docente en Educación Intercultural Bilingüe", "type": "Reel animado - Minedu", "url": "https://youtube.com/shorts/XxuHPYqxmuA?si=XU_0_HoykwPP0i-v", "duration": ""}, {"title": "4 TIPS QUE FORTALECEN TUS COMPETENCIAS", "type": "Reel Institucional", "url": "https://youtube.com/shorts/q0pj552EGUI?si=E9nyt0kx--B6BmGi", "duration": ""}, {"title": "¿Eres docente novel y te sumas a la Carrera Pública Magisterial este 2025?", "type": "Reel Institucional", "url": "https://youtube.com/shorts/dWN5g-ZsiHo?si=S91nilVHlbOHy_LB", "duration": ""}, {"title": "Formación Docente en Servicio 2025", "type": "Reel Institucional", "url": "https://youtube.com/shorts/RQBU3gqTfQM?si=7QNvfVhw_feDFX1g", "duration": ""}, {"title": "EIB Secundaria Pucallpa 2025", "type": "Institucional", "url": "https://youtu.be/i1zB8GGnS0s?si=pLOf45BlDCdDBiFT", "duration": ""}, {"title": "Programa de Formación docente en competencia lectora en en el distrito de Santa Rosa", "type": "Institucional", "url": "https://youtu.be/zAeSJq-sBkY?si=Ck9j5f2zeLaVyaW-", "duration": ""}, {"title": "Conoce a los docentes que ya viven el Programa de Inducción Docente – PID 2025", "type": "Institucional", "url": "https://youtu.be/K0Gkj-LBObo?si=L4ZSDcFIGbTihA87", "duration": ""}, {"title": "Programa de Formación para la integración de las tecnologías digitales en la práctica pedagógica", "type": "Institucional", "url": "https://youtu.be/1xYK2U5qp_k?si=UJJdt2CH6b-jVWUB", "duration": ""}, {"title": "Video Hogar San Judas 2013", "type": "Corporativo", "url": "https://youtu.be/QSh7i8oN1VM?si=wVXrh7iUmd_9BNnz", "duration": ""}, {"title": "Caminata a Rúpac 2014", "type": "Viajes", "url": "https://youtu.be/7_eUuxHeNOU?si=uA2BF2arxG8YoEZn", "duration": ""}, {"title": "Reel - Lagunas San Ignacio", "type": "Corporativo", "url": "https://youtu.be/mLJ0kkmpRJs?si=60J5T2UFtV1P_0L_", "duration": ""}, {"title": "PID Testimonio Alicia Arones - Moquegua", "type": "Corporativo", "url": "https://youtu.be/Xf4qjB2WWNQ?si=LyBwa2ckqYtw-ZBQ", "duration": ""}, {"title": "Activación - Campeonato de Remo interescolar - Regatas Lima", "type": "Corporativo", "url": "https://youtube.com/shorts/8y2aTw3dYqo?si=UR7bL1lQILk1LKep", "duration": ""}, {"title": "Graduación Sonia Baca en UCW - Un sueño hecho realidad", "type": "Corporativo", "url": "https://youtube.com/shorts/lp8Pvzcc8dI?si=uDYMCmtUAbfBcIZv", "duration": ""}, {"title": "EXPO UNIVERSIDAD VIDEO RESUMEN", "type": "Corporativo", "url": "https://youtu.be/-cgXsr_Rc7M?si=YoEspp6vfw4Y_KZT", "duration": ""}, {"title": "CPF - UNO DE LOS EVENTOS EDUCATIVOS MÁS GRANDES DE CANADÁ 🇨🇦", "type": "Corporativo", "url": "https://youtu.be/3vCr6eOFYqM?si=ZWRI6P9m3n5lURPd", "duration": ""}], 
-      "videosHome": [{"title": "Implementación del programa de formación docente en EIB en alianza con la UNAP", "type": "Institucional", "url": "https://youtu.be/I22CJX57ajg?si=UowNrWni0vNjtDfz", "duration": ""}, {"title": "Testimonio PID2025: una experiencia transformadora en el aula", "type": "Institucional", "url": "https://youtu.be/Ucbk65ek7Ig?si=UIzgdOS2rnwrwRYI", "duration": ""}, {"title": "Programa de Formación Docente en Educación Intercultural Bilingüe", "type": "Reel animado - Minedu", "url": "https://youtube.com/shorts/XxuHPYqxmuA?si=XU_0_HoykwPP0i-v", "duration": ""}]
+      "videos": [{"title": "Implementación del programa de formación docente en EIB en alianza con la UNAP", "type": "Institucional", "url": "https://youtu.be/I22CJX57ajg?si=UowNrWni0vNjtDfz", "duration": ""}, {"title": "Testimonio PID2025: una experiencia transformadora en el aula", "type": "Institucional", "url": "https://youtu.be/Ucbk65ek7Ig?si=UIzgdOS2rnwrwRYI", "duration": ""}, {"title": "Programa de Formación Docente en Educación Intercultural Bilingüe", "type": "Reel animado - Minedu", "url": "https://youtube.com/shorts/XxuHPYqxmuA?si=XU_0_HoykwPP0i-v", "duration": ""}, {"title": "4 TIPS QUE FORTALECEN TUS COMPETENCIAS", "type": "Reel Institucional", "url": "https://youtube.com/shorts/q0pj552EGUI?si=E9nyt0kx--B6BmGi", "duration": ""}, {"title": "¿Eres docente novel y te sumas a la Carrera Pública Magisterial este 2025?", "type": "Reel Institucional", "url": "https://youtube.com/shorts/dWN5g-ZsiHo?si=S91nilVHlbOHy_LB", "duration": ""}, {"title": "Formación Docente en Servicio 2025", "type": "Reel Institucional", "url": "https://youtube.com/shorts/RQBU3gqTfQM?si=7QNvfVhw_feDFX1g", "duration": ""}, {"title": "EIB Secundaria Pucallpa 2025", "type": "Institucional", "url": "https://youtu.be/i1zB8GGnS0s?si=pLOf45BlDCdDBiFT", "duration": ""}, {"title": "Programa de Formación docente en competencia lectora en en el distrito de Santa Rosa", "type": "Institucional", "url": "https://youtu.be/zAeSJq-sBkY?si=Ck9j5f2zeLaVyaW-", "duration": ""}, {"title": "Conoce a los docentes que ya viven el Programa de Inducción Docente – PID 2025", "type": "Institucional", "url": "https://youtu.be/K0Gkj-LBObo?si=L4ZSDcFIGbTihA87", "duration": ""}, {"title": "Programa de Formación para la integración de las tecnologías digitales en la práctica pedagógica", "type": "Institucional", "url": "https://youtu.be/1xYK2U5qp_k?si=UJJdt2CH6b-jVWUB", "duration": ""}, {"title": "Video Hogar San Judas 2013", "type": "Corporativo", "url": "https://youtu.be/QSh7i8oN1VM?si=wVXrh7iUmd_9BNnz", "duration": ""}, {"title": "Caminata a Rúpac 2014", "type": "Viajes", "url": "https://youtu.be/7_eUuxHeNOU?si=uA2BF2arxG8YoEZn", "duration": ""}, {"title": "Reel - Lagunas San Ignacio", "type": "Corporativo", "url": "https://youtu.be/mLJ0kkmpRJs?si=60J5T2UFtV1P_0L_", "duration": ""}, {"title": "PID Testimonio Alicia Arones - Moquegua", "type": "Corporativo", "url": "https://youtu.be/Xf4qjB2WWNQ?si=LyBwa2ckqYtw-ZBQ", "duration": ""}, {"title": "Activación - Campeonato de Remo interescolar - Regatas Lima", "type": "Corporativo", "url": "https://youtube.com/shorts/8y2aTw3dYqo?si=UR7bL1lQILk1LKep", "duration": ""}, {"title": "Graduación Sonia Baca en UCW - Un sueño hecho realidad", "type": "Corporativo", "url": "https://youtube.com/shorts/lp8Pvzcc8dI?si=uDYMCmtUAbfBcIZv", "duration": ""}, {"title": "EXPO UNIVERSIDAD VIDEO RESUMEN", "type": "Corporativo", "url": "https://youtu.be/-cgXsr_Rc7M?si=YoEspp6vfw4Y_KZT", "duration": ""}, {"title": "CPF - UNO DE LOS EVENTOS EDUCATIVOS MÁS GRANDES DE CANADÁ 🇨🇦", "type": "Corporativo", "url": "https://youtu.be/3vCr6eOFYqM?si=ZWRI6P9m3n5lURPd", "duration": ""}]
+    };
+
+    // DATA DE DETALLE DE SERVICIOS
+    const SERVICES_DATA = {
+      branding: {
+        id: "servicio-branding",
+        es: {
+          title: "Identidad de Marca & Branding",
+          shortDesc: "Creación de universos visuales coherentes. Desde el logotipo hasta el tono de voz, diseño marcas que perduran en la memoria.",
+          propValue: "Transformamos la esencia de tu marca en un universo visual sólido, memorable y preparado para competir en el entorno digital.",
+          itemsTitle: "¿Qué abarca el servicio?",
+          items: [
+            "<strong>Estrategia visual & ADN de marca:</strong> Definición de conceptos, tono visual, paleta cromática y tipografías.",
+            "<strong>Diseño de Identidad:</strong> Creación de logotipos, sistemas gráficos y manuales de marca.",
+            "<strong>UX/UI & Presencia Digital:</strong> Estructuración visual para plataformas web, aplicaciones y activos digitales interactivos.",
+            "<strong>Piezas de Campaña:</strong> Adaptación publicitaria para medios impresos, exteriores y contenidos multimediales."
+          ],
+          idealTitle: "Ideal para:",
+          ideal: "Empresas, instituciones educativas o proyectos en etapa de lanzamiento o rebranding que buscan coherencia visual y posicionamiento estratégico."
+        },
+        en: {
+          title: "Brand Identity & Branding",
+          shortDesc: "Coherent visual worlds. From logo to tone of voice, I design brands that stay in people’s minds.",
+          propValue: "We transform the essence of your brand into a solid, memorable visual universe ready to compete in the digital environment.",
+          itemsTitle: "What does this service include?",
+          items: [
+            "<strong>Visual Strategy & Brand DNA:</strong> Concept definition, visual tone, color palette, and typography.",
+            "<strong>Identity Design:</strong> Logo creation, graphic systems, and brand guidelines.",
+            "<strong>UX/UI & Digital Presence:</strong> Visual structuring for web platforms, apps, and interactive digital assets.",
+            "<strong>Campaign Assets:</strong> Advertising adaptations for print, outdoor, and multimedia content."
+          ],
+          idealTitle: "Ideal for:",
+          ideal: "Companies, educational institutions, or projects launching/rebranding that require visual coherence and strategic positioning."
+        }
+      },
+      fotografia: {
+        id: "servicio-fotografia",
+        es: {
+          title: "Fotografía Editorial & Retrato",
+          shortDesc: "Imágenes con narrativa propia. Dirección de arte y fotografía para campañas, moda, corporativo y documental.",
+          propValue: "La potencia de la narrativa visual combinada con dirección de arte. Retratos con carácter y estética atemporal que comunican la verdadera identidad.",
+          itemsTitle: "¿Qué abarca el servicio?",
+          items: [
+            "<strong>Retrato Corporativo & Ejecutivo:</strong> Dirección de pose y estética pensada para perfiles de alto nivel, voceros y equipos.",
+            "<strong>Fotografía Editorial & Moda:</strong> Concepto creativo, styling, dirección de arte y producción en estudio o locación.",
+            "<strong>Inmobiliaria & Arquitectura:</strong> Registro de espacios corporativos, desarrollos residenciales y diseño interior con tratamiento de luz profesional.",
+            "<strong>Edición & Retoque Premium:</strong> Acabado profesional con flujo de trabajo especializado."
+          ],
+          idealTitle: "Ideal para:",
+          ideal: "Ejecutivos, marcas de estilo de vida, agencias, empresas del sector inmobiliario y proyectos editoriales."
+        },
+        en: {
+          title: "Editorial Photography & Portrait",
+          shortDesc: "Images with narrative. Art direction and photography for campaigns, fashion, corporate and documentary.",
+          propValue: "The power of visual narrative combined with art direction. Portraits with character and timeless aesthetics that convey true identity.",
+          itemsTitle: "What does this service include?",
+          items: [
+            "<strong>Corporate & Executive Portrait:</strong> Posing guidance and aesthetics designed for high-level profiles, spokespersons, and teams.",
+            "<strong>Editorial & Fashion Photography:</strong> Creative concept, styling, art direction, and studio/location production.",
+            "<strong>Real Estate & Architecture:</strong> Capture of corporate spaces, residential developments, and interior design with professional lighting.",
+            "<strong>Premium Editing & Retouching:</strong> High-end finish using specialized digital workflows."
+          ],
+          idealTitle: "Ideal for:",
+          ideal: "Executives, lifestyle brands, agencies, real estate companies, and editorial projects."
+        }
+      },
+      audiovisual: {
+        id: "servicio-audiovisual",
+        es: {
+          title: "Producción Audiovisual",
+          shortDesc: "Storytelling en movimiento. Guionización, dirección y realización de piezas audiovisuales que emocionan y comunican.",
+          propValue: "Storytelling dinámico adaptado a formatos digitales y corporativos. Convertimos objetivos de comunicación en piezas de alto valor emocional.",
+          itemsTitle: "¿Qué abarca el servicio?",
+          items: [
+            "<strong>Preproducción Estratégica:</strong> Desarrollo de guiones, storyboards y planificación logística de rodaje.",
+            "<strong>Realización & Rodaje:</strong> Cobertura con equipos de alta definición en campo, locación o estudio.",
+            "<strong>Formatos para Redes (Reels / TikTok):</strong> Edición ágil de videos verticales con ritmo, subtitulado dinámico y estrategia de retención.",
+            "<strong>Videos Institucionales & Testimoniales:</strong> Piezas de impacto para comunicación interna, reputación de marca o programas de capacitación."
+          ],
+          idealTitle: "Ideal para:",
+          ideal: "Marcas que buscan impulsar su contenido digital, organizaciones con proyectos sociales/educativos e instituciones."
+        },
+        en: {
+          title: "Audiovisual Production",
+          shortDesc: "Storytelling in motion. Script, direction and production of videos that move and communicate.",
+          propValue: "Dynamic storytelling adapted to digital and corporate formats. We convert communication goals into high-impact visual pieces.",
+          itemsTitle: "What does this service include?",
+          items: [
+            "<strong>Strategic Pre-production:</strong> Scriptwriting, storyboards, and shoot logistics planning.",
+            "<strong>Filming & Directing:</strong> Coverage with high-definition equipment on field, location, or studio.",
+            "<strong>Social Media Formats (Reels / TikTok):</strong> Agile vertical video editing with tempo, dynamic subtitles, and retention hooks.",
+            "<strong>Institutional & Testimonial Videos:</strong> Impactful pieces for internal communication, brand reputation, or training programs."
+          ],
+          idealTitle: "Ideal for:",
+          ideal: "Brands aiming to boost digital content, organizations with social/educational projects, and institutions."
+        }
+      },
+      consultoria: {
+        id: "servicio-consultoria",
+        es: {
+          title: "Consultoría Creativa",
+          shortDesc: "Dirección de equipos y estrategias 360°. Aporto la visión macro para que tu proyecto tenga un norte claro y efectivo.",
+          propValue: "Dirección estratégica 360° para proyectos de comunicación, cultura y branding. Aporto la visión macro para garantizar la coherencia desde la idea hasta la ejecución.",
+          itemsTitle: "¿Qué abarca el servicio?",
+          items: [
+            "<strong>Dirección de Equipos Creativos:</strong> Liderazgo en el desarrollo de campañas publicitarias y de contenido.",
+            "<strong>Estrategia de Comunicación Digital:</strong> Estructuración de parrillas, narrativa visual y enfoques multimediales.",
+            "<strong>Asesoría para Proyectos de Impacto Social/Educativo:</strong> Diseño de narrativas visuales para instituciones, ONGs y consultorías.",
+            "<strong>Auditoría de Imagen:</strong> Diagnóstico de la coherencia entre lo que tu marca comunica y lo que sus públicos perciben."
+          ],
+          idealTitle: "Ideal para:",
+          ideal: "Directores de marketing, fundaciones, agencias y empresas que requieren dirección de arte o consultoría externa de alto nivel."
+        },
+        en: {
+          title: "Creative Consulting",
+          shortDesc: "Team leadership and 360° strategy. Big-picture guidance so your project stays focused and effective.",
+          propValue: "360° strategic direction for communication, culture, and branding projects. I bring macro vision to guarantee consistency from concept to launch.",
+          itemsTitle: "What does this service include?",
+          items: [
+            "<strong>Creative Team Leadership:</strong> Direction in developing advertising and content campaigns.",
+            "<strong>Digital Communication Strategy:</strong> Content calendar structuring, visual narrative, and multimedia approach.",
+            "<strong>Social & Educational Impact Advisory:</strong> Visual narrative design for institutions, NGOs, and consultancies.",
+            "<strong>Image Audit:</strong> Diagnosis of consistency between what your brand communicates and public perception."
+          ],
+          idealTitle: "Ideal for:",
+          ideal: "Marketing directors, foundations, agencies, and companies requiring high-level art direction or external consulting."
+        }
+      }
     };
 
     // ==============================
@@ -733,7 +898,6 @@
     const I18N = {
       es: {
         brandTag: "Director Creativo · Fotógrafo",
-        navHome: "Inicio",
         navServices: "Servicios",
         navWork: "Portafolio",
         navVideos: "Videos",
@@ -747,19 +911,12 @@
 
         servicesKicker: "Qué hago",
         servicesTitle: "Servicios",
-        svcBrandTitle: "Identidad de Marca & Branding",
-        svcBrandDesc: "Creación de universos visuales coherentes. Desde el logotipo hasta el tono de voz, diseño marcas que perduran en la memoria.",
-        svcPhotoTitle: "Fotografía Editorial & Retrato",
-        svcPhotoDesc: "Imágenes con narrativa propia. Dirección de arte y fotografía para campañas, moda, corporativo y documental.",
-        svcVideoTitle: "Producción Audiovisual",
-        svcVideoDesc: "Storytelling en movimiento. Guionización, dirección y realización de piezas audiovisuales que emocionan y comunican.",
-        svcStratTitle: "Consultoría Creativa",
-        svcStratDesc: "Dirección de equipos y estrategias 360°. Aporto la visión macro para que tu proyecto tenga un norte claro y efectivo.",
 
         workKicker: "Selección",
         workTitle: "Portafolio",
         workSub: "Explora mis categorías principales. Haz clic en “Mostrar más” para abrir la galería completa de cada especialidad.",
         btnMore: "Mostrar más",
+        seeDetail: "Ver detalle completo →",
 
         videosKicker: "Audiovisual",
         videosTitle: "Videos",
@@ -784,7 +941,6 @@
       },
       en: {
         brandTag: "Creative Director · Photographer",
-        navHome: "Home",
         navServices: "Services",
         navWork: "Portfolio",
         navVideos: "Videos",
@@ -798,19 +954,12 @@
 
         servicesKicker: "What I do",
         servicesTitle: "Services",
-        svcBrandTitle: "Brand Identity & Branding",
-        svcBrandDesc: "Coherent visual worlds. From logo to tone of voice, I design brands that stay in people’s minds.",
-        svcPhotoTitle: "Editorial Photography & Portrait",
-        svcPhotoDesc: "Images with narrative. Art direction and photography for campaigns, fashion, corporate and documentary.",
-        svcVideoTitle: "Audiovisual Production",
-        svcVideoDesc: "Storytelling in motion. Script, direction and production of videos that move and communicate.",
-        svcStratTitle: "Creative Consulting",
-        svcStratDesc: "Team leadership and 360° strategy. Big-picture guidance so your project stays focused and effective.",
 
         workKicker: "Selection",
         workTitle: "Portfolio",
         workSub: "Explore the main categories. Click “Show more” to open the full gallery for each specialty.",
         btnMore: "Show more",
+        seeDetail: "See full details →",
 
         videosKicker: "Audiovisual",
         videosTitle: "Videos",
@@ -879,6 +1028,7 @@
         el.textContent = t(k);
       });
       updateContactLinks();
+      renderServicesGrid();
       renderWorkCards();
       renderVideos();
     }
@@ -903,26 +1053,91 @@
     }
 
     // ==============================
+    // RENDERIZADO DE SERVICIOS
+    // ==============================
+    function renderServicesGrid(){
+      const grid = document.getElementById("servicesGrid");
+      if(!grid) return;
+      grid.innerHTML = "";
+
+      Object.keys(SERVICES_DATA).forEach(key => {
+        const item = SERVICES_DATA[key];
+        const info = item[LANG];
+
+        const card = document.createElement("div");
+        card.className = "svc-card";
+        card.onclick = () => {
+          window.location.hash = item.id;
+          openServiceModal(key);
+        };
+
+        card.innerHTML = `
+          <div>
+            <h3>${info.title}</h3>
+            <p>${info.shortDesc}</p>
+          </div>
+          <span class="svc-more-link">${t("seeDetail")}</span>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function openServiceModal(key){
+      const item = SERVICES_DATA[key];
+      if(!item) return;
+      const info = item[LANG];
+
+      gTitle.textContent = info.title;
+      gCount.textContent = "";
+
+      // Limpiar contenedor
+      const extraInfoContainer = modal.querySelector('.g-extra-info');
+      if (extraInfoContainer) extraInfoContainer.remove();
+
+      gGrid.innerHTML = "";
+
+      const svcCard = document.createElement("div");
+      svcCard.className = "svc-detail-card";
+      svcCard.innerHTML = `
+        <div class="prop-value">${info.propValue}</div>
+        <h4>${info.itemsTitle}</h4>
+        <ul>
+          ${info.items.map(li => `<li>${li}</li>`).join('')}
+        </ul>
+        <h4>${info.idealTitle}</h4>
+        <p style="color:#cbd5e1; margin:0;">${info.ideal}</p>
+        <div style="margin-top:28px; text-align:right;">
+          <a id="btnWhatsSvcModal" target="_blank" rel="noopener" class="btn btn-primary" style="background:#fff; color:#111; font-size:13px; height:40px;">Consultar por WhatsApp</a>
+        </div>
+      `;
+
+      const gBody = modal.querySelector('.gbody');
+      if (gBody) gBody.appendChild(svcCard);
+
+      const waBtn = svcCard.querySelector("#btnWhatsSvcModal");
+      if(waBtn){
+        const msg = encodeURIComponent(`Hola Miguel, quisiera consultar sobre el servicio de ${info.title}.`);
+        waBtn.href = `https://wa.me/${DATA.whatsapp}?text=${msg}`;
+      }
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      if (gBody) gBody.scrollTop = 0;
+    }
+
+    // ==============================
     // SECCIONES DEL PORTAFOLIO
     // ==============================
     const SECTIONS = [
-      { key:"Branding",   es:{title:"Branding", desc:"Identidad visual y campañas."}, en:{title:"Branding", desc:"Visual identity & campaigns."} },
-      { key:"Portraits",  es:{title:"Retratos", desc:"Retrato editorial y corporativo."}, en:{title:"Portraits", desc:"Editorial & corporate portraits."} },
-      { 
-        key: "Inmobiliarias", 
-        es: {
-          title: "Inmobiliarias & Arquitectura", 
-          desc: "Creación de contenidos y marketing inmobiliario."
-        }, 
-        en: {
-          title: "Real Estate & Architecture", 
-          desc: "Content creation and real estate marketing."
-        } 
-      },
-      { key:"Fashion",    es:{title:"Moda", desc:"Editorial, styling y dirección de arte."}, en:{title:"Fashion", desc:"Editorial, styling & art direction."} },
-      { key:"Eventos",    es:{title:"Eventos", desc:"Corporativo, institucional y familiar."}, en:{title:"Events", desc:"Corporate, institutional & family."} },
-      { key:"Producto",   es:{title:"Producto", desc:"Fotografía para marcas y producto."}, en:{title:"Product", desc:"Brand & product photography."} },
-      { key:"Paisajes",   es:{title:"Paisajes / Viajes", desc:"Fotografía de viaje y paisaje."}, en:{title:"Landscapes / Travel", desc:"Travel & landscape photography."} }
+      { key:"Branding",   id:"branding",      es:{title:"Branding", desc:"Identidad visual y campañas."}, en:{title:"Branding", desc:"Visual identity & campaigns."} },
+      { key:"Portraits",  id:"retratos",      es:{title:"Retratos", desc:"Retrato editorial y corporativo."}, en:{title:"Portraits", desc:"Editorial & corporate portraits."} },
+      { key:"Inmobiliarias", id:"inmobiliarias", es:{title:"Inmobiliarias & Arquitectura", desc:"Creación de contenidos y marketing inmobiliario."}, en:{title:"Real Estate & Architecture", desc:"Content creation and real estate marketing."} },
+      { key:"Fashion",    id:"moda",          es:{title:"Moda", desc:"Editorial, styling y dirección de arte."}, en:{title:"Fashion", desc:"Editorial, styling & art direction."} },
+      { key:"Eventos",    id:"eventos",       es:{title:"Eventos", desc:"Corporativo, institucional y familiar."}, en:{title:"Events", desc:"Corporate, institutional & family."} },
+      { key:"Producto",   id:"producto",      es:{title:"Producto", desc:"Fotografía para marcas y producto."}, en:{title:"Product", desc:"Brand & product photography."} },
+      { key:"Paisajes",   id:"paisajes",      es:{title:"Paisajes / Viajes", desc:"Fotografía de viaje y paisaje."}, en:{title:"Landscapes / Travel", desc:"Travel & landscape photography."} }
     ];
 
     function renderWorkCards(){
@@ -963,7 +1178,10 @@
         more.className = "btn btn-secondary";
         more.type = "button";
         more.textContent = t("btnMore");
-        more.addEventListener("click", ()=> openGallery(s.key));
+        more.addEventListener("click", ()=> {
+          window.location.hash = s.id;
+          openGallery(s.key);
+        });
 
         actions.appendChild(more);
         meta.appendChild(h3);
@@ -973,7 +1191,10 @@
         card.appendChild(thumb);
         card.appendChild(meta);
 
-        thumb.addEventListener("click", ()=> openGallery(s.key));
+        thumb.addEventListener("click", ()=> {
+          window.location.hash = s.id;
+          openGallery(s.key);
+        });
         wrap.appendChild(card);
       });
     }
@@ -995,10 +1216,14 @@
 
       gGrid.innerHTML = "";
 
-      // ---- INYECCIÓN DE TEXTO Y TARIFARIO DE EVENTOS ----
+      // Limpiar tarjetas o contenido previo
+      const extraCard = modal.querySelector('.svc-detail-card');
+      if (extraCard) extraCard.remove();
+
       const extraInfoContainer = modal.querySelector('.g-extra-info');
       if (extraInfoContainer) extraInfoContainer.remove();
 
+      // INYECCIÓN DE TARIFARIO DE EVENTOS
       if (key === "Eventos") {
         const infoDiv = document.createElement("div");
         infoDiv.className = "g-extra-info";
@@ -1107,6 +1332,14 @@
       modal.classList.remove("open");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      
+      // Limpiar hash al cerrar si correspondía a un modal flotante
+      if(window.location.hash && (
+        window.location.hash.startsWith('#servicio-') || 
+        SECTIONS.some(s => '#' + s.id === window.location.hash)
+      )){
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+      }
     }
 
     gClose.addEventListener("click", closeGallery);
@@ -1179,6 +1412,25 @@
       renderVideos();
     });
 
+    // SISTEMA DE DEEP LINKING (Apertura por URL #hash)
+    function checkHashRoute(){
+      const hash = window.location.hash.replace('#', '');
+      if(!hash) return;
+
+      // Buscar si es una galería
+      const matchedCat = SECTIONS.find(s => s.id === hash || s.key.toLowerCase() === hash);
+      if(matchedCat){
+        openGallery(matchedCat.key);
+        return;
+      }
+
+      // Buscar si es un servicio
+      const svcKey = Object.keys(SERVICES_DATA).find(k => SERVICES_DATA[k].id === 'servicio-' + hash || SERVICES_DATA[k].id === hash);
+      if(svcKey){
+        openServiceModal(svcKey);
+      }
+    }
+
     // Event Listeners Idioma
     document.getElementById("langES").addEventListener("click", ()=> setLang("es"));
     document.getElementById("langEN").addEventListener("click", ()=> setLang("en"));
@@ -1188,8 +1440,10 @@
       document.getElementById("year").textContent = new Date().getFullYear();
       updateContactLinks();
       startHeroRotation();
+      renderServicesGrid();
       renderWorkCards();
       renderVideos();
+      setTimeout(checkHashRoute, 300);
     })();
   </script>
 </body>
