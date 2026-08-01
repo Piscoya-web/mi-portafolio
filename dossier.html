@@ -11,7 +11,7 @@
     :root {
       --bg: #f7f7f3;
       --text: #111111;
-      --muted: #555555;
+      --muted: #444444; /* Oscurecido ligeramente para mejor contraste */
       --line: #e6e6e0;
       --card: #ffffff;
       --accent-bg: #f2f2ed;
@@ -37,7 +37,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 60px 100px;
+      padding: 55px 90px;
       background: var(--bg);
     }
 
@@ -47,15 +47,15 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid var(--line);
-      padding-bottom: 20px;
+      padding-bottom: 18px;
     }
     .brand-title {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
     .brand-tag {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -69,26 +69,26 @@
       align-items: center;
       border-top: 1px solid var(--line);
       padding-top: 16px;
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
     }
 
     /* LAYOUTS & COMPONENTES */
     .grid-2 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 50px;
       align-items: center;
       flex: 1;
-      margin: 20px 0;
+      margin: 16px 0;
     }
     .grid-2-custom {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
+      grid-template-columns: 0.8fr 1.2fr;
       gap: 50px;
       align-items: center;
       flex: 1;
-      margin: 20px 0;
+      margin: 16px 0;
     }
 
     .kicker {
@@ -96,15 +96,15 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 12px;
+      color: #666;
+      margin-bottom: 10px;
     }
     .h1-title {
-      font-size: 48px;
+      font-size: 46px;
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.12;
       letter-spacing: -0.03em;
-      margin: 0 0 20px 0;
+      margin: 0 0 18px 0;
     }
     .h2-title {
       font-size: 34px;
@@ -113,8 +113,10 @@
       letter-spacing: -0.02em;
       margin: 0 0 16px 0;
     }
+
+    /* TAMAÑOS AUMENTADOS DE LECTURA (+3px a +4px) */
     .body-desc {
-      font-size: 18px;
+      font-size: 21px; /* Antes 18px */
       line-height: 1.55;
       color: var(--muted);
       margin: 0 0 20px 0;
@@ -123,18 +125,18 @@
     .box-highlight {
       background: var(--accent-bg);
       border-left: 5px solid var(--text);
-      padding: 18px 22px;
+      padding: 20px 24px;
       border-radius: 12px;
-      font-size: 16px;
+      font-size: 19px; /* Antes 16px */
       line-height: 1.55;
-      color: #333;
-      margin-bottom: 20px;
+      color: #222;
+      margin-bottom: 18px;
     }
 
     /* CONTENEDOR DE FOTO PORTADA Y PERFIL */
     .photo-frame {
       width: 100%;
-      height: 620px;
+      height: 600px;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 16px 36px rgba(0,0,0,0.08);
@@ -149,7 +151,7 @@
       object-position: top center;
     }
 
-    /* GRILLA PERFECTA DE 4 FOTOS HORIZONTALES (2x2) */
+    /* GRILLA DE 4 FOTOS HORIZONTALES (2x2) */
     .photo-grid-4 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -166,30 +168,30 @@
       border: 1px solid var(--line);
     }
 
-    /* ESTILOS DE LISTAS */
+    /* ESTILOS DE LISTAS (AUMENTADO +3px) */
     ul.feature-list {
       list-style: none;
       padding: 0;
       margin: 0 0 16px 0;
     }
     ul.feature-list li {
-      font-size: 16px;
+      font-size: 19px; /* Antes 16px */
       line-height: 1.5;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       position: relative;
-      padding-left: 22px;
-      color: #333;
+      padding-left: 24px;
+      color: #222;
     }
     ul.feature-list li::before {
       content: "•";
       position: absolute;
       left: 0;
       color: var(--text);
-      font-size: 20px;
+      font-size: 24px;
       line-height: 1;
     }
 
-    /* TABLA DE TARIFAS */
+    /* TABLA DE TARIFAS (AUMENTADA) */
     .table-card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -203,15 +205,15 @@
       text-align: left;
     }
     table.price-table th {
-      padding: 14px;
-      font-size: 15px;
+      padding: 16px;
+      font-size: 18px; /* Antes 15px */
       font-weight: 700;
       border-bottom: 2px solid var(--line);
     }
     table.price-table td {
-      padding: 18px 14px;
-      font-size: 15px;
-      color: #333;
+      padding: 20px 16px;
+      font-size: 18px; /* Antes 15px */
+      color: #222;
       border-bottom: 1px solid var(--line);
     }
 
@@ -222,7 +224,7 @@
       justify-content: center;
       padding: 18px 36px;
       border-radius: 30px;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       text-decoration: none;
       transition: all 0.2s ease;
@@ -277,7 +279,7 @@
           <strong>El valor para su institución:</strong> Un evento escolar o hito académico no es un acto protocolar aislado; es un activo estratégico clave para afianzar la preferencia de marca, proyectar la solidez del colegio y dinamizar los procesos de admisión.
         </div>
 
-        <div style="background: rgba(0,0,0,0.03); padding: 18px 20px; border-radius: 12px; font-size: 15px; color: var(--muted);">
+        <div style="background: rgba(0,0,0,0.03); padding: 18px 22px; border-radius: 12px; font-size: 17px; color: var(--muted);">
           <strong>Sectores de experiencia:</strong> Educación escolar y superior, programas internacionales, proyectos sociales y corporativo.
         </div>
       </div>
@@ -336,12 +338,12 @@
         <h2 class="h2-title">Retrato Directivo, Ética & Protección de Imagen</h2>
         <p class="body-desc">Producción fotográfica para la Plana Docente y Consejo Directivo, respaldada por un protocolo integral de seguridad jurídica para la institución.</p>
         
-        <div class="box-highlight" style="background:#ffffff; border: 1px solid var(--line); border-left: 5px solid #111; padding: 18px 20px;">
-          <strong style="font-size: 16px; color: #111;">Protocolo de Ética & Privacidad:</strong>
-          <ul class="feature-list" style="margin-top: 8px; margin-bottom: 0; font-size: 14.5px;">
-            <li><strong>Criterio de Trato Social:</strong> Experiencia en el abordaje sutil, protocolar y respetuoso con familias y alumnos (respaldado por registros para instituciones como el Club Regatas Lima).</li>
-            <li><strong>Aviso de Registro Visual:</strong> Implementación opcional de señalética informativa en accesos durante eventos y plantillas de aviso para apoderados.</li>
-            <li><strong>Confidencialidad:</strong> Custodia segura del archivo fotográfico y cumplimiento estricto de las directivas del comité directivo.</li>
+        <div class="box-highlight" style="background:#ffffff; border: 1px solid var(--line); border-left: 5px solid #111; padding: 20px 22px;">
+          <strong style="font-size: 18px; color: #111;">Protocolo de Ética & Privacidad:</strong>
+          <ul class="feature-list" style="margin-top: 10px; margin-bottom: 0;">
+            <li style="font-size: 17.5px;"><strong>Criterio de Trato Social:</strong> Experiencia en el abordaje sutil, protocolar y respetuoso con familias y alumnos (respaldado por registros para instituciones como el Club Regatas Lima).</li>
+            <li style="font-size: 17.5px;"><strong>Aviso de Registro Visual:</strong> Implementación opcional de señalética informativa en accesos durante eventos y plantillas de aviso para apoderados.</li>
+            <li style="font-size: 17.5px;"><strong>Confidencialidad:</strong> Custodia segura del archivo fotográfico y cumplimiento estricto de las directivas del comité directivo.</li>
           </ul>
         </div>
       </div>
@@ -388,7 +390,7 @@
       <span class="brand-title">MIGUEL PISCOYA</span>
       <span class="brand-tag">Estructura B2B</span>
     </div>
-    <div style="flex: 1; margin: 30px 0;">
+    <div style="flex: 1; margin: 24px 0;">
       <div class="kicker">Inversión Referencial</div>
       <h2 class="h2-title" style="margin-bottom: 24px;">Tarifario de Cobertura Institucional</h2>
       
@@ -405,21 +407,21 @@
             <tr>
               <td><strong>Hora de Cobertura Premium</strong></td>
               <td>Fotógrafo principal, equipamiento de alta gama, dirección de arte y cobertura integral de programa. (Mínimo 2 horas).</td>
-              <td style="text-align: right; font-weight: 800; font-size: 20px; white-space: nowrap;">S/ 200.00 <span style="font-size: 13px; color: var(--muted); font-weight: 400;">/ hora</span></td>
+              <td style="text-align: right; font-weight: 800; font-size: 22px; white-space: nowrap;">S/ 200.00 <span style="font-size: 14px; color: var(--muted); font-weight: 400;">/ hora</span></td>
             </tr>
             <tr>
               <td><strong>Jornada Completa (8 Horas)</strong></td>
               <td>Tarifa corporativa preferencial para congresos, simposios, olimpiadas o jornadas académicas continuas.</td>
-              <td style="text-align: right; font-weight: 800; font-size: 20px; white-space: nowrap;">S/ 170.00 <span style="font-size: 13px; color: var(--muted); font-weight: 400;">/ hora</span></td>
+              <td style="text-align: right; font-weight: 800; font-size: 22px; white-space: nowrap;">S/ 170.00 <span style="font-size: 14px; color: var(--muted); font-weight: 400;">/ hora</span></td>
             </tr>
             <tr>
               <td><strong>Estudio Móvil de Retratos</strong></td>
               <td>Montaje de luces y fondo profesional en la institución para fotos directivas o docentes masivas (paquete personalizado).</td>
-              <td style="text-align: right; font-weight: 800; font-size: 20px; white-space: nowrap;">A cotizar</td>
+              <td style="text-align: right; font-weight: 800; font-size: 22px; white-space: nowrap;">A cotizar</td>
             </tr>
           </tbody>
         </table>
-        <p style="font-size: 13px; color: var(--muted); margin: 20px 0 0 0;">* Precios no incluyen IGV. Disponibilidad de traslado fuera de Lima. Tiempos de entrega estándar: 48 a 72 horas laborales.</p>
+        <p style="font-size: 14px; color: var(--muted); margin: 20px 0 0 0;">* Precios no incluyen IGV. Disponibilidad de traslado fuera de Lima. Tiempos de entrega estándar: 48 a 72 horas laborales.</p>
       </div>
     </div>
     <div class="slide-footer">
@@ -434,7 +436,7 @@
       <span class="brand-title">MIGUEL PISCOYA</span>
       <span class="brand-tag">Muestra de Estética</span>
     </div>
-    <div style="flex: 1; margin: 30px 0;">
+    <div style="flex: 1; margin: 24px 0;">
       <div class="kicker">Selección Visual</div>
       <h2 class="h2-title" style="margin-bottom: 24px;">Garantía de calidad estética y narrativa.</h2>
       
