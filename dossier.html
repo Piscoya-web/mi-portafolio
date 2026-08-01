@@ -80,7 +80,7 @@
       gap: 50px;
       align-items: center;
       flex: 1;
-      margin: 24px 0;
+      margin: 20px 0;
     }
     .grid-2-custom {
       display: grid;
@@ -88,7 +88,7 @@
       gap: 50px;
       align-items: center;
       flex: 1;
-      margin: 24px 0;
+      margin: 20px 0;
     }
 
     .kicker {
@@ -100,32 +100,32 @@
       margin-bottom: 12px;
     }
     .h1-title {
-      font-size: 50px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.03em;
       margin: 0 0 20px 0;
     }
     .h2-title {
-      font-size: 36px;
+      font-size: 34px;
       font-weight: 800;
       line-height: 1.2;
       letter-spacing: -0.02em;
       margin: 0 0 16px 0;
     }
     .body-desc {
-      font-size: 19px;
+      font-size: 18px;
       line-height: 1.55;
       color: var(--muted);
-      margin: 0 0 24px 0;
+      margin: 0 0 20px 0;
     }
 
     .box-highlight {
       background: var(--accent-bg);
       border-left: 5px solid var(--text);
-      padding: 20px 24px;
+      padding: 18px 22px;
       border-radius: 12px;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.55;
       color: #333;
       margin-bottom: 20px;
@@ -134,7 +134,7 @@
     /* CONTENEDOR DE FOTO PORTADA Y PERFIL */
     .photo-frame {
       width: 100%;
-      height: 600px;
+      height: 620px;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 16px 36px rgba(0,0,0,0.08);
@@ -146,41 +146,38 @@
       object-fit: cover;
     }
     .photo-frame img.profile-focus {
-      object-position: top center; /* Evita corte de rostro */
+      object-position: top center; /* Ajuste para evitar corte de rostro */
     }
 
-    /* GRILLA DE 3 FOTOS (2 ARRIBA / 1 ABAJO PANORÁMICA) */
-    .photo-grid-3 {
+    /* GRILLA PERFECTA DE 4 FOTOS HORIZONTALES (2x2) */
+    .photo-grid-4 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 270px 270px;
       gap: 16px;
-      height: 560px;
+      height: 556px;
       width: 100%;
     }
-    .photo-grid-3 img {
+    .photo-grid-4 img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 12px;
       border: 1px solid var(--line);
     }
-    .photo-grid-3 img.full-width {
-      grid-column: 1 / -1;
-    }
 
     /* ESTILOS DE LISTAS */
     ul.feature-list {
       list-style: none;
       padding: 0;
-      margin: 0 0 20px 0;
+      margin: 0 0 16px 0;
     }
     ul.feature-list li {
-      font-size: 17px;
-      line-height: 1.55;
-      margin-bottom: 12px;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
       position: relative;
-      padding-left: 24px;
+      padding-left: 22px;
       color: #333;
     }
     ul.feature-list li::before {
@@ -188,7 +185,7 @@
       position: absolute;
       left: 0;
       color: var(--text);
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1;
     }
 
@@ -252,7 +249,7 @@
         </div>
       </div>
       <div class="photo-frame">
-        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548906/educa_012_jxlc63.jpg" alt="Portada Institucional Educativa">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768396489/Eventos_20_fu0qmy.jpg" alt="Portada Institucional Educativa">
       </div>
     </div>
     <div class="slide-footer">
@@ -269,7 +266,7 @@
     </div>
     <div class="grid-2-custom">
       <div class="photo-frame">
-        <img class="profile-focus" src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_1000/v1768358674/CV_-_Perfil_Completo_gvxvkw.jpg" alt="Miguel Piscoya Profile">
+        <img class="profile-focus" src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785550003/CV---Perfil-Completo_jngvg8.jpg" alt="Miguel Piscoya Profile">
       </div>
       <div>
         <div class="kicker">Trayectoria en el Sector Educativo</div>
@@ -308,10 +305,11 @@
           <li><strong>Servicio Fast-Track para Redes:</strong> Entrega prioritaria de selección de imágenes durante el propio evento para difusión inmediata en sus canales.</li>
         </ul>
       </div>
-      <div class="photo-grid-3">
+      <div class="photo-grid-4">
         <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548906/educa_012_jxlc63.jpg" alt="Evento Educativo 1">
         <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548904/educa_005_wlrnkz.jpg" alt="Evento Educativo 2">
-        <img class="full-width" src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548904/educa_001_lhll6z.jpg" alt="Evento Educativo 3">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548904/educa_001_lhll6z.jpg" alt="Evento Educativo 3">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548905/educa_007_xn0cyt.jpg" alt="Evento Educativo 4">
       </div>
     </div>
     <div class="slide-footer">
@@ -327,19 +325,20 @@
       <span class="brand-tag">Garantía & Seguridad</span>
     </div>
     <div class="grid-2">
-      <div class="photo-grid-3">
+      <div class="photo-grid-4">
         <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548904/educa_004_vts3wl.jpg" alt="Retrato Educativo 1">
         <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548905/educa_011_hsivgv.jpg" alt="Retrato Educativo 2">
-        <img class="full-width" src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548907/educa_014_fn5bvs.jpg" alt="Retrato Educativo 3">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548907/educa_014_fn5bvs.jpg" alt="Retrato Educativo 3">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548905/educa_009_yhwbwk.jpg" alt="Retrato Educativo 4">
       </div>
       <div>
         <div class="kicker">Servicio 02 & Compromiso Ético</div>
         <h2 class="h2-title">Retrato Directivo, Ética & Protección de Imagen</h2>
         <p class="body-desc">Producción fotográfica para la Plana Docente y Consejo Directivo, respaldada por un protocolo integral de seguridad jurídica para la institución.</p>
         
-        <div class="box-highlight" style="background:#ffffff; border: 1px solid var(--line); border-left: 5px solid #111; padding: 20px;">
-          <strong style="font-size: 17px; color: #111;">Protocolo de Ética & Privacidad:</strong>
-          <ul class="feature-list" style="margin-top: 10px; margin-bottom: 0; font-size: 15px;">
+        <div class="box-highlight" style="background:#ffffff; border: 1px solid var(--line); border-left: 5px solid #111; padding: 18px 20px;">
+          <strong style="font-size: 16px; color: #111;">Protocolo de Ética & Privacidad:</strong>
+          <ul class="feature-list" style="margin-top: 8px; margin-bottom: 0; font-size: 14.5px;">
             <li><strong>Criterio de Trato Social:</strong> Experiencia en el abordaje sutil, protocolar y respetuoso con familias y alumnos (respaldado por registros para instituciones como el Club Regatas Lima).</li>
             <li><strong>Aviso de Registro Visual:</strong> Implementación opcional de señalética informativa en accesos durante eventos y plantillas de aviso para apoderados.</li>
             <li><strong>Confidencialidad:</strong> Custodia segura del archivo fotográfico y cumplimiento estricto de las directivas del comité directivo.</li>
@@ -370,10 +369,11 @@
           <li><strong>Piezas para Campaña:</strong> Material optimizado para folletos, paneles, sitio web institucional y redes sociales.</li>
         </ul>
       </div>
-      <div class="photo-grid-3">
+      <div class="photo-grid-4">
         <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548907/educa_017_xfnrdp.jpg" alt="Campus 1">
         <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548908/educa_019_ioc2jb.jpg" alt="Campus 2">
-        <img class="full-width" src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548909/educa_023_fbnfh6.jpg" alt="Campus 3">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548909/educa_023_fbnfh6.jpg" alt="Campus 3">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/v1785548905/educa_010_g8qtn3.jpg" alt="Campus 4">
       </div>
     </div>
     <div class="slide-footer">
