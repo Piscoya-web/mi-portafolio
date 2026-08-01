@@ -438,7 +438,7 @@
       gap:16px;
     }
 
-    /* MODAL GALLERY & MODAL SERVICES (NUEVO ESTILO CLARO / LIGHT THEME) */
+    /* MODAL GALLERY & MODAL SERVICES (MODO CLARO ELEGANTE) */
     .gmodal{
       position:fixed;
       inset:0;
@@ -456,7 +456,7 @@
       justify-content:space-between;
       align-items:center;
       padding:20px 32px;
-      background:rgba(247, 247, 243, 0.92);
+      background:rgba(247, 247, 243, 0.95);
       border-bottom:1px solid var(--line);
     }
     .gtitle{
@@ -545,16 +545,6 @@
     }
     .svc-detail-card ul li{
       margin-bottom:10px;
-    }
-
-    /* ESTILO CLARO PARA TABLA DE EVENTOS */
-    .g-extra-info table th{
-      color:#111 !important;
-      border-bottom:2px solid var(--line) !important;
-    }
-    .g-extra-info table td{
-      color:#333 !important;
-      border-bottom:1px solid var(--line) !important;
     }
 
     @media(max-width:768px){
@@ -1106,12 +1096,13 @@
       gTitle.textContent = info.title;
       gCount.textContent = "";
 
-      // Limpiar contenedor
-      const extraInfoContainer = modal.querySelector('.g-extra-info');
-      if (extraInfoContainer) extraInfoContainer.remove();
+      // Limpieza absoluta de contenidos anteriores en el modal
+      const gBody = modal.querySelector('.gbody');
+      if (gBody) {
+        gBody.innerHTML = '<div class="ggrid" id="gGrid"></div>';
+      }
 
-      gGrid.innerHTML = "";
-
+      // Crear la tarjeta de detalle específica del servicio
       const svcCard = document.createElement("div");
       svcCard.className = "svc-detail-card";
       svcCard.innerHTML = `
@@ -1127,7 +1118,6 @@
         </div>
       `;
 
-      const gBody = modal.querySelector('.gbody');
       if (gBody) gBody.appendChild(svcCard);
 
       const waBtn = svcCard.querySelector("#btnWhatsSvcModal");
@@ -1229,16 +1219,14 @@
       gTitle.textContent = title;
       gCount.textContent = `${list.length} ${LANG==="es" ? "fotos" : "photos"}`;
 
-      gGrid.innerHTML = "";
+      // Limpieza absoluta de contenidos anteriores
+      const gBody = modal.querySelector('.gbody');
+      if (gBody) {
+        gBody.innerHTML = '<div class="ggrid" id="gGrid"></div>';
+      }
+      const freshGrid = document.getElementById("gGrid");
 
-      // Limpiar tarjetas o contenido previo
-      const extraCard = modal.querySelector('.svc-detail-card');
-      if (extraCard) extraCard.remove();
-
-      const extraInfoContainer = modal.querySelector('.g-extra-info');
-      if (extraInfoContainer) extraInfoContainer.remove();
-
-      // INYECCIÓN DE TARIFARIO DE EVENTOS (NUEVO ESTILO ELEGANTE Y CLARO)
+      // INYECCIÓN DE TARIFARIO DE EVENTOS (ESTILO CLARO ELEGANTE)
       if (key === "Eventos") {
         const infoDiv = document.createElement("div");
         infoDiv.className = "g-extra-info";
@@ -1314,8 +1302,7 @@
           `;
         }
         
-        const gBody = modal.querySelector('.gbody');
-        if (gBody) gBody.insertBefore(infoDiv, gGrid);
+        if (gBody) gBody.insertBefore(infoDiv, freshGrid);
       }
 
       list.forEach((url, idx)=>{
@@ -1332,15 +1319,13 @@
         safeImg(img, url);
 
         a.appendChild(img);
-        gGrid.appendChild(a);
+        freshGrid.appendChild(a);
       });
 
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
-      
-      const body = modal.querySelector('.gbody');
-      if (body) body.scrollTop = 0;
+      if (gBody) gBody.scrollTop = 0;
     }
 
     function closeGallery(){
