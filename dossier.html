@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Dossier Institucional B2B - Miguel Piscoya</title>
+  <style>
+    @page {
+      size: 1920px 1080px; /* Formato 16:9 Landscape */
+      margin: 0;
+    }
+    :root {
+      --bg: #f7f7f3;
+      --text: #111111;
+      --muted: #555555;
+      --line: #e6e6e0;
+      --card: #ffffff;
+      --accent-bg: #f2f2ed;
+    }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Cada Slide es una página completa */
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      page-break-after: always;
+      page-break-inside: avoid;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 80px 100px;
+      background: var(--bg);
+    }
+
+    /* HEADER DE CADA SLIDE */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 24px;
+    }
+    .brand-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand-tag {
+      font-size: 14px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    /* FOOTER DE CADA SLIDE */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* LAYOUTS & COMPONENTES */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      flex: 1;
+      margin: 40px 0;
+    }
+    .grid-2-custom {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+      flex: 1;
+      margin: 40px 0;
+    }
+
+    .kicker {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .h1-title {
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin: 0 0 24px 0;
+    }
+    .h2-title {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px 0;
+    }
+    .body-desc {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0 0 28px 0;
+    }
+
+    .box-highlight {
+      background: var(--accent-bg);
+      border-left: 5px solid var(--text);
+      padding: 24px 30px;
+      border-radius: 12px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    .photo-frame {
+      width: 100%;
+      height: 100%;
+      max-height: 680px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+      border: 1px solid var(--line);
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      height: 680px;
+    }
+    .photo-grid-4 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+    }
+
+    /* ESTILOS DE LISTAS */
+    ul.feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px 0;
+    }
+    ul.feature-list li {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      position: relative;
+      padding-left: 28px;
+      color: #333;
+    }
+    ul.feature-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--text);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    /* TABLA DE TARIFAS */
+    .table-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    table.price-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    table.price-table th {
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      border-bottom: 2px solid var(--line);
+    }
+    table.price-table td {
+      padding: 20px 16px;
+      font-size: 16px;
+      color: #333;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* BOTONES INTERACTIVOS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 36px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-dark { background: var(--text); color: #ffffff !important; }
+    .btn-outline { background: transparent; color: var(--text) !important; border: 2px solid var(--line); }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1: PORTADA -->
+  <section class="slide">
+    <div class="slide-header">
+      <span class="brand-title">MIGUEL PISCOYA</span>
+      <span class="brand-tag">Dossier de Servicios Institucionales</span>
+    </div>
+    <div class="grid-2">
+      <div>
+        <div class="kicker">Promoción Educativa & Producción Audiovisual</div>
+        <h1 class="h1-title">Narrativa visual de alto impacto para instituciones educativas.</h1>
+        <p class="body-desc">Especializado en traducir la excelencia, valores e identidad de proyectos educativos en universos visuales memorables que fortalecen la confianza de las familias.</p>
+        <div class="box-highlight">
+          <strong>Propuesta Especializada:</strong> Cobertura de hitos escolares, retrato directivo y material fotográfico/audiovisual optimizado para campañas de admisión y reputación institucional.
+        </div>
+      </div>
+      <div class="photo-frame">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_1200/v1768396495/Eventos_25_wude8h.jpg" alt="Portada Institucional">
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>www.miguelpiscoya.com</span>
+      <span>Página 01 / 08</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: SOBRE MÍ Y PROPUESTA B2B -->
+  <section class="slide">
+    <div class="slide-header">
+      <span class="brand-title">MIGUEL PISCOYA</span>
+      <span class="brand-tag">Estrategia + Dirección de Arte</span>
+    </div>
+    <div class="grid-2-custom">
+      <div class="photo-frame">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_1000/v1768358674/CV_-_Perfil_Completo_gvxvkw.jpg" alt="Miguel Piscoya Profile">
+      </div>
+      <div>
+        <div class="kicker">Trayectoria en el Sector Educativo</div>
+        <h2 class="h2-title">Pensar como estratega, mirar como artista.</h2>
+        <p class="body-desc">Comunicador especializado en promoción y proyectos educativos, con trayectoria en la Dirección de Formación Docente del Ministerio de Educación y gestión de campañas para instituciones y programas de alcance internacional.</p>
+        
+        <div class="box-highlight">
+          <strong>El valor para su institución:</strong> Un evento escolar o hito académico no es un acto protocolar aislado; es un activo estratégico clave para afianzar la preferencia de marca y proyectar la solidez del colegio.
+        </div>
+
+        <div style="background: rgba(0,0,0,0.03); padding: 20px; border-radius: 12px; font-size: 15px; color: var(--muted);">
+          <strong>Sectores de experiencia:</strong> Educación escolar y superior, proyectos sociales, sector inmobiliario y corporativo.
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Promoción Educativa & Fotografía Institucional</span>
+      <span>Página 02 / 08</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: COBERTURA DE EVENTOS Y VIDA ESCOLAR -->
+  <section class="slide">
+    <div class="slide-header">
+      <span class="brand-title">MIGUEL PISCOYA</span>
+      <span class="brand-tag">Servicios Institucionales</span>
+    </div>
+    <div class="grid-2">
+      <div>
+        <div class="kicker">Servicio 01</div>
+        <h2 class="h2-title">Cobertura Fotográfica Institucional & Eventos</h2>
+        <p class="body-desc">Documentación integral de graduaciones, aniversarios, ceremonias solemnes, olimpiadas deportivas y actividades académicas.</p>
+        <ul class="feature-list">
+          <li><strong>Registro narrativo de alto valor:</strong> Captura de emociones genuinas, protocolo e interacciones respetando la solemnidad del acto.</li>
+          <li><strong>Equipamiento profesional:</strong> Cobertura limpia con iluminación adaptada y ópticas de alta definición en cualquier espacio.</li>
+          <li><strong>Servicio Fast-Track para Redes:</strong> Entrega prioritaria de selección de imágenes durante el propio evento para difusión inmediata en sus canales.</li>
+        </ul>
+      </div>
+      <div class="photo-grid-4">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768396499/Eventos_29_sgb5br.jpg" alt="Evento 1">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768396498/Eventos_27_cp7csy.jpg" alt="Evento 2">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768396492/Eventos_23_ql7fdb.jpg" alt="Evento 3">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768396488/Eventos_19_mwkx1u.jpg" alt="Evento 4">
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Fotografía para Educación & Eventos</span>
+      <span>Página 03 / 08</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: RETRATO CORPORATIVO Y ÉTICA DE PRIVACIDAD -->
+  <section class="slide">
+    <div class="slide-header">
+      <span class="brand-title">MIGUEL PISCOYA</span>
+      <span class="brand-tag">Garantía & Seguridad</span>
+    </div>
+    <div class="grid-2">
+      <div class="photo-grid-4">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768358666/Portraits_30_da7z9s.jpg" alt="Retrato 1">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768396945/Portraits_46_q7buiv.jpg" alt="Retrato 2">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768358646/Portraits_17_novo0r.jpg" alt="Retrato 3">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768396509/Portraits_39_vusr7j.jpg" alt="Retrato 4">
+      </div>
+      <div>
+        <div class="kicker">Servicio 02 & Compromiso Ético</div>
+        <h2 class="h2-title">Retrato Directivo, Ética & Protección de Imagen</h2>
+        <p class="body-desc">Producción fotográfica para la Plana Docente y Consejo Directivo, respaldada por un protocolo integral de seguridad jurídica para la institución.</p>
+        
+        <div class="box-highlight" style="background:#ffffff; border: 1px solid var(--line); border-left: 5px solid #111; padding: 20px;">
+          <strong style="font-size: 17px; color: #111;">Protocolo de Ética & Privacidad:</strong>
+          <ul class="feature-list" style="margin-top: 10px; margin-bottom: 0; font-size: 16px;">
+            <li><strong>Criterio de Trato Social:</strong> Experiencia en el abordaje sutil, protocolar y respetuoso con familias y alumnos (respaldado por registros para instituciones como el Club Regatas Lima).</li>
+            <li><strong>Aviso de Registro Visual:</strong> Implementación opcional de señalética informativa en accesos durante eventos y plantillas de aviso para apoderados.</li>
+            <li><strong>Confidencialidad:</strong> Custodia segura del archivo fotográfico y cumplimiento estricto de las directivas del comité directivo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Retrato Ejecutivo & Ética Profesional</span>
+      <span>Página 04 / 08</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: INFRAESTRUCTURA Y CAMPUS -->
+  <section class="slide">
+    <div class="slide-header">
+      <span class="brand-title">MIGUEL PISCOYA</span>
+      <span class="brand-tag">Servicios Institucionales</span>
+    </div>
+    <div class="grid-2">
+      <div>
+        <div class="kicker">Servicio 03</div>
+        <h2 class="h2-title">Fotografía de Infraestructura & Campus Life</h2>
+        <p class="body-desc">Captura de aulas, laboratorios, instalaciones deportivas y áreas verdes orientadas a fortalecer la propuesta de valor para admisiones.</p>
+        <ul class="feature-list">
+          <li><strong>Perspectiva de Arquitectura:</strong> Tratamiento óptico especializado para resaltar la amplitud y equipamiento de las instalaciones.</li>
+          <li><strong>Integración Humana Natural:</strong> Registro de la dinámica escolar en los ambientes sin perder el orden ni la sobriedad institucional.</li>
+          <li><strong>Piezas para Campaña:</strong> Material optimizado para folletos, paneles, sitio web institucional y redes sociales.</li>
+        </ul>
+      </div>
+      <div class="photo-grid-4">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1784907972/Inmo_19_zjceau.jpg" alt="Campus 1">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1784907971/Inmo_17_rerxfs.jpg" alt="Campus 2">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1784907970/Inmo_15_jdzgz3.jpg" alt="Campus 3">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1784907969/Inmo_10_r2tobq.jpg" alt="Campus 4">
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Arquitectura & Marketing Educativo</span>
+      <span>Página 05 / 08</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: ESTRUCTURA DE INVERSIÓN Y TARIFAS -->
+  <section class="slide">
+    <div class="slide-header">
+      <span class="brand-title">MIGUEL PISCOYA</span>
+      <span class="brand-tag">Estructura B2B</span>
+    </div>
+    <div style="flex: 1; margin: 30px 0;">
+      <div class="kicker">Inversión Referencial</div>
+      <h2 class="h2-title" style="margin-bottom: 24px;">Tarifario de Cobertura Institucional</h2>
+      
+      <div class="table-card">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Servicio / Concepto</th>
+              <th>Descripción del Alcance</th>
+              <th style="text-align: right;">Inversión Base</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hora de Cobertura Premium</strong></td>
+              <td>Fotógrafo principal, equipamiento de alta gama, dirección de arte y cobertura integral de programa. (Mínimo 2 horas).</td>
+              <td style="text-align: right; font-weight: 800; font-size: 20px; white-space: nowrap;">S/ 200.00 <span style="font-size: 13px; color: var(--muted); font-weight: 400;">/ hora</span></td>
+            </tr>
+            <tr>
+              <td><strong>Jornada Completa (8 Horas)</strong></td>
+              <td>Tarifa corporativa preferencial para congresos, simposios, olimpiadas o jornadas académicas continuas.</td>
+              <td style="text-align: right; font-weight: 800; font-size: 20px; white-space: nowrap;">S/ 170.00 <span style="font-size: 13px; color: var(--muted); font-weight: 400;">/ hora</span></td>
+            </tr>
+            <tr>
+              <td><strong>Estudio Móvil de Retratos</strong></td>
+              <td>Montaje de luces y fondo profesional en la institución para fotos directivas o docentes masivas (paquete personalizado).</td>
+              <td style="text-align: right; font-weight: 800; font-size: 20px; white-space: nowrap;">A cotizar</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 13px; color: var(--muted); margin: 20px 0 0 0;">* Precios no incluyen IGV. Disponibilidad de traslado fuera de Lima. Tiempos de entrega estándar: 48 a 72 horas laborales.</p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Condiciones Claras & Servicio Profesional</span>
+      <span>Página 06 / 08</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: PORTAFOLIO SELECCIONADO (MUESTRA VISUAL) -->
+  <section class="slide">
+    <div class="slide-header">
+      <span class="brand-title">MIGUEL PISCOYA</span>
+      <span class="brand-tag">Muestra de Estética</span>
+    </div>
+    <div style="flex: 1; margin: 30px 0;">
+      <div class="kicker">Selección Visual</div>
+      <h2 class="h2-title" style="margin-bottom: 24px;">Garantía de calidad estética y narrativa.</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; height: 560px;">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768358605/Paisajes_70_zvxxfb.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:14px; border:1px solid var(--line);" alt="Muestra 1">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768358483/Fashion_73_eqxtmw.png" style="width:100%; height:100%; object-fit:cover; border-radius:14px; border:1px solid var(--line);" alt="Muestra 2">
+        <img src="https://res.cloudinary.com/dmzfkvrdx/image/upload/f_auto,q_auto,w_800/v1768517974/Producto_13_ojxz0z.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:14px; border:1px solid var(--line);" alt="Muestra 3">
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Paisajes, Retratos & Fotografía Editorial</span>
+      <span>Página 07 / 08</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: CIERRE Y CONTACTO DIRECTO INTERACTIVO -->
+  <section class="slide" style="background: #111111; color: #ffffff;">
+    <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.15);">
+      <span class="brand-title" style="color: #ffffff;">MIGUEL PISCOYA</span>
+      <span class="brand-tag" style="color: #aaaaaa;">Contacto Directo</span>
+    </div>
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 1200px;">
+      <div class="kicker" style="color: #888888;">Hablemos de su próximo proyecto</div>
+      <h1 class="h1-title" style="color: #ffffff; font-size: 60px; margin-bottom: 32px;">Elevemos la reputación visual de su institución.</h1>
+      <p class="body-desc" style="color: #cccccc; font-size: 24px; margin-bottom: 48px;">Disponible para reuniones presenciales, coordinaciones con el equipo de comunicación o propuestas a medida.</p>
+
+      <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+        <!-- ENLACES INTERACTIVOS QUE FUNCIONAN EN EL PDF -->
+        <a href="https://wa.me/51943753742?text=Hola%20Miguel,%20revis%C3%A9%20tu%20dossier%20institucional%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n" class="btn btn-dark" style="background: #ffffff; color: #111111 !important; font-size: 18px; padding: 22px 44px;">
+          WhatsApp Directo (+51 943 753 742)
+        </a>
+        <a href="mailto:piscoyacampos@gmail.com?subject=Consulta%20Servicios%20Institucionales" class="btn btn-outline" style="color: #ffffff !important; border-color: rgba(255,255,255,0.3); font-size: 18px; padding: 22px 44px;">
+          Enviar Correo Electrónico
+        </a>
+        <a href="https://www.linkedin.com/in/miguel-piscoya-38762637/" class="btn btn-outline" style="color: #ffffff !important; border-color: rgba(255,255,255,0.3); font-size: 18px; padding: 22px 44px;">
+          Perfil de LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.15); color: #888888;">
+      <span>Email: piscoyacampos@gmail.com · Lima, Perú</span>
+      <span>Página 08 / 08</span>
+    </div>
+  </section>
+
+</body>
+</html>
