@@ -355,6 +355,86 @@
       margin:0;
     }
 
+    /* IA CREATION CONTENT */
+    section.ai{
+      padding:80px 0;
+      border-top:1px solid var(--line);
+    }
+    .ai-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      background:#111;
+      color:#fff;
+      padding:5px 10px;
+      border-radius:999px;
+      margin-bottom:12px;
+    }
+    .ai-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+      gap:24px;
+    }
+    .ai-card{
+      background:var(--card);
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .ai-thumb{
+      position:relative;
+      aspect-ratio:9/16;
+      background:#000;
+      cursor:pointer;
+    }
+    .ai-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .4s ease, opacity .3s ease;
+    }
+    .ai-card:hover .ai-thumb img{transform:scale(1.03);opacity:.9}
+    .ai-thumb iframe{width:100%;height:100%}
+    .ai-play{
+      position:absolute;
+      inset:0;
+      margin:auto;
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      border:0;
+      background:rgba(255,255,255,.92);
+      box-shadow:0 8px 24px rgba(0,0,0,.25);
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .ai-play::before{
+      content:"";
+      margin-left:4px;
+      border-style:solid;
+      border-width:11px 0 11px 18px;
+      border-color:transparent transparent transparent #111;
+    }
+    .ai-meta{padding:16px}
+    .ai-meta h3{
+      font-size:15px;
+      font-weight:700;
+      margin:0 0 6px 0;
+      line-height:1.3;
+    }
+    .ai-meta p{
+      font-size:12px;
+      color:var(--muted);
+      margin:0;
+    }
+
     /* ABOUT */
     section.about{
       padding:80px 0;
@@ -570,6 +650,7 @@
           <a href="#services" data-i18n="navServices">Servicios</a>
           <a href="#work" data-i18n="navWork">Portafolio</a>
           <a href="#videos" data-i18n="navVideos">Videos</a>
+          <a href="#ia" data-i18n="navAI">IA Creation</a>
           <a href="#about" data-i18n="navAbout">Sobre mí</a>
           <a href="#contact" data-i18n="navContact">Contacto</a>
         </nav>
@@ -632,6 +713,21 @@
         <div class="video-grid" id="videoGrid"></div>
         <div style="margin-top:32px; text-align:center;">
           <button class="btn btn-secondary" id="toggleVideosBtn" type="button">Mostrar más</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- IA CREATION CONTENT -->
+    <section class="ai" id="ia">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="ai-badge" data-i18n="aiKicker">Hecho con IA</div>
+          <h2 class="section-title">IA Creation Content</h2>
+          <p class="section-sub" data-i18n="aiSub">Contenido creado con inteligencia artificial bajo mi dirección creativa: idea, guion, estética y edición.</p>
+        </div>
+        <div class="ai-grid" id="aiGrid"></div>
+        <div style="margin-top:32px; text-align:center;">
+          <button class="btn btn-secondary" id="toggleAiBtn" type="button">Mostrar más</button>
         </div>
       </div>
     </section>
@@ -766,7 +862,15 @@
         "Paisajes": ["https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358605/Paisajes_70_zvxxfb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358601/Paisajes_69_hmruyx.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358603/Paisajes_70_i1hbrq.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358600/Paisajes_68_rqbsia.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358599/Paisajes_67_a1s3am.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358597/Paisajes_66_nlnnj1.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358596/Paisajes_65_h89hlc.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358594/Paisajes_64_hcga1p.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358593/Paisajes_63_zh7ini.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358592/Paisajes_62_wcu8la.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358590/Paisajes_61_ooydqu.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358589/Paisajes_60_xtzemh.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358587/Paisajes_59_iipy2s.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358586/Paisajes_58_fd9mqg.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358585/Paisajes_57_jsytpn.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358583/Paisajes_56_cuwr8o.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358582/Paisajes_55_vqzhye.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358581/Paisajes_54_b9tmtw.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358578/Paisajes_53_l2c4vs.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358578/Paisajes_52_fnbxgf.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358577/Paisajes_51_xsvjhk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358575/Paisajes_50_esiuss.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358573/Paisajes_49_ryssjf.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358572/Paisajes_48_k4cqmk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358570/Paisajes_47_obobth.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358565/Paisajes_46_tohaeo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358562/Paisajes_45_ch44ke.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358561/Paisajes_44_pibhss.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358559/Paisajes_43_phegba.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358558/Paisajes_42_kbnhxt.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358556/Paisajes_41_ju1cda.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358555/Paisajes_40_q6fudm.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358553/Paisajes_39_vmvdrg.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358552/Paisajes_38_vynib6.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358551/Paisajes_37_rlqhuo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358550/Paisajes_36_x7lidl.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358548/Paisajes_35_fsguka.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358547/Paisajes_34_ffqswq.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358545/Paisajes_33_y8m6xv.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358544/Paisajes_32_taisrr.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358543/Paisajes_31_er9ivw.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358541/Paisajes_30_zz68c4.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358540/Paisajes_29_zjbhpd.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358539/Paisajes_28_ktgkpk.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358537/Paisajes_27_hopywb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358535/Paisajes_26_ebtft0.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358535/Paisajes_25_opjwou.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358533/Paisajes_24_xiwpgo.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358532/Paisajes_23_tmcoh1.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358530/Paisajes_22_phzgpr.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358529/Paisajes_21_ddb9ed.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358527/Paisajes_20_kkmiys.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358525/Paisajes_18_wdssbn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358526/Paisajes_19_bxwpyl.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358524/Paisajes_17_hv9ejs.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358522/Paisajes_16_w0jh3p.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358506/Paisajes_14_wv1wvb.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358521/Paisajes_15_bdwxii.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358505/Paisajes_13_evw0s2.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358503/Paisajes_12_uqwc8v.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358500/Paisajes_11_x7te0v.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358499/Paisajes_10_k8wo6e.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358498/Paisajes_9_clrnei.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358497/Paisajes_8_gboybl.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358496/Paisajes_7_lesco6.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358495/Paisajes_6_o0g9q7.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358494/Paisajes_5_n7hmdp.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358492/Paisajes_4_o0f2vr.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358491/Paisajes_3_rkxvs3.jpg", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358490/Paisajes_2_ww4swn.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358488/Paisajes_1_mcwxqh.png", "https://res.cloudinary.com/dmzfkvrdx/image/upload/v1768358487/Paisajes_1_eiymmb.jpg"]
       }, 
       
-      "videos": [{"title": "Peticiones Cautivo", "type": "Short", "url": "https://youtube.com/shorts/soj_1jfpgJQ?feature=share", "duration": ""}, {"title": "Reel Fotografía", "type": "Short", "url": "https://youtube.com/shorts/7kwKI8YPnPs?feature=share", "duration": ""}, {"title": "Estaciones Metro Línea 1", "type": "Short", "url": "https://youtube.com/shorts/ZR1HHuTDx7M?feature=share", "duration": ""}, {"title": "Señor Cautivo de Ayabaca", "type": "Short", "url": "https://youtube.com/shorts/GmpMQ9eftTk?feature=share", "duration": ""}, {"title": "Fundación de Ayabaca", "type": "Short", "url": "https://youtube.com/shorts/oT-oG6X-9I8?feature=share", "duration": ""}, {"title": "Implementación del programa de formación docente en EIB en alianza con la UNAP", "type": "Institucional", "url": "https://youtu.be/I22CJX57ajg?si=UowNrWni0vNjtDfz", "duration": ""}, {"title": "Testimonio PID2025: una experiencia transformadora en el aula", "type": "Institucional", "url": "https://youtu.be/Ucbk65ek7Ig?si=UIzgdOS2rnwrwRYI", "duration": ""}, {"title": "Programa de Formación Docente en Educación Intercultural Bilingüe", "type": "Reel animado - Minedu", "url": "https://youtube.com/shorts/XxuHPYqxmuA?si=XU_0_HoykwPP0i-v", "duration": ""}, {"title": "4 TIPS QUE FORTALECEN TUS COMPETENCIAS", "type": "Reel Institucional", "url": "https://youtube.com/shorts/q0pj552EGUI?si=E9nyt0kx--B6BmGi", "duration": ""}, {"title": "¿Eres docente novel y te sumas a la Carrera Pública Magisterial este 2025?", "type": "Reel Institucional", "url": "https://youtube.com/shorts/dWN5g-ZsiHo?si=S91nilVHlbOHy_LB", "duration": ""}, {"title": "Formación Docente en Servicio 2025", "type": "Reel Institucional", "url": "https://youtube.com/shorts/RQBU3gqTfQM?si=7QNvfVhw_feDFX1g", "duration": ""}, {"title": "EIB Secundaria Pucallpa 2025", "type": "Institucional", "url": "https://youtu.be/i1zB8GGnS0s?si=pLOf45BlDCdDBiFT", "duration": ""}, {"title": "Programa de Formación docente en competencia lectora en en el distrito de Santa Rosa", "type": "Institucional", "url": "https://youtu.be/zAeSJq-sBkY?si=Ck9j5f2zeLaVyaW-", "duration": ""}, {"title": "Conoce a los docentes que ya viven el Programa de Inducción Docente – PID 2025", "type": "Institucional", "url": "https://youtu.be/K0Gkj-LBObo?si=L4ZSDcFIGbTihA87", "duration": ""}, {"title": "Programa de Formación para la integración de las tecnologías digitales en la práctica pedagógica", "type": "Institucional", "url": "https://youtu.be/1xYK2U5qp_k?si=UJJdt2CH6b-jVWUB", "duration": ""}, {"title": "Video Hogar San Judas 2013", "type": "Corporativo", "url": "https://youtu.be/QSh7i8oN1VM?si=wVXrh7iUmd_9BNnz", "duration": ""}, {"title": "Caminata a Rúpac 2014", "type": "Viajes", "url": "https://youtu.be/7_eUuxHeNOU?si=uA2BF2arxG8YoEZn", "duration": ""}, {"title": "Reel - Lagunas San Ignacio", "type": "Corporativo", "url": "https://youtu.be/mLJ0kkmpRJs?si=60J5T2UFtV1P_0L_", "duration": ""}, {"title": "PID Testimonio Alicia Arones - Moquegua", "type": "Corporativo", "url": "https://youtu.be/Xf4qjB2WWNQ?si=LyBwa2ckqYtw-ZBQ", "duration": ""}, {"title": "Activación - Campeonato de Remo interescolar - Regatas Lima", "type": "Corporativo", "url": "https://youtube.com/shorts/8y2aTw3dYqo?si=UR7bL1lQILk1LKep", "duration": ""}, {"title": "Graduación Sonia Baca en UCW - Un sueño hecho realidad", "type": "Corporativo", "url": "https://youtube.com/shorts/lp8Pvzcc8dI?si=uDYMCmtUAbfBcIZv", "duration": ""}, {"title": "EXPO UNIVERSIDAD VIDEO RESUMEN", "type": "Corporativo", "url": "https://youtu.be/-cgXsr_Rc7M?si=YoEspp6vfw4Y_KZT", "duration": ""}, {"title": "CPF - UNO DE LOS EVENTOS EDUCATIVOS MÁS GRANDES DE CANADÁ 🇨🇦", "type": "Corporativo", "url": "https://youtu.be/3vCr6eOFYqM?si=ZWRI6P9m3n5lURPd", "duration": ""}]
+      // IA CREATION CONTENT: para añadir un video, copia una línea y cambia el enlace y los títulos.
+      // "tool" es opcional (por ejemplo "Higgsfield").
+      "aiVideos": [
+        {"es": "Peticiones Cautivo", "en": "Petitions to the Cautivo", "url": "https://youtube.com/shorts/soj_1jfpgJQ", "tool": ""},
+        {"es": "Señor Cautivo de Ayabaca", "en": "Señor Cautivo of Ayabaca", "url": "https://youtube.com/shorts/GmpMQ9eftTk", "tool": ""},
+        {"es": "Fundación de Ayabaca", "en": "The Founding of Ayabaca", "url": "https://youtube.com/shorts/oT-oG6X-9I8", "tool": ""}
+      ],
+
+      "videos": [{"title": "Reel Fotografía", "type": "Short", "url": "https://youtube.com/shorts/7kwKI8YPnPs?feature=share", "duration": ""}, {"title": "Estaciones Metro Línea 1", "type": "Short", "url": "https://youtube.com/shorts/ZR1HHuTDx7M?feature=share", "duration": ""}, {"title": "Implementación del programa de formación docente en EIB en alianza con la UNAP", "type": "Institucional", "url": "https://youtu.be/I22CJX57ajg?si=UowNrWni0vNjtDfz", "duration": ""}, {"title": "Testimonio PID2025: una experiencia transformadora en el aula", "type": "Institucional", "url": "https://youtu.be/Ucbk65ek7Ig?si=UIzgdOS2rnwrwRYI", "duration": ""}, {"title": "Programa de Formación Docente en Educación Intercultural Bilingüe", "type": "Reel animado - Minedu", "url": "https://youtube.com/shorts/XxuHPYqxmuA?si=XU_0_HoykwPP0i-v", "duration": ""}, {"title": "4 TIPS QUE FORTALECEN TUS COMPETENCIAS", "type": "Reel Institucional", "url": "https://youtube.com/shorts/q0pj552EGUI?si=E9nyt0kx--B6BmGi", "duration": ""}, {"title": "¿Eres docente novel y te sumas a la Carrera Pública Magisterial este 2025?", "type": "Reel Institucional", "url": "https://youtube.com/shorts/dWN5g-ZsiHo?si=S91nilVHlbOHy_LB", "duration": ""}, {"title": "Formación Docente en Servicio 2025", "type": "Reel Institucional", "url": "https://youtube.com/shorts/RQBU3gqTfQM?si=7QNvfVhw_feDFX1g", "duration": ""}, {"title": "EIB Secundaria Pucallpa 2025", "type": "Institucional", "url": "https://youtu.be/i1zB8GGnS0s?si=pLOf45BlDCdDBiFT", "duration": ""}, {"title": "Programa de Formación docente en competencia lectora en en el distrito de Santa Rosa", "type": "Institucional", "url": "https://youtu.be/zAeSJq-sBkY?si=Ck9j5f2zeLaVyaW-", "duration": ""}, {"title": "Conoce a los docentes que ya viven el Programa de Inducción Docente – PID 2025", "type": "Institucional", "url": "https://youtu.be/K0Gkj-LBObo?si=L4ZSDcFIGbTihA87", "duration": ""}, {"title": "Programa de Formación para la integración de las tecnologías digitales en la práctica pedagógica", "type": "Institucional", "url": "https://youtu.be/1xYK2U5qp_k?si=UJJdt2CH6b-jVWUB", "duration": ""}, {"title": "Video Hogar San Judas 2013", "type": "Corporativo", "url": "https://youtu.be/QSh7i8oN1VM?si=wVXrh7iUmd_9BNnz", "duration": ""}, {"title": "Caminata a Rúpac 2014", "type": "Viajes", "url": "https://youtu.be/7_eUuxHeNOU?si=uA2BF2arxG8YoEZn", "duration": ""}, {"title": "Reel - Lagunas San Ignacio", "type": "Corporativo", "url": "https://youtu.be/mLJ0kkmpRJs?si=60J5T2UFtV1P_0L_", "duration": ""}, {"title": "PID Testimonio Alicia Arones - Moquegua", "type": "Corporativo", "url": "https://youtu.be/Xf4qjB2WWNQ?si=LyBwa2ckqYtw-ZBQ", "duration": ""}, {"title": "Activación - Campeonato de Remo interescolar - Regatas Lima", "type": "Corporativo", "url": "https://youtube.com/shorts/8y2aTw3dYqo?si=UR7bL1lQILk1LKep", "duration": ""}, {"title": "Graduación Sonia Baca en UCW - Un sueño hecho realidad", "type": "Corporativo", "url": "https://youtube.com/shorts/lp8Pvzcc8dI?si=uDYMCmtUAbfBcIZv", "duration": ""}, {"title": "EXPO UNIVERSIDAD VIDEO RESUMEN", "type": "Corporativo", "url": "https://youtu.be/-cgXsr_Rc7M?si=YoEspp6vfw4Y_KZT", "duration": ""}, {"title": "CPF - UNO DE LOS EVENTOS EDUCATIVOS MÁS GRANDES DE CANADÁ 🇨🇦", "type": "Corporativo", "url": "https://youtu.be/3vCr6eOFYqM?si=ZWRI6P9m3n5lURPd", "duration": ""}]
     };
 
     // DATA DE DETALLE DE SERVICIOS
@@ -929,6 +1033,12 @@
         btnMoreVideos: "Mostrar más",
         btnLessVideos: "Mostrar menos",
 
+        navAI: "IA Creation",
+        aiKicker: "Hecho con IA",
+        aiSub: "Contenido creado con inteligencia artificial bajo mi dirección creativa: idea, guion, estética y edición.",
+        aiLabel: "Creado con IA",
+        aiPlay: "Reproducir",
+
         aboutKicker: "Perfil",
         aboutTitle: "Sobre mí",
         aboutBio: "Soy un comunicador que piensa como estratega y mira como artista. Mi carrera se ha forjado en la intersección entre la dirección creativa y la fotografía documental y de moda. Me inspira la atemporalidad de los grandes maestros y la agilidad del mundo digital actual. Tras dos décadas gestionando proyectos de alto impacto en educación y branding, hoy pongo mi experiencia al servicio de marcas que necesitan algo más que estética: necesitan alma, narrativa y coherencia visual.",
@@ -971,6 +1081,12 @@
         videosSub: "A selection of institutional, corporate and short-form work.",
         btnMoreVideos: "Show more",
         btnLessVideos: "Show less",
+
+        navAI: "AI Creation",
+        aiKicker: "Made with AI",
+        aiSub: "Content created with artificial intelligence under my creative direction: concept, script, look and editing.",
+        aiLabel: "Created with AI",
+        aiPlay: "Play",
 
         aboutKicker: "Profile",
         aboutTitle: "About",
@@ -1036,6 +1152,7 @@
       renderServicesGrid();
       renderWorkCards();
       renderVideos();
+      renderAiVideos();
     }
 
     // Hero Rotator
@@ -1412,6 +1529,80 @@
       renderVideos();
     });
 
+    // IA Creation Content (vertical, carga el video solo al pulsar)
+    const AI_PREVIEW_COUNT = 8;
+    let aiExpanded = false;
+
+    function renderAiVideos(){
+      const grid = document.getElementById("aiGrid");
+      if (!grid) return;
+      grid.innerHTML = "";
+      const all = DATA.aiVideos || [];
+      const list = aiExpanded ? all : all.slice(0, AI_PREVIEW_COUNT);
+
+      list.forEach(v=>{
+        const id = youtubeId(v.url);
+        const title = (LANG==="en" && v.en) ? v.en : v.es;
+
+        const card = document.createElement("div");
+        card.className = "ai-card";
+
+        const thumb = document.createElement("div");
+        thumb.className = "ai-thumb";
+
+        const img = document.createElement("img");
+        img.loading = "lazy";
+        img.alt = title;
+        img.src = id ? `https://i.ytimg.com/vi/${id}/oardefault.jpg` : "";
+        img.onerror = () => { img.onerror = null; img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; };
+
+        const play = document.createElement("button");
+        play.className = "ai-play";
+        play.type = "button";
+        play.setAttribute("aria-label", `${t("aiPlay")}: ${title}`);
+
+        const start = ()=>{
+          if (!id) return;
+          const iframe = document.createElement("iframe");
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+          iframe.title = title;
+          iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+          thumb.innerHTML = "";
+          thumb.style.cursor = "default";
+          thumb.appendChild(iframe);
+        };
+        thumb.addEventListener("click", start, { once:true });
+
+        thumb.appendChild(img);
+        thumb.appendChild(play);
+
+        const meta = document.createElement("div");
+        meta.className = "ai-meta";
+        const h3 = document.createElement("h3");
+        h3.textContent = title;
+        const p = document.createElement("p");
+        p.textContent = [t("aiLabel"), v.tool].filter(Boolean).join(" · ");
+        meta.appendChild(h3);
+        meta.appendChild(p);
+
+        card.appendChild(thumb);
+        card.appendChild(meta);
+        grid.appendChild(card);
+      });
+
+      const btn = document.getElementById("toggleAiBtn");
+      if (btn) {
+        btn.style.display = (all.length > AI_PREVIEW_COUNT) ? "inline-flex" : "none";
+        btn.textContent = aiExpanded ? t("btnLessVideos") : t("btnMoreVideos");
+      }
+    }
+
+    document.getElementById("toggleAiBtn").addEventListener("click", ()=>{
+      aiExpanded = !aiExpanded;
+      renderAiVideos();
+    });
+
     // SISTEMA DE DEEP LINKING (Apertura por URL #hash)
     function checkHashRoute(){
       const hash = window.location.hash.replace('#', '');
@@ -1443,6 +1634,7 @@
       renderServicesGrid();
       renderWorkCards();
       renderVideos();
+      renderAiVideos();
       setTimeout(checkHashRoute, 300);
     })();
   </script>
