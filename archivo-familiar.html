@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Álbum Digital Familiar & Árbol Genealógico | Miguel Piscoya</title>
+  <meta name="description" content="Digitalizo los álbumes de tu familia, mejoro cada foto y armo un archivo privado en la web, con su árbol genealógico. Desde S/ 700." />
+  <meta property="og:title" content="Álbum Digital Familiar & Árbol Genealógico – Miguel Piscoya" />
+  <meta property="og:description" content="Las fotos de tu familia, rescatadas y en un archivo privado con su árbol genealógico. Desde S/ 700." />
+  <meta property="og:image" content="https://miguelpiscoya.com/archivo-familiar/versalles-despues.jpg" />
+  <meta property="og:url" content="https://miguelpiscoya.com/archivo-familiar.html" />
+  <link rel="canonical" href="https://miguelpiscoya.com/archivo-familiar.html" />
+  <style>
+    /* Mismo sistema que miguelpiscoya.com: fondo crema, texto negro, tarjetas blancas, botones negros. Acento sepia de foto antigua. */
+    :root{
+      --bg:#f7f7f3; --text:#111; --muted:#5f5f5a; --line:#e6e6e0; --card:#fff;
+      --sepia:#8a5a2b; --sepia-soft:#f1e8dc;
+      --shadow:0 10px 24px rgba(0,0,0,.06); --radius:18px; --max:1080px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px}
+    img,video{max-width:100%;display:block}
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+    header.top{position:sticky;top:0;z-index:20;background:rgba(247,247,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px}
+    .marca{font-weight:800;letter-spacing:-.02em;text-decoration:none;font-size:17px}
+    .acciones{display:flex;align-items:center;gap:10px}
+    .lang-switch{display:flex;background:#ecece6;border-radius:18px;padding:3px}
+    .lang-btn{border:0;background:transparent;padding:4px 10px;font-size:12px;font-weight:600;border-radius:16px;cursor:pointer;color:#555}
+    .lang-btn.active{background:#111;color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid #111}
+    .btn-primary{background:#111;color:#fff}
+    .btn-sec{background:#fff;color:#111}
+    .btn:focus-visible,.lang-btn:focus-visible,summary:focus-visible{outline:3px solid rgba(17,17,17,.25);outline-offset:2px}
+    main section{padding-block:56px;border-bottom:1px solid var(--line)}
+    main section:last-of-type{border-bottom:0}
+    .kicker{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--sepia);margin:0 0 10px}
+    h1,h2,h3{margin:0;letter-spacing:-.025em;text-wrap:balance}
+    h1{font-size:clamp(34px,6vw,58px);line-height:1.05;font-weight:800}
+    h2{font-size:clamp(26px,4vw,38px);line-height:1.12;font-weight:800;margin-bottom:12px}
+    h3{font-size:18px;font-weight:700}
+    p{margin:0}
+    .lead{font-size:clamp(17px,2.2vw,19px);color:var(--muted);max-width:62ch}
+    .hero{display:grid;gap:22px;padding-block:56px 48px}
+    .hero .botones{display:flex;flex-wrap:wrap;gap:10px}
+    .cifras{display:flex;flex-wrap:wrap;gap:22px 40px;padding-top:20px;border-top:1px solid var(--line)}
+    .cifras b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+    .cifras span{font-size:13px;color:var(--muted)}
+
+    /* Paso a paso */
+    .demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:40px;align-items:center}
+    .telefono{background:#111;border-radius:34px;padding:10px;box-shadow:var(--shadow);max-width:360px;justify-self:center;width:100%}
+    .telefono video{border-radius:26px;width:100%;height:auto;aspect-ratio:488/1036;background:#222}
+    ol.pasos{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px;counter-reset:p}
+    ol.pasos li{counter-increment:p;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:baseline}
+    ol.pasos li::before{content:counter(p);font-weight:800;color:var(--sepia);font-size:18px}
+    .nota{font-size:13px;color:var(--muted)}
+
+    /* Antes / después */
+    .comparativas{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:22px}
+    figure{margin:0;display:grid;gap:8px}
+    .comparar{position:relative;border-radius:14px;overflow:hidden;background:#ddd;box-shadow:var(--shadow);touch-action:pan-y}
+    .comparar img{width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+    .comparar .antes{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0)}
+    .comparar .linea{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+    .comparar .linea::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+    .comparar input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+    .etq{position:absolute;top:10px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(17,17,17,.72);color:#fff;padding:3px 8px;border-radius:99px;pointer-events:none}
+    .etq.a{left:10px}.etq.d{right:10px}
+    figcaption{font-size:14px;color:var(--muted)}
+
+    /* Qué recibe */
+    .tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px}
+    .tarjetas article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:grid;gap:6px;align-content:start}
+    .tarjetas p{color:var(--muted);font-size:15px}
+
+    /* Paquetes */
+    .paquetes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:22px}
+    .paquete{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:grid;gap:12px;align-content:start}
+    .paquete.destacado{border:2px solid #111;box-shadow:var(--shadow)}
+    .paquete .sello{justify-self:start;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sepia);background:var(--sepia-soft);border-radius:99px;padding:3px 10px}
+    .precio{font-size:38px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+    .precio small{display:block;font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:6px}
+    .paquete ul{margin:0;padding-left:18px;color:#222;font-size:15px}
+    .paquete .fotos{font-size:14px;color:var(--muted)}
+    .extras{display:grid;margin-top:18px;border-top:1px solid var(--line)}
+    .extras div{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line)}
+    .extras span:first-child{flex:1 1 260px;min-width:0}
+    .extras span:last-child{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+    /* Proceso y preguntas */
+    ol.proceso{list-style:none;padding:0;margin:22px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;counter-reset:s}
+    ol.proceso li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:4px}
+    ol.proceso li::before{content:counter(s);font-size:24px;font-weight:800;color:var(--sepia)}
+    ol.proceso span{font-size:14px;color:var(--muted)}
+    .preguntas{display:grid;gap:10px;margin-top:22px;max-width:780px}
+    details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+    summary{cursor:pointer;font-weight:700}
+    details p{margin-top:8px;color:var(--muted)}
+
+    /* Cierre */
+    .cierre{background:#111;color:#f7f7f3;border-radius:24px;padding:36px 28px;display:grid;gap:14px;margin-block:56px}
+    .cierre h2{color:#fff}
+    .cierre p{color:#d8d8d0;max-width:60ch}
+    .cierre .btn-primary{background:#fff;color:#111;border-color:#fff}
+    .cierre .btn-sec{background:transparent;color:#fff;border-color:#777}
+    .cierre .datos{font-size:15px;color:#fff}
+    .cierre .datos span{user-select:all;font-weight:600}
+    footer{padding-block:24px 48px;font-size:13px;color:var(--muted)}
+    @media (max-width:820px){ .demo{grid-template-columns:1fr} .telefono{max-width:320px} main section{padding-block:44px} }
+    @media (prefers-reduced-motion:reduce){ video{animation:none} }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="marca" href="/" data-t="volver">← Miguel Piscoya</a>
+      <div class="acciones">
+        <div class="lang-switch"><button class="lang-btn active" id="langES" type="button">ES</button><button class="lang-btn" id="langEN" type="button">EN</button></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <p class="kicker" data-t="kicker">Servicio</p>
+      <h1 data-t="titulo">Álbum Digital Familiar & Árbol Genealógico</h1>
+      <p class="lead" data-t="lead">Digitalizo los álbumes de tu familia, mejoro cada foto y armo un archivo privado en la web. Tus familiares miran las fotos desde el celular, cuentan quién aparece en cada una y, con eso, se va armando el árbol genealógico.</p>
+      <div class="botones">
+        <a class="btn btn-primary" id="waHero" href="https://wa.me/51943753742" target="_blank" rel="noopener" data-t="ctaWa">Cotizar por WhatsApp</a>
+        <a class="btn btn-sec" href="#paquetes" data-t="ctaPrecios">Ver precios</a>
+      </div>
+      <div class="cifras">
+        <div><b>10</b><span data-t="c1">álbumes digitalizados</span></div>
+        <div><b>857</b><span data-t="c2">fotos mejoradas</span></div>
+        <div><b>71</b><span data-t="c3">historias escritas</span></div>
+        <div><b>1</b><span data-t="c4">árbol familiar que crece con cada foto</span></div>
+      </div>
+      <p class="nota" data-t="cNota">Cifras de un archivo familiar real que ya está funcionando.</p>
+    </div>
+
+    <section id="como-funciona">
+      <div class="demo">
+        <div>
+          <p class="kicker" data-t="k2">Cómo funciona</p>
+          <h2 data-t="h2">La familia completa el archivo desde el celular</h2>
+          <p class="lead" data-t="p2">Así lo vive un familiar, paso a paso:</p>
+          <ol class="pasos">
+            <li data-t="s1">Se registra con su correo y su año de nacimiento. Sin contraseñas.</li>
+            <li data-t="s2">Abre un álbum y toca una foto.</li>
+            <li data-t="s3">Pulsa «¿Reconoces a alguien?» y dice quién es: «Mi papá, Luis».</li>
+            <li data-t="s4">Toda la familia ve el nombre en la foto, y el árbol suma a esa persona.</li>
+            <li data-t="s5">Cada persona tiene su página con sus fotos y sus recuerdos.</li>
+          </ol>
+          <p class="nota" style="margin-top:16px" data-t="demoNota">Demostración con una familia ficticia. Los archivos reales son privados: solo los ve la familia.</p>
+        </div>
+        <div class="telefono">
+          <video id="demoVideo" autoplay muted loop playsinline preload="metadata" poster="archivo-familiar/demo-portada.jpg" aria-label="Demostración paso a paso del archivo familiar">
+            <source src="archivo-familiar/demo-es.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section id="retoque">
+      <p class="kicker" data-t="k3">El retoque</p>
+      <h2 data-t="h3">La misma foto, como se veía el día que la tomaron</h2>
+      <p class="lead" data-t="p3">Las cámaras de entonces no medían bien la luz, y los años dejan las fotos rojizas y apagadas. Corrijo el brillo, el contraste, la nitidez y el tono gastado, sin cambiar la foto. Desliza para comparar.</p>
+      <div class="comparativas" id="comparativas"></div>
+    </section>
+
+    <section id="incluye">
+      <p class="kicker" data-t="k4">Qué recibe tu familia</p>
+      <h2 data-t="h4">Mucho más que una carpeta con fotos escaneadas</h2>
+      <div class="tarjetas">
+        <article><h3 data-t="t1">Fotos rescatadas</h3><p data-t="t1p">Escaneo cada página, recorto y enderezo cada foto, y mejoro su brillo, contraste y nitidez. Las de blanco y negro siguen en blanco y negro.</p></article>
+        <article><h3 data-t="t2">Un archivo privado</h3><p data-t="t2p">Solo entra la familia. Funciona en cualquier celular, tablet o computadora, y está pensado para que los mayores entren sin ayuda.</p></article>
+        <article><h3 data-t="t3">Historias junto a cada foto</h3><p data-t="t3p">Quién aparece, dónde fue, en qué año y la anécdota. Se busca por persona, lugar o década.</p></article>
+        <article><h3 data-t="t4">Árbol genealógico desde las fotos</h3><p data-t="t4p">Cada familiar dice quién es quién en las fotos y el árbol crece. Cada uno ve su rama resaltada.</p></article>
+        <article><h3 data-t="t5">Aviso semanal</h3><p data-t="t5p">La dueña o el dueño del archivo recibe cada lunes quién entró, y puede quitar el acceso con un clic.</p></article>
+        <article><h3 data-t="t6">Tus originales, seguros</h3><p data-t="t6p">Los álbumes vuelven intactos, y entrego también las fotos en alta calidad para guardar.</p></article>
+      </div>
+    </section>
+
+    <section id="paquetes">
+      <p class="kicker" data-t="k5">Paquetes</p>
+      <h2 data-t="h5">S/ 4 por foto, con descuento por volumen</h2>
+      <p class="lead" data-t="p5">Todos incluyen el archivo privado, el registro de familiares y el aviso semanal. Un álbum tiene, en promedio, entre 70 y 90 fotos.</p>
+      <div class="paquetes">
+        <article class="paquete">
+          <h3 data-t="pk1n">Recuerdos</h3>
+          <p class="fotos" data-t="pk1f">Hasta 175 fotos · unos 2 álbumes</p>
+          <p class="precio">S/ 700<small data-t="pk1u">S/ 4,0 por foto</small></p>
+          <ul data-t="pk1l"><li>Digitalización y recorte de cada foto</li><li>Mejora de brillo, contraste y nitidez</li><li>Archivo privado con registro</li><li>Aviso semanal</li></ul>
+        </article>
+        <article class="paquete destacado">
+          <span class="sello" data-t="sello">El más elegido</span>
+          <h3 data-t="pk2n">Familia</h3>
+          <p class="fotos" data-t="pk2f">Hasta 350 fotos · unos 4 álbumes</p>
+          <p class="precio">S/ 1 300<small data-t="pk2u">S/ 3,7 por foto</small></p>
+          <ul data-t="pk2l"><li>Todo lo de Recuerdos</li><li>Historias de 20 fotos</li><li>Árbol genealógico inicial</li></ul>
+        </article>
+        <article class="paquete">
+          <h3 data-t="pk3n">Legado</h3>
+          <p class="fotos" data-t="pk3f">Hasta 700 fotos · unos 8 álbumes</p>
+          <p class="precio">S/ 2 400<small data-t="pk3u">S/ 3,4 por foto</small></p>
+          <ul data-t="pk3l"><li>Todo lo de Familia</li><li>Historias de 50 fotos</li><li>Árbol genealógico completo</li><li>Dominio propio el primer año</li></ul>
+        </article>
+      </div>
+      <p class="nota" style="margin-top:14px" data-t="pkNota">Fotos adicionales: S/ 4 cada una (S/ 3 desde la foto 501). Incluye el primer año de alojamiento y soporte.</p>
+      <h3 style="margin-top:32px" data-t="exT">Extras</h3>
+      <div class="extras">
+        <div><span data-t="ex1">Sesión de entrevista (2 horas) para recoger nombres e historias</span><span>S/ 150</span></div>
+        <div><span data-t="ex2">Video corto con una foto que cobra vida (30 segundos), ideal para regalar</span><span>S/ 250</span></div>
+        <div><span data-t="ex3">Dominio propio para el archivo, por año</span><span>S/ 80</span></div>
+        <div><span data-t="ex4">Mantenimiento anual desde el segundo año: alojamiento, nuevas fotos y soporte</span><span>S/ 180 – 250</span></div>
+      </div>
+    </section>
+
+    <section id="proceso">
+      <p class="kicker" data-t="k6">Cómo trabajamos</p>
+      <h2 data-t="h6">De la caja de fotos al archivo de toda la familia</h2>
+      <ol class="proceso">
+        <li><b data-t="pr1">Conversación sin costo</b><span data-t="pr1p">Vemos cuántos álbumes hay, su estado y qué paquete conviene.</span></li>
+        <li><b data-t="pr2">Recojo de los álbumes</b><span data-t="pr2p">Dejo constancia de lo que recibo. Se paga el 50 % para empezar.</span></li>
+        <li><b data-t="pr3">Digitalización y mejora</b><span data-t="pr3p">Escaneo, recorto y mejoro brillo, contraste y nitidez.</span></li>
+        <li><b data-t="pr4">Historias y árbol</b><span data-t="pr4p">Con la familia anotamos quién aparece y armamos el árbol.</span></li>
+        <li><b data-t="pr5">Entrega</b><span data-t="pr5p">Devuelvo los álbumes y les enseño a usar el archivo. Se paga el 50 % restante.</span></li>
+      </ol>
+    </section>
+
+    <section id="preguntas">
+      <p class="kicker" data-t="k7">Preguntas frecuentes</p>
+      <h2 data-t="h7">Lo que suelen preguntar las familias</h2>
+      <div class="preguntas">
+        <details><summary data-t="q1">¿Quién puede ver las fotos?</summary><p data-t="a1">Solo quien se registra en el archivo. Las fotos no se publican en redes ni en ningún sitio público, y la dueña o el dueño del archivo puede quitar el acceso a quien no corresponda.</p></details>
+        <details><summary data-t="q2">¿Mis papás o abuelos van a poder entrar?</summary><p data-t="a2">Sí, está pensado para ellos. No hay contraseñas: entran con su correo y su año de nacimiento, y después todo se hace tocando la pantalla.</p></details>
+        <details><summary data-t="q3">¿Le cambian algo a las fotos?</summary><p data-t="a3">No. Solo corrijo lo que la cámara de esa época no pudo medir bien: brillo, contraste, nitidez y el tono gastado. Las fotos en blanco y negro o sepia conservan su tono. Colorear una foto o darle movimiento es un trabajo aparte.</p></details>
+        <details><summary data-t="q4">¿En cuánto tiempo está listo?</summary><p data-t="a4">Como referencia, desde que recibo los álbumes: Recuerdos, alrededor de 1 semana; Familia, alrededor de 2 semanas; Legado, de 3 a 4 semanas. Confirmo la fecha al recoger los álbumes.</p></details>
+        <details><summary data-t="q5">¿Entregas comprobante de pago?</summary><p data-t="a5">Sí. Por cada pago emito un recibo por honorarios electrónico.</p></details>
+        <details><summary data-t="q6">¿Qué pasa después del primer año?</summary><p data-t="a6">El archivo sigue en línea con el mantenimiento anual. Si deciden no renovarlo, les entrego todas las fotos en alta calidad.</p></details>
+      </div>
+    </section>
+
+    <div class="cierre" id="contacto">
+      <p class="kicker" style="color:#d6a46c" data-t="k8">Conversemos</p>
+      <h2 data-t="h8">¿Tienes álbumes guardados en una caja?</h2>
+      <p data-t="p8">Cuéntame cuántos son y en qué estado están. Te digo qué paquete conviene y cuándo podemos empezar.</p>
+      <div class="botones" style="display:flex;flex-wrap:wrap;gap:10px">
+        <a class="btn btn-primary" id="waCierre" href="https://wa.me/51943753742" target="_blank" rel="noopener" data-t="ctaWa2">Escribir por WhatsApp</a>
+      </div>
+      <p class="datos">WhatsApp: <span>+51 943 753 742</span> · <span data-t="correo">Correo</span>: <span>piscoyacampos@gmail.com</span></p>
+    </div>
+  </main>
+  <footer class="wrap"><span data-t="pie">Miguel Piscoya · Director creativo y fotógrafo · Precios en soles (S/), válidos para 2026.</span></footer>
+
+  <script>
+  (() => {
+    const COMPARATIVAS = [
+      { id: 'versalles', es: 'Palacio de Versalles, 1968. El tono rojizo del revelado se va y vuelve el cielo.', en: 'Palace of Versailles, 1968. The reddish cast fades and the sky comes back.' },
+      { id: 'iguazu', es: 'Cataratas del Iguazú, 1970. Recupera el verde de la selva y el blanco del agua.', en: 'Iguazú Falls, 1970. The green of the jungle and the white of the water return.' },
+      { id: 'carretera', es: 'Carretera Central, 1977. Más nitidez en el auto y en la pista.', en: 'Central Highway, 1977. Sharper car and road.' },
+      { id: 'huaraz', es: 'Huaraz, 1977. Se distinguen las casas y la montaña.', en: 'Huaraz, 1977. The houses and the mountains stand out.' },
+      { id: 'estadio', es: 'Huaraz, 1963. La foto en blanco y negro conserva su tono: solo gana contraste.', en: 'Huaraz, 1963. The black-and-white photo keeps its tone; it only gains contrast.' },
+      { id: 'arequipa', es: 'Convento de Santa Catalina, Arequipa, 1979.', en: 'Santa Catalina Monastery, Arequipa, 1979.' }
+    ];
+    const EN = {
+      volver: '← Miguel Piscoya', kicker: 'Service', titulo: 'Digital Family Album & Family Tree',
+      lead: "I digitize your family's albums, enhance every photo and build a private online archive. Your relatives browse the photos on their phones, say who appears in each one, and the family tree grows from there.",
+      ctaWa: 'Get a quote on WhatsApp', ctaPrecios: 'See prices',
+      c1: 'albums digitized', c2: 'photos enhanced', c3: 'stories written', c4: 'family tree that grows with every photo',
+      cNota: 'Figures from a real family archive already in use.',
+      k2: 'How it works', h2: 'The family completes the archive from their phones', p2: 'This is what a relative does, step by step:',
+      s1: 'Signs up with their email and year of birth. No passwords.', s2: 'Opens an album and taps a photo.',
+      s3: 'Taps "Do you recognize someone?" and says who it is: "My dad, Luis".',
+      s4: 'The whole family sees the name on the photo, and the tree adds that person.', s5: 'Each person has a page with their photos and memories.',
+      demoNota: 'Demo with a fictional family. Real archives are private: only the family can see them. The archive itself is in Spanish.',
+      k3: 'The touch-up', h3: 'The same photo, as it looked the day it was taken',
+      p3: "Cameras back then didn't measure light well, and the years leave photos reddish and dull. I correct brightness, contrast, sharpness and faded tones, without changing the photo. Slide to compare.",
+      k4: 'What your family gets', h4: 'Much more than a folder of scanned photos',
+      t1: 'Rescued photos', t1p: 'I scan each page, crop and straighten each photo, and enhance its brightness, contrast and sharpness. Black-and-white photos stay black and white.',
+      t2: 'A private archive', t2p: 'Only the family gets in. It works on any phone, tablet or computer, and is designed so older relatives can use it on their own.',
+      t3: 'Stories next to every photo', t3p: 'Who appears, where it was, what year and the story behind it. Search by person, place or decade.',
+      t4: 'A family tree built from the photos', t4p: 'Each relative says who is who in the photos and the tree grows. Everyone sees their own branch highlighted.',
+      t5: 'Weekly update', t5p: 'The archive owner gets a weekly email with who signed in, and can remove access in one click.',
+      t6: 'Your originals, safe', t6p: 'Your albums come back intact, and you also get every photo in high quality to keep.',
+      k5: 'Packages', h5: 'S/ 4 per photo, with volume discounts',
+      p5: 'All include the private archive, family sign-up and the weekly update. An album holds 70 to 90 photos on average. Prices in Peruvian soles (S/).',
+      pk1n: 'Memories', pk1f: 'Up to 175 photos · about 2 albums', pk1u: 'S/ 4.0 per photo',
+      pk1l: '<li>Scanning and cropping of every photo</li><li>Brightness, contrast and sharpness enhancement</li><li>Private archive with sign-up</li><li>Weekly update</li>',
+      sello: 'Most popular', pk2n: 'Family', pk2f: 'Up to 350 photos · about 4 albums', pk2u: 'S/ 3.7 per photo',
+      pk2l: '<li>Everything in Memories</li><li>Stories for 20 photos</li><li>Starter family tree</li>',
+      pk3n: 'Legacy', pk3f: 'Up to 700 photos · about 8 albums', pk3u: 'S/ 3.4 per photo',
+      pk3l: '<li>Everything in Family</li><li>Stories for 50 photos</li><li>Complete family tree</li><li>Custom domain for the first year</li>',
+      pkNota: 'Additional photos: S/ 4 each (S/ 3 from photo 501). Includes the first year of hosting and support.',
+      exT: 'Extras', ex1: 'Interview session (2 hours) to collect names and stories', ex2: 'Short video of a photo coming to life (30 seconds), a great gift',
+      ex3: 'Custom domain for the archive, per year', ex4: 'Yearly maintenance from the second year: hosting, new photos and support',
+      k6: 'How we work', h6: 'From a box of photos to an archive for the whole family',
+      pr1: 'Free consultation', pr1p: 'We look at how many albums there are, their condition and which package fits.',
+      pr2: 'Album pickup', pr2p: 'I give you a record of what I receive. 50% is paid to start.',
+      pr3: 'Scanning and enhancement', pr3p: 'I scan, crop and enhance brightness, contrast and sharpness.',
+      pr4: 'Stories and tree', pr4p: 'Together with the family we note who appears and build the tree.',
+      pr5: 'Delivery', pr5p: 'I return the albums and show you how to use the archive. The remaining 50% is paid.',
+      k7: 'FAQ', h7: 'What families usually ask',
+      q1: 'Who can see the photos?', a1: "Only people who sign up to the archive. The photos aren't posted on social media or any public site, and the archive owner can remove anyone's access.",
+      q2: 'Will my parents or grandparents be able to use it?', a2: "Yes, it's designed for them. No passwords: they sign in with their email and year of birth, and everything else is done by tapping the screen.",
+      q3: 'Do you change the photos?', a3: "No. I only correct what the cameras of the time couldn't measure: brightness, contrast, sharpness and faded tones. Black-and-white or sepia photos keep their tone. Colorizing a photo or animating it is a separate job.",
+      q4: 'How long does it take?', a4: 'As a guide, from when I receive the albums: Recuerdos, about 1 week; Family, about 2 weeks; Legacy, 3 to 4 weeks. I confirm the date when I pick up the albums.',
+      q5: 'Do you issue a receipt?', a5: 'Yes. I issue an electronic fee receipt (recibo por honorarios) for each payment.',
+      q6: 'What happens after the first year?', a6: "The archive stays online with yearly maintenance. If you decide not to renew, I hand over every photo in high quality.",
+      k8: "Let's talk", h8: 'Do you have albums stored in a box?', p8: "Tell me how many there are and what condition they're in. I'll tell you which package fits and when we can start.",
+      ctaWa2: 'Message me on WhatsApp', correo: 'Email',
+      pie: 'Miguel Piscoya · Creative director and photographer · Prices in Peruvian soles (S/), valid for 2026.'
+    };
+    const ES = {};
+    document.querySelectorAll('[data-t]').forEach(el => { ES[el.dataset.t] = el.innerHTML; });
+    const MSG = { es: 'Hola Miguel, quisiera cotizar el Álbum Digital Familiar & Árbol Genealógico.',
+                  en: "Hi Miguel, I'd like a quote for the Digital Family Album & Family Tree." };
+    let LANG = 'es';
+
+    function comparativas() {
+      const caja = document.getElementById('comparativas');
+      caja.innerHTML = COMPARATIVAS.map(c => `
+        <figure>
+          <div class="comparar" style="--pos:50%">
+            <img src="archivo-familiar/${c.id}-despues.jpg" alt="" loading="lazy" width="1200">
+            <img class="antes" src="archivo-familiar/${c.id}-antes.jpg" alt="" loading="lazy">
+            <span class="etq a">${LANG === 'en' ? 'Before' : 'Antes'}</span><span class="etq d">${LANG === 'en' ? 'After' : 'Después'}</span>
+            <span class="linea"></span>
+            <input type="range" min="0" max="100" value="50" aria-label="${LANG === 'en' ? 'Compare before and after' : 'Comparar antes y después'}">
+          </div>
+          <figcaption>${c[LANG]}</figcaption>
+        </figure>`).join('');
+      caja.querySelectorAll('.comparar').forEach(box => {
+        const r = box.querySelector('input');
+        r.addEventListener('input', () => box.style.setProperty('--pos', r.value + '%'));
+      });
+    }
+
+    function setLang(l) {
+      LANG = l;
+      document.documentElement.lang = l;
+      document.getElementById('langES').classList.toggle('active', l === 'es');
+      document.getElementById('langEN').classList.toggle('active', l === 'en');
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const k = el.dataset.t, v = l === 'en' ? EN[k] : ES[k];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      document.title = l === 'en' ? 'Digital Family Album & Family Tree | Miguel Piscoya' : 'Álbum Digital Familiar & Árbol Genealógico | Miguel Piscoya';
+      ['waHero', 'waCierre'].forEach(id => { document.getElementById(id).href = 'https://wa.me/51943753742?text=' + encodeURIComponent(MSG[l]); });
+      const v = document.getElementById('demoVideo'), src = `archivo-familiar/demo-${l}.mp4`;
+      if (!v.currentSrc.endsWith(src)) { v.querySelector('source').src = src; v.load(); v.play().catch(() => {}); }
+      comparativas();
+    }
+
+    document.getElementById('langES').addEventListener('click', () => setLang('es'));
+    document.getElementById('langEN').addEventListener('click', () => setLang('en'));
+    const urlLang = new URLSearchParams(location.search).get('lang');
+    const idiomas = navigator.languages || [navigator.language || ''];
+    const browserEn = idiomas.some(x => /^en/i.test(x)) && !idiomas.some(x => /^es/i.test(x));
+    setLang(urlLang === 'en' || (urlLang !== 'es' && browserEn) ? 'en' : 'es');
+  })();
+  </script>
+</body>
+</html>

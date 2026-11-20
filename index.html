@@ -1100,12 +1100,14 @@
           itemsTitle: "¿Qué abarca el servicio?",
           items: [
             "<strong>Escaneo profesional:</strong> Digitalización en alta calidad de fotos, documentos y recuerdos impresos.",
-            "<strong>Restauración y orden:</strong> Corrección de color, limpieza de daños y organización por épocas, personas y lugares.",
+            "<strong>Mejora y orden:</strong> Brillo, contraste y nitidez de cada foto, sin cambiarla, y organización por épocas, personas y lugares.",
             "<strong>Álbum digital familiar:</strong> Una web privada y fácil de usar para ver y compartir las fotos con toda la familia.",
             "<strong>Árbol genealógico:</strong> Quién es quién, conectado a sus fotos, para que las nuevas generaciones conozcan sus raíces."
           ],
           idealTitle: "Ideal para:",
-          ideal: "Familias que quieren conservar su historia, familias con parientes en otros países, aniversarios, reuniones familiares y regalos con significado."
+          ideal: "Familias que quieren conservar su historia, familias con parientes en otros países, aniversarios, reuniones familiares y regalos con significado.",
+          moreLink: "archivo-familiar.html",
+          moreLabel: "Ver precios, ejemplos y cómo funciona"
         },
         en: {
           title: "Digital Family Album & Family Tree",
@@ -1114,12 +1116,14 @@
           itemsTitle: "What does this service include?",
           items: [
             "<strong>Professional scanning:</strong> High-quality digitization of photos, documents and printed memories.",
-            "<strong>Restoration and organization:</strong> Color correction, damage cleanup and sorting by era, people and places.",
+            "<strong>Enhancement and organization:</strong> Brightness, contrast and sharpness for every photo, without altering it, and sorting by era, people and places.",
             "<strong>Digital family album:</strong> A private, easy-to-use website to view and share photos with the whole family.",
             "<strong>Family tree:</strong> Who's who, linked to their photos, so new generations know their roots."
           ],
           idealTitle: "Ideal for:",
-          ideal: "Families who want to preserve their history, families with relatives abroad, anniversaries, reunions and meaningful gifts."
+          ideal: "Families who want to preserve their history, families with relatives abroad, anniversaries, reunions and meaningful gifts.",
+          moreLink: "archivo-familiar.html?lang=en",
+          moreLabel: "See prices, examples and how it works"
         }
       },
       branding: {
@@ -1511,7 +1515,8 @@
         </ul>
         <h4>${info.idealTitle}</h4>
         <p style="color:#555; margin:0;">${info.ideal}</p>
-        <div style="margin-top:32px; text-align:right;">
+        <div style="margin-top:32px; display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end;">
+          ${info.moreLink ? `<a href="${info.moreLink}" class="btn" style="font-size:13px; height:42px;">${info.moreLabel}</a>` : ''}
           <a id="btnWhatsSvcModal" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:13px; height:42px;">Consultar por WhatsApp</a>
         </div>
       `;
