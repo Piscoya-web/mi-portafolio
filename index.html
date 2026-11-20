@@ -355,6 +355,12 @@
       margin:0;
     }
 
+    /* CONFIANZA (HERO) */
+    .trust{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+    .trust-label{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .trust-names{font-size:14px;font-weight:600;color:#333;line-height:1.6}
+    .footer-web{color:var(--text);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
     /* COTIZACIÓN (EVENTOS) */
     .quote-box{
       display:flex;
@@ -777,12 +783,16 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <div class="hero-kicker" data-i18n="heroKicker">Portafolio</div>
-          <h1 class="hero-title" data-i18n="heroHeadline">15 años transformando ideas en impacto visual.</h1>
-          <p class="hero-sub" data-i18n="heroSub">Estrategia de comunicación y dirección de arte para marcas que buscan trascender.</p>
+          <div class="hero-kicker" data-i18n="heroKicker">Dirección creativa · Contenido con IA · Web</div>
+          <h1 class="hero-title" data-i18n="heroHeadline">Contenido visual que hace crecer marcas.</h1>
+          <p class="hero-sub" data-i18n="heroSub">15 años de fotografía, video y dirección creativa, ahora potenciados con IA. Para instituciones, empresas y marcas de Perú, Canadá y Latinoamérica.</p>
           <div class="hero-actions">
             <a href="#work" class="btn btn-primary" data-i18n="btnSeeWork">Ver trabajo</a>
-            <a id="btnWhatsHero" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp</a>
+            <a id="btnWhatsHero" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="btnQuote">Cotiza tu proyecto</a>
+          </div>
+          <div class="trust">
+            <span class="trust-label" data-i18n="trustLabel">Han confiado en mi trabajo</span>
+            <span class="trust-names">Minedu · UNAP · Las Bambas · Regatas Lima · Time to Go Global · Ingenia Personnel</span>
           </div>
         </div>
         <div class="hero-rotator">
@@ -808,7 +818,7 @@
         <div class="section-title-wrap">
           <div class="section-kicker" data-i18n="workKicker">Selección</div>
           <h2 class="section-title" data-i18n="workTitle">Portafolio</h2>
-          <p class="section-sub" data-i18n="workSub">Explora mis categorías principales. Haz clic en “Mostrar más” para abrir la galería completa de cada especialidad.</p>
+          <p class="section-sub" data-i18n="workSub">Fotografía para marcas, instituciones y espacios. Elige una categoría y mira el trabajo completo.</p>
         </div>
         <div class="cards-grid" id="workCards"></div>
       </div>
@@ -820,7 +830,7 @@
         <div class="section-title-wrap">
           <div class="section-kicker" data-i18n="videosKicker">Audiovisual</div>
           <h2 class="section-title" data-i18n="videosTitle">Videos</h2>
-          <p class="section-sub" data-i18n="videosSub">Una selección de trabajos institucionales, corporativos y contenido corto.</p>
+          <p class="section-sub" data-i18n="videosSub">Videos institucionales, corporativos y reels que comunican con claridad y emoción, para el sector público y empresas privadas.</p>
         </div>
         <div class="video-grid" id="videoGrid"></div>
         <div style="margin-top:32px; text-align:center;">
@@ -835,7 +845,7 @@
         <div class="section-title-wrap">
           <div class="ai-badge" data-i18n="aiKicker">Hecho con IA</div>
           <h2 class="section-title">IA Creation Content</h2>
-          <p class="section-sub" data-i18n="aiSub">Contenido creado con inteligencia artificial bajo mi dirección creativa: idea, guion, estética y edición.</p>
+          <p class="section-sub" data-i18n="aiSub">Reels, anuncios y avatares creados con IA para marcas reales. Más contenido, en menos tiempo y sin rodaje, con guion, estética y edición bajo mi dirección creativa.</p>
         </div>
         <div class="ai-grid" id="aiGrid"></div>
         <div style="margin-top:32px; text-align:center;">
@@ -899,10 +909,10 @@
         <div class="section-title-wrap">
           <div class="section-kicker" data-i18n="contactKicker">Hablemos</div>
           <h2 class="section-title" data-i18n="contactTitle">Contacto</h2>
-          <p class="section-sub" data-i18n="contactSub">Escríbeme por WhatsApp o correo. Respondo rápido.</p>
+          <p class="section-sub" data-i18n="contactSub">Cuéntame qué necesitas por WhatsApp o correo y te respondo con una propuesta a medida.</p>
         </div>
         <div class="cta-box">
-          <p data-i18n="cta">¿Tienes un proyecto en mente? Conversemos sobre cómo elevarlo al siguiente nivel.</p>
+          <p data-i18n="cta">¿Tu marca necesita verse profesional y atraer clientes? Fotos, video, contenido con IA o tu web: lo hacemos juntos.</p>
           <div class="hero-actions">
             <a id="btnWhatsCTA" target="_blank" rel="noopener" class="btn btn-primary" style="background:#fff; color:#111;">WhatsApp</a>
             <a id="btnMailCTA" class="btn btn-secondary" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.3);">Email</a>
@@ -915,7 +925,7 @@
     <!-- FOOTER -->
     <footer>
       <div class="container footer-inner">
-        <div>© <span id="year"></span> Miguel Piscoya. Todos los derechos reservados.</div>
+        <div>© <span id="year"></span> Miguel Piscoya. <span data-i18n="footerMade">Web diseñada y desarrollada por mí.</span> <a href="#servicio-web" class="footer-web" data-i18n="footerWant">¿Quieres una para tu marca? →</a></div>
         <div style="display:flex; gap:16px;">
           <a href="https://www.instagram.com/miguel_piscoya/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.linkedin.com/in/miguel-piscoya-38762637/" target="_blank" rel="noopener">LinkedIn</a>
@@ -1046,6 +1056,37 @@
           ],
           idealTitle: "Ideal for:",
           ideal: "Brands, agencies, educational institutions, recruitment and immigration companies, and businesses that need frequent content without the cost of a shoot."
+        }
+      },
+      web: {
+        id: "servicio-web",
+        es: {
+          title: "Diseño Web para Marcas y Profesionales",
+          shortDesc: "Esta web la diseñé y desarrollé yo. Creo la tuya: rápida, bilingüe y pensada para que tus clientes te escriban.",
+          propValue: "Una web vitrina que trabaja por ti las 24 horas: muestra tu trabajo con buen gusto, se ve perfecta en el celular y lleva a cada visitante a escribirte por WhatsApp.",
+          itemsTitle: "¿Qué abarca el servicio?",
+          items: [
+            "<strong>Diseño a medida:</strong> Estructura, textos y estética alineados con tu marca. Nada de plantillas genéricas.",
+            "<strong>Pensada para vender:</strong> Botones de WhatsApp, cotizador y llamados a la acción en cada sección.",
+            "<strong>Rápida y en dos idiomas:</strong> Carga veloz en el celular, en español e inglés.",
+            "<strong>Publicada y lista:</strong> Dominio, publicación y hosting sin costo mensual. Te enseño a actualizarla."
+          ],
+          idealTitle: "Ideal para:",
+          ideal: "Profesionales independientes, consultores, inmobiliarias, instituciones educativas y marcas que hoy dependen solo de Instagram."
+        },
+        en: {
+          title: "Web Design for Brands & Professionals",
+          shortDesc: "I designed and built this website myself. I'll create yours: fast, bilingual and built to get clients to reach out.",
+          propValue: "A showcase website that works for you 24/7: presents your work with taste, looks perfect on mobile and leads every visitor to message you on WhatsApp.",
+          itemsTitle: "What does this service include?",
+          items: [
+            "<strong>Custom design:</strong> Structure, copy and look aligned with your brand. No generic templates.",
+            "<strong>Built to sell:</strong> WhatsApp buttons, quote form and calls to action in every section.",
+            "<strong>Fast and bilingual:</strong> Quick loading on mobile, in Spanish and English.",
+            "<strong>Published and ready:</strong> Domain, publishing and hosting with no monthly fee. I'll show you how to update it."
+          ],
+          idealTitle: "Ideal for:",
+          ideal: "Independent professionals, consultants, real estate firms, educational institutions and brands that rely only on Instagram today."
         }
       },
       branding: {
@@ -1186,9 +1227,9 @@
         navAbout: "Sobre mí",
         navContact: "Contacto",
 
-        heroKicker: "Portafolio",
-        heroHeadline: "15 años transformando ideas en impacto visual.",
-        heroSub: "Estrategia de comunicación y dirección de arte para marcas que buscan trascender.",
+        heroKicker: "Dirección creativa · Contenido con IA · Web",
+        heroHeadline: "Contenido visual que hace crecer marcas.",
+        heroSub: "15 años de fotografía, video y dirección creativa, ahora potenciados con IA. Para instituciones, empresas y marcas de Perú, Canadá y Latinoamérica.",
         btnSeeWork: "Ver trabajo",
 
         servicesKicker: "Qué hago",
@@ -1196,19 +1237,23 @@
 
         workKicker: "Selección",
         workTitle: "Portafolio",
-        workSub: "Explora mis categorías principales. Haz clic en “Mostrar más” para abrir la galería completa de cada especialidad.",
+        workSub: "Fotografía para marcas, instituciones y espacios. Elige una categoría y mira el trabajo completo.",
         btnMore: "Mostrar más",
         seeDetail: "Ver detalle completo →",
 
         videosKicker: "Audiovisual",
         videosTitle: "Videos",
-        videosSub: "Una selección de trabajos institucionales, corporativos y contenido corto.",
+        videosSub: "Videos institucionales, corporativos y reels que comunican con claridad y emoción, para el sector público y empresas privadas.",
         btnMoreVideos: "Mostrar más",
         btnLessVideos: "Mostrar menos",
 
         navAI: "IA Creation Content",
         btnDossier: "Dossier institucional",
         btnAllPhotos: "Ver todas",
+        btnQuote: "Cotiza tu proyecto",
+        trustLabel: "Han confiado en mi trabajo",
+        footerMade: "Web diseñada y desarrollada por mí.",
+        footerWant: "¿Quieres una para tu marca? →",
         aiQuoteTitle: "¿Quieres videos así para tu marca?",
         aiQuoteSub: "Elige qué necesitas y te envío una propuesta a medida por WhatsApp.",
         aiQType: "Tipo de video",
@@ -1219,7 +1264,7 @@
         aiQAmounts: ["1 video", "Pack de 3 a 5 videos", "Contenido mensual (8 o más)"],
         aiQMsg: (type, amount, brand) => `Hola Miguel, vi tu sección IA Creation Content y quiero cotizar.\n• Tipo: ${type}\n• Cantidad: ${amount}` + (brand ? `\n• Marca: ${brand}` : ""),
         aiKicker: "Hecho con IA",
-        aiSub: "Contenido creado con inteligencia artificial bajo mi dirección creativa: idea, guion, estética y edición.",
+        aiSub: "Reels, anuncios y avatares creados con IA para marcas reales. Más contenido, en menos tiempo y sin rodaje, con guion, estética y edición bajo mi dirección creativa.",
         aiLabel: "Creado con IA",
         aiPlay: "Reproducir",
 
@@ -1230,9 +1275,9 @@
 
         contactKicker: "Hablemos",
         contactTitle: "Contacto",
-        contactSub: "Escríbeme por WhatsApp o correo. Respondo rápido.",
+        contactSub: "Cuéntame qué necesitas por WhatsApp o correo y te respondo con una propuesta a medida.",
 
-        cta: "¿Tienes un proyecto en mente? Conversemos sobre cómo elevarlo al siguiente nivel.",
+        cta: "¿Tu marca necesita verse profesional y atraer clientes? Fotos, video, contenido con IA o tu web: lo hacemos juntos.",
         ctaWhatsMsg: "Hola Miguel, vi tu portafolio y quisiera conversar sobre un proyecto.",
         ctaEmailSubject: "Consulta desde tu portafolio",
         ctaEmailBody: "Hola Miguel,%0D%0A%0D%0AVi tu portafolio y me gustaría conversar sobre un proyecto.%0D%0A%0D%0AGracias,%0D%0A",
@@ -1246,9 +1291,9 @@
         navAbout: "About",
         navContact: "Contact",
 
-        heroKicker: "Portfolio",
-        heroHeadline: "15 years turning ideas into visual impact.",
-        heroSub: "Communication strategy and art direction for brands that want to stand out.",
+        heroKicker: "Creative direction · AI content · Web",
+        heroHeadline: "Visual content that grows brands.",
+        heroSub: "15 years of photography, video and creative direction, now powered by AI. For institutions, companies and brands in Peru, Canada and Latin America.",
         btnSeeWork: "See work",
 
         servicesKicker: "What I do",
@@ -1256,19 +1301,23 @@
 
         workKicker: "Selection",
         workTitle: "Portfolio",
-        workSub: "Explore the main categories. Click “Show more” to open the full gallery for each specialty.",
+        workSub: "Photography for brands, institutions and spaces. Pick a category to see the full work.",
         btnMore: "Show more",
         seeDetail: "See full details →",
 
         videosKicker: "Audiovisual",
         videosTitle: "Videos",
-        videosSub: "A selection of institutional, corporate and short-form work.",
+        videosSub: "Institutional and corporate videos and reels that communicate with clarity and emotion, for public institutions and private companies.",
         btnMoreVideos: "Show more",
         btnLessVideos: "Show less",
 
         navAI: "IA Creation Content",
         btnDossier: "Institutional dossier (ES)",
         btnAllPhotos: "See all",
+        btnQuote: "Get a quote",
+        trustLabel: "Trusted by",
+        footerMade: "Website designed and built by me.",
+        footerWant: "Want one for your brand? →",
         aiQuoteTitle: "Want videos like these for your brand?",
         aiQuoteSub: "Pick what you need and I'll send you a tailored proposal on WhatsApp.",
         aiQType: "Video type",
@@ -1279,7 +1328,7 @@
         aiQAmounts: ["1 video", "Pack of 3 to 5 videos", "Monthly content (8+)"],
         aiQMsg: (type, amount, brand) => `Hi Miguel, I saw your AI Creation Content section and I'd like a quote.\n• Type: ${type}\n• Quantity: ${amount}` + (brand ? `\n• Brand: ${brand}` : ""),
         aiKicker: "Made with AI",
-        aiSub: "Content created with artificial intelligence under my creative direction: concept, script, look and editing.",
+        aiSub: "Reels, ads and avatars made with AI for real brands. More content, in less time and without a shoot, with script, look and editing under my creative direction.",
         aiLabel: "Created with AI",
         aiPlay: "Play",
 
@@ -1290,9 +1339,9 @@
 
         contactKicker: "Let’s talk",
         contactTitle: "Contact",
-        contactSub: "Message me on WhatsApp or email. I reply quickly.",
+        contactSub: "Tell me what you need on WhatsApp or email and I'll reply with a tailored proposal.",
 
-        cta: "Have a project in mind? Let’s talk about taking it to the next level.",
+        cta: "Does your brand need to look professional and attract clients? Photos, video, AI content or your website: let's build it together.",
         ctaWhatsMsg: "Hi Miguel, I saw your portfolio and I'd love to discuss a project.",
         ctaEmailSubject: "Inquiry from your portfolio",
         ctaEmailBody: "Hi Miguel,%0D%0A%0D%0AI saw your portfolio and I'd love to discuss a project.%0D%0A%0D%0AThanks,%0D%0A",
