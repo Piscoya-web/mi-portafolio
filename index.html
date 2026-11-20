@@ -477,6 +477,50 @@
       margin:0;
     }
 
+    /* COTIZADOR IA */
+    .ai-quote{
+      margin-top:48px;
+      background:#111;
+      color:#fff;
+      border-radius:var(--radius);
+      padding:36px;
+      display:grid;
+      grid-template-columns:1fr 1.4fr;
+      gap:32px;
+      align-items:center;
+    }
+    .ai-quote h3{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:0 0 10px 0;line-height:1.15}
+    .ai-quote p{font-size:15px;color:#bbb;margin:0;line-height:1.5}
+    .ai-quote-form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .ai-quote-form label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:.06em}
+    .ai-quote-form label:nth-child(3){grid-column:1 / -1}
+    .ai-quote-form select,
+    .ai-quote-form input{
+      height:46px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      padding:0 14px;
+      font-size:15px;
+      font-family:inherit;
+      text-transform:none;
+      letter-spacing:0;
+    }
+    .ai-quote-form select option{color:#111}
+    .ai-quote-form select:focus,
+    .ai-quote-form input:focus{outline:2px solid rgba(255,255,255,.5);outline-offset:1px}
+    .ai-quote-form .btn{grid-column:1 / -1;background:#fff;color:#111;border:0}
+    @media(max-width:768px){
+      .ai-quote{grid-template-columns:1fr;padding:24px 20px;gap:20px}
+      .ai-quote h3{font-size:22px}
+      .ai-quote-form{grid-template-columns:1fr}
+    }
+
     /* ABOUT */
     section.about{
       padding:80px 0;
@@ -707,7 +751,7 @@
       <div class="container nav-inner">
         <div class="brand">
           <span class="name">Miguel Piscoya</span>
-          <span class="tag" data-i18n="brandTag">Director Creativo · Fotógrafo</span>
+          <span class="tag" data-i18n="brandTag">Director Creativo · Fotógrafo · Contenido con IA</span>
         </div>
         <nav class="links" id="navLinks">
           <a href="#services" data-i18n="navServices">Servicios</a>
@@ -796,6 +840,29 @@
         <div class="ai-grid" id="aiGrid"></div>
         <div style="margin-top:32px; text-align:center;">
           <button class="btn btn-secondary" id="toggleAiBtn" type="button">Mostrar más</button>
+        </div>
+
+        <!-- COTIZADOR IA -->
+        <div class="ai-quote" id="cotizar-ia">
+          <div class="ai-quote-text">
+            <h3 data-i18n="aiQuoteTitle">¿Quieres videos así para tu marca?</h3>
+            <p data-i18n="aiQuoteSub">Elige qué necesitas y te envío una propuesta a medida por WhatsApp.</p>
+          </div>
+          <form class="ai-quote-form" id="aiQuoteForm">
+            <label>
+              <span data-i18n="aiQType">Tipo de video</span>
+              <select id="aiQType"></select>
+            </label>
+            <label>
+              <span data-i18n="aiQAmount">Cantidad</span>
+              <select id="aiQAmount"></select>
+            </label>
+            <label>
+              <span data-i18n="aiQBrand">Tu marca o empresa</span>
+              <input id="aiQBrand" type="text" autocomplete="organization" />
+            </label>
+            <button class="btn btn-primary" type="submit" data-i18n="aiQSend">Cotizar por WhatsApp</button>
+          </form>
         </div>
       </div>
     </section>
@@ -950,6 +1017,37 @@
 
     // DATA DE DETALLE DE SERVICIOS
     const SERVICES_DATA = {
+      ia: {
+        id: "servicio-ia",
+        es: {
+          title: "Contenido con IA para Marcas",
+          shortDesc: "Reels, anuncios y avatares creados con inteligencia artificial, con dirección creativa humana. Más contenido, más rápido, con tu marca.",
+          propValue: "La velocidad y escala de la IA con el criterio de un director creativo con 15 años de experiencia: contenido que se ve profesional, cuenta una historia y respeta tu marca.",
+          itemsTitle: "¿Qué abarca el servicio?",
+          items: [
+            "<strong>Reels y anuncios con IA:</strong> Videos verticales para Instagram, TikTok, YouTube Shorts y LinkedIn, listos para publicar.",
+            "<strong>Avatares y voceros virtuales:</strong> Presentadores con IA para explicar servicios, programas o productos sin rodaje.",
+            "<strong>Guion y estrategia:</strong> Ganchos, mensajes y llamados a la acción pensados para retener y convertir.",
+            "<strong>Packs mensuales:</strong> Contenido constante para tus redes, con estética y tono coherentes con tu marca."
+          ],
+          idealTitle: "Ideal para:",
+          ideal: "Marcas, agencias, instituciones educativas, empresas de reclutamiento y migración, y negocios que necesitan contenido frecuente sin el costo de un rodaje."
+        },
+        en: {
+          title: "AI Content for Brands",
+          shortDesc: "Reels, ads and avatars made with artificial intelligence, guided by human creative direction. More content, faster, on-brand.",
+          propValue: "The speed and scale of AI with the judgment of a creative director with 15 years of experience: content that looks professional, tells a story and respects your brand.",
+          itemsTitle: "What does this service include?",
+          items: [
+            "<strong>AI reels and ads:</strong> Vertical videos for Instagram, TikTok, YouTube Shorts and LinkedIn, ready to publish.",
+            "<strong>Virtual avatars and spokespeople:</strong> AI presenters to explain services, programs or products without a shoot.",
+            "<strong>Script and strategy:</strong> Hooks, messages and calls to action designed to retain and convert.",
+            "<strong>Monthly packs:</strong> Consistent content for your social channels, on-brand in look and tone."
+          ],
+          idealTitle: "Ideal for:",
+          ideal: "Brands, agencies, educational institutions, recruitment and immigration companies, and businesses that need frequent content without the cost of a shoot."
+        }
+      },
       branding: {
         id: "servicio-branding",
         es: {
@@ -1081,7 +1179,7 @@
     // ==============================
     const I18N = {
       es: {
-        brandTag: "Director Creativo · Fotógrafo",
+        brandTag: "Director Creativo · Fotógrafo · Contenido con IA",
         navServices: "Servicios",
         navWork: "Portafolio",
         navVideos: "Videos",
@@ -1111,6 +1209,15 @@
         navAI: "IA Creation Content",
         btnDossier: "Dossier institucional",
         btnAllPhotos: "Ver todas",
+        aiQuoteTitle: "¿Quieres videos así para tu marca?",
+        aiQuoteSub: "Elige qué necesitas y te envío una propuesta a medida por WhatsApp.",
+        aiQType: "Tipo de video",
+        aiQAmount: "Cantidad",
+        aiQBrand: "Tu marca o empresa",
+        aiQSend: "Cotizar por WhatsApp",
+        aiQTypes: ["Reels para redes sociales", "Anuncio de producto o servicio", "Video explicativo", "Avatar o vocero con IA", "Aún no lo sé, quiero asesoría"],
+        aiQAmounts: ["1 video", "Pack de 3 a 5 videos", "Contenido mensual (8 o más)"],
+        aiQMsg: (type, amount, brand) => `Hola Miguel, vi tu sección IA Creation Content y quiero cotizar.\n• Tipo: ${type}\n• Cantidad: ${amount}` + (brand ? `\n• Marca: ${brand}` : ""),
         aiKicker: "Hecho con IA",
         aiSub: "Contenido creado con inteligencia artificial bajo mi dirección creativa: idea, guion, estética y edición.",
         aiLabel: "Creado con IA",
@@ -1132,7 +1239,7 @@
         close: "Cerrar"
       },
       en: {
-        brandTag: "Creative Director · Photographer",
+        brandTag: "Creative Director · Photographer · AI Content",
         navServices: "Services",
         navWork: "Portfolio",
         navVideos: "Videos",
@@ -1162,6 +1269,15 @@
         navAI: "IA Creation Content",
         btnDossier: "Institutional dossier (ES)",
         btnAllPhotos: "See all",
+        aiQuoteTitle: "Want videos like these for your brand?",
+        aiQuoteSub: "Pick what you need and I'll send you a tailored proposal on WhatsApp.",
+        aiQType: "Video type",
+        aiQAmount: "Quantity",
+        aiQBrand: "Your brand or company",
+        aiQSend: "Get a quote on WhatsApp",
+        aiQTypes: ["Social media reels", "Product or service ad", "Explainer video", "AI avatar or spokesperson", "Not sure yet, I'd like advice"],
+        aiQAmounts: ["1 video", "Pack of 3 to 5 videos", "Monthly content (8+)"],
+        aiQMsg: (type, amount, brand) => `Hi Miguel, I saw your AI Creation Content section and I'd like a quote.\n• Type: ${type}\n• Quantity: ${amount}` + (brand ? `\n• Brand: ${brand}` : ""),
         aiKicker: "Made with AI",
         aiSub: "Content created with artificial intelligence under my creative direction: concept, script, look and editing.",
         aiLabel: "Created with AI",
@@ -1234,6 +1350,7 @@
       renderWorkCards();
       renderVideos();
       renderAiVideos();
+      renderAiQuote();
     }
 
     // Hero Rotator
@@ -1667,6 +1784,28 @@
       }
     }
 
+    // Cotizador IA: arma el mensaje de WhatsApp con lo elegido
+    function renderAiQuote(){
+      const fill = (id, items)=>{
+        const sel = document.getElementById(id);
+        if (!sel) return;
+        const prev = sel.selectedIndex;
+        sel.innerHTML = "";
+        items.forEach(txt=>{ const o=document.createElement("option"); o.textContent=txt; sel.appendChild(o); });
+        if (prev >= 0 && prev < items.length) sel.selectedIndex = prev;
+      };
+      fill("aiQType", t("aiQTypes"));
+      fill("aiQAmount", t("aiQAmounts"));
+    }
+
+    document.getElementById("aiQuoteForm").addEventListener("submit", (e)=>{
+      e.preventDefault();
+      const type = document.getElementById("aiQType").value;
+      const amount = document.getElementById("aiQAmount").value;
+      const brand = document.getElementById("aiQBrand").value.trim();
+      window.open(waLink(t("aiQMsg")(type, amount, brand)), "_blank", "noopener");
+    });
+
     document.getElementById("toggleAiBtn").addEventListener("click", ()=>{
       aiExpanded = !aiExpanded;
       renderAiVideos();
@@ -1719,6 +1858,7 @@
       renderWorkCards();
       renderVideos();
       renderAiVideos();
+      renderAiQuote();
       setTimeout(checkHashRoute, 300);
     })();
   </script>
