@@ -1554,7 +1554,10 @@
         img.loading = "lazy";
         img.alt = title;
         img.src = id ? `https://i.ytimg.com/vi/${id}/oardefault.jpg` : "";
-        img.onerror = () => { img.onerror = null; img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; };
+        // Si YouTube no tiene portada vertical, usa la normal (recortada al centro)
+        const fallback = () => { img.onerror = null; img.onload = null; img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; };
+        img.onerror = fallback;
+        img.onload = () => { if (img.naturalWidth <= 120) fallback(); };
 
         const play = document.createElement("button");
         play.className = "ai-play";
