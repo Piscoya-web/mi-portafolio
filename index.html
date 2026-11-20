@@ -1879,6 +1879,17 @@
       }
     }
 
+    // Enlaces que abren un servicio (por ejemplo, el del pie de página)
+    document.querySelectorAll('a[href^="#servicio-"]').forEach(a=>{
+      a.addEventListener("click", (e)=>{
+        const key = Object.keys(SERVICES_DATA).find(k => "#" + SERVICES_DATA[k].id === a.getAttribute("href"));
+        if (!key) return;
+        e.preventDefault();
+        window.location.hash = SERVICES_DATA[key].id;
+        openServiceModal(key);
+      });
+    });
+
     // Menú celular
     (function(){
       const header = document.querySelector("header.nav");
