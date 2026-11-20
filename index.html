@@ -1319,11 +1319,11 @@
         footerMade: "Website designed and built by me.",
         footerWant: "Want one for your brand? →",
         aiQuoteTitle: "Want videos like these for your brand?",
-        aiQuoteSub: "Pick what you need and I'll send you a tailored proposal on WhatsApp.",
+        aiQuoteSub: "Pick what you need and I'll email you a tailored proposal within one business day. Working remotely with brands across Canada.",
         aiQType: "Video type",
         aiQAmount: "Quantity",
         aiQBrand: "Your brand or company",
-        aiQSend: "Get a quote on WhatsApp",
+        aiQSend: "Get a quote by email",
         aiQTypes: ["Social media reels", "Product or service ad", "Explainer video", "AI avatar or spokesperson", "Not sure yet, I'd like advice"],
         aiQAmounts: ["1 video", "Pack of 3 to 5 videos", "Monthly content (8+)"],
         aiQMsg: (type, amount, brand) => `Hi Miguel, I saw your AI Creation Content section and I'd like a quote.\n• Type: ${type}\n• Quantity: ${amount}` + (brand ? `\n• Brand: ${brand}` : ""),
@@ -1388,6 +1388,7 @@
     // Cambio de Idioma
     function setLang(next){
       LANG = next;
+      document.documentElement.lang = LANG;
       document.getElementById("langES").classList.toggle("active", LANG==="es");
       document.getElementById("langEN").classList.toggle("active", LANG==="en");
       document.querySelectorAll("[data-i18n]").forEach(el=>{
@@ -1852,7 +1853,13 @@
       const type = document.getElementById("aiQType").value;
       const amount = document.getElementById("aiQAmount").value;
       const brand = document.getElementById("aiQBrand").value.trim();
-      window.open(waLink(t("aiQMsg")(type, amount, brand)), "_blank", "noopener");
+      const msg = t("aiQMsg")(type, amount, brand);
+      if (LANG === "en") {
+        // Clientes de Canadá: por correo (allí se usa más que WhatsApp para trabajo)
+        window.location.href = `mailto:${DATA.email}?subject=${encodeURIComponent("AI content quote" + (brand ? " - " + brand : ""))}&body=${encodeURIComponent(msg + "\n\nThanks,\n")}`;
+      } else {
+        window.open(waLink(msg), "_blank", "noopener");
+      }
     });
 
     document.getElementById("toggleAiBtn").addEventListener("click", ()=>{
@@ -1919,6 +1926,12 @@
       renderVideos();
       renderAiVideos();
       renderAiQuote();
+      // Idioma: ?lang=en / ?lang=es en el enlace manda; si no, el idioma del navegador
+      // (los visitantes de Canadá ven la web en inglés, los de Perú en español)
+      const urlLang = new URLSearchParams(location.search).get("lang");
+      const browserEn = (navigator.languages || [navigator.language || ""]).some(l => /^en/i.test(l)) &&
+                        !(navigator.languages || [navigator.language || ""]).some(l => /^es/i.test(l));
+      if (urlLang === "en" || (urlLang !== "es" && browserEn)) setLang("en");
       setTimeout(checkHashRoute, 300);
     })();
   </script>
