@@ -355,6 +355,48 @@
       margin:0;
     }
 
+    /* COTIZACIÓN (EVENTOS) */
+    .quote-box{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      background:#fff;
+      border:1px solid var(--line);
+      border-left:4px solid #111;
+      border-radius:16px;
+      padding:20px 24px;
+      margin-bottom:28px;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+    }
+    .quote-box strong{display:block;font-size:16px;margin-bottom:4px}
+    .quote-box span{font-size:14px;color:#555}
+
+    /* MENÚ CELULAR */
+    .menu-btn{
+      display:none;
+      width:40px;
+      height:40px;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:12px;
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:4px;
+      margin-left:8px;
+    }
+    .menu-btn span{display:block;width:18px;height:2px;background:#111;border-radius:2px;transition:transform .2s ease, opacity .2s ease}
+    .nav.menu-open .menu-btn span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav.menu-open .menu-btn span:nth-child(2){opacity:0}
+    .nav.menu-open .menu-btn span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .nav-right{display:flex;align-items:center}
+
+    /* GALERÍA: VER TODAS */
+    .gmore{text-align:center;margin-top:28px}
+
     /* IA CREATION CONTENT */
     section.ai{
       padding:80px 0;
@@ -629,7 +671,24 @@
 
     @media(max-width:768px){
       .hero-grid, .about-grid{grid-template-columns:1fr}
-      nav.links{display:none}
+      .menu-btn{display:inline-flex}
+      nav.links{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        background:rgba(247,247,243,.98);
+        border-bottom:1px solid var(--line);
+        box-shadow:0 12px 24px rgba(0,0,0,.06);
+        padding:8px 20px 16px;
+      }
+      nav.links a{padding:14px 0;font-size:16px;color:var(--text);border-bottom:1px solid var(--line)}
+      nav.links a:last-child{border-bottom:0}
+      .nav.menu-open nav.links{display:flex}
       .ghead{padding:16px}
       .gbody{padding:20px 16px}
       .svc-detail-card{padding:24px 20px}
@@ -650,7 +709,7 @@
           <span class="name">Miguel Piscoya</span>
           <span class="tag" data-i18n="brandTag">Director Creativo · Fotógrafo</span>
         </div>
-        <nav class="links">
+        <nav class="links" id="navLinks">
           <a href="#services" data-i18n="navServices">Servicios</a>
           <a href="#work" data-i18n="navWork">Portafolio</a>
           <a href="#videos" data-i18n="navVideos">Videos</a>
@@ -658,9 +717,14 @@
           <a href="#about" data-i18n="navAbout">Sobre mí</a>
           <a href="#contact" data-i18n="navContact">Contacto</a>
         </nav>
-        <div class="lang-switch">
-          <button class="lang-btn active" id="langES">ES</button>
-          <button class="lang-btn" id="langEN">EN</button>
+        <div class="nav-right">
+          <div class="lang-switch">
+            <button class="lang-btn active" id="langES">ES</button>
+            <button class="lang-btn" id="langEN">EN</button>
+          </div>
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="Menú" aria-expanded="false" aria-controls="navLinks">
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </div>
     </header>
@@ -748,13 +812,14 @@
             <img id="profileImg" alt="Miguel Piscoya" />
           </div>
           <div class="about-bio">
-            <p data-i18n="aboutBio">Soy un comunicador que piensa como estratega y mira como artista. Mi carrera se ha forjado en la intersección entre la dirección creativa y la fotografía documental y de moda. Me inspira la atemporalidad de los grandes maestros y la agilidad del mundo digital actual. Tras dos décadas gestionando proyectos de alto impacto en educación y branding, hoy pongo mi experiencia al servicio de marcas que necesitan algo más que estética: necesitan alma, narrativa y coherencia visual.</p>
+            <p data-i18n="aboutBio">Soy un comunicador que piensa como estratega y mira como artista. Mi carrera se ha forjado en la intersección entre la dirección creativa y la fotografía documental y de moda. Me inspira la atemporalidad de los grandes maestros y la agilidad del mundo digital actual. Tras 15 años gestionando proyectos de alto impacto en educación y branding, hoy pongo mi experiencia al servicio de marcas que necesitan algo más que estética: necesitan alma, narrativa y coherencia visual.</p>
             <div class="sectors-tag" data-i18n="aboutSectors">
               Experiencia en: educación, salud, entretenimiento, energía y minas, infraestructura e inmobiliarias. Disponible para viajar.
             </div>
             <div class="hero-actions" style="margin-top:24px;">
               <a id="btnWhatsAbout" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
               <a id="btnMailAbout" class="btn btn-secondary">Email</a>
+              <a href="dossier.html" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="btnDossier">Dossier institucional</a>
             </div>
           </div>
         </div>
@@ -774,6 +839,7 @@
           <div class="hero-actions">
             <a id="btnWhatsCTA" target="_blank" rel="noopener" class="btn btn-primary" style="background:#fff; color:#111;">WhatsApp</a>
             <a id="btnMailCTA" class="btn btn-secondary" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.3);">Email</a>
+            <a href="dossier.html" target="_blank" rel="noopener" class="btn btn-secondary" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.3);" data-i18n="btnDossier">Dossier institucional</a>
           </div>
         </div>
       </div>
@@ -1043,6 +1109,8 @@
         btnLessVideos: "Mostrar menos",
 
         navAI: "IA Creation Content",
+        btnDossier: "Dossier institucional",
+        btnAllPhotos: "Ver todas",
         aiKicker: "Hecho con IA",
         aiSub: "Contenido creado con inteligencia artificial bajo mi dirección creativa: idea, guion, estética y edición.",
         aiLabel: "Creado con IA",
@@ -1050,7 +1118,7 @@
 
         aboutKicker: "Perfil",
         aboutTitle: "Sobre mí",
-        aboutBio: "Soy un comunicador que piensa como estratega y mira como artista. Mi carrera se ha forjado en la intersección entre la dirección creativa y la fotografía documental y de moda. Me inspira la atemporalidad de los grandes maestros y la agilidad del mundo digital actual. Tras dos décadas gestionando proyectos de alto impacto en educación y branding, hoy pongo mi experiencia al servicio de marcas que necesitan algo más que estética: necesitan alma, narrativa y coherencia visual.",
+        aboutBio: "Soy un comunicador que piensa como estratega y mira como artista. Mi carrera se ha forjado en la intersección entre la dirección creativa y la fotografía documental y de moda. Me inspira la atemporalidad de los grandes maestros y la agilidad del mundo digital actual. Tras 15 años gestionando proyectos de alto impacto en educación y branding, hoy pongo mi experiencia al servicio de marcas que necesitan algo más que estética: necesitan alma, narrativa y coherencia visual.",
         aboutSectors: "Experiencia en: educación, salud, entretenimiento, energía y minas, infraestructura e inmobiliarias. Disponible para viajar.",
 
         contactKicker: "Hablemos",
@@ -1092,6 +1160,8 @@
         btnLessVideos: "Show less",
 
         navAI: "IA Creation Content",
+        btnDossier: "Institutional dossier (ES)",
+        btnAllPhotos: "See all",
         aiKicker: "Made with AI",
         aiSub: "Content created with artificial intelligence under my creative direction: concept, script, look and editing.",
         aiLabel: "Created with AI",
@@ -1134,6 +1204,8 @@
       el.src = thumb;
       el.onerror = () => { el.onerror = null; el.src = url; };
     }
+
+    function waLink(text){ return `https://wa.me/${DATA.whatsapp}?text=${encodeURIComponent(text)}`; }
 
     // Links de Contacto
     function updateContactLinks(){
@@ -1366,31 +1438,14 @@
           infoDiv.innerHTML = `
             <p style="margin: 0 0 12px 0; font-weight: 700; font-size: 20px; color: #111111;">Cobertura Fotográfica Institucional y Narrativa Visual</p>
             <p style="color: #444444; margin-bottom: 24px; font-size: 15px;">
-              Un evento institucional no es solo un acto protocolar; es una pieza clave de contenido estratégico para reputación corporativa, marketing y publicidad. Mi enfoque se basa en traducir la visión y los valores de la organización en imágenes potentes, atemporales y de alto impacto, respaldado por más de 20 años de trayectoria en el sector.
+              Un evento institucional no es solo un acto protocolar; es una pieza clave de contenido estratégico para reputación corporativa, marketing y publicidad. Mi enfoque se basa en traducir la visión y los valores de la organización en imágenes potentes, atemporales y de alto impacto, respaldado por 15 años de trayectoria en el sector.
             </p>
-            <div style="overflow-x: auto; background: #ffffff; padding: 24px; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,0.04); margin-bottom: 28px;">
-              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 15px;">
-                <thead>
-                  <tr style="border-bottom: 2px solid var(--line); color: #111111;">
-                    <th style="padding: 12px; font-size: 15px;">Servicio / Concepto</th>
-                    <th style="padding: 12px; font-size: 15px;">Descripción del Alcance</th>
-                    <th style="padding: 12px; font-size: 15px; text-align: right;">Inversión</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid var(--line); color: #333333;">
-                    <td style="padding: 14px 12px; font-weight: 700; font-size: 15px;">Hora de Cobertura Premium</td>
-                    <td style="padding: 14px 12px; color: #555555; font-size: 14px;">Fotógrafo principal, equipamiento de alta gama, dirección y cobertura integral. (Mínimo 2 horas).</td>
-                    <td style="padding: 14px 12px; text-align: right; font-weight: 700; font-size: 16px; white-space: nowrap; color: #111111;">S/ 200.00 <span style="font-size:12px; font-weight:400; color:#666666;">/ h</span></td>
-                  </tr>
-                  <tr style="color: #333333;">
-                    <td style="padding: 14px 12px; font-weight: 700; font-size: 15px;">Jornada Completa (8 horas)</td>
-                    <td style="padding: 14px 12px; color: #555555; font-size: 14px;">Tarifa preferencial corporativa para congresos de larga duración o jornadas académicas continuas.</td>
-                    <td style="padding: 14px 12px; text-align: right; font-weight: 700; font-size: 16px; white-space: nowrap; color: #111111;">S/ 170.00 <span style="font-size:12px; font-weight:400; color:#666666;">/ h</span></td>
-                  </tr>
-                </tbody>
-              </table>
-              <p style="font-size: 12px; color: #666666; margin: 14px 0 0 8px;">* Valores base referenciales. No incluyen IGV. Disponibilidad para viajes y servicio Fast-Track inmediato para redes.</p>
+            <div class="quote-box">
+              <div>
+                <strong>Cobertura por horas o jornada completa.</strong>
+                <span>Disponible para viajar y con entrega rápida para redes. Cotización a medida según tu evento.</span>
+              </div>
+              <a class="btn btn-primary" target="_blank" rel="noopener" href="${waLink("Hola Miguel, quisiera una cotización para la cobertura fotográfica de un evento.")}">Pedir cotización</a>
             </div>
             <p style="margin: 0 0 16px 0; font-weight: 700; font-size: 17px; color: #111111;">Galería de Muestra:</p>
           `;
@@ -1398,31 +1453,14 @@
           infoDiv.innerHTML = `
             <p style="margin: 0 0 12px 0; font-weight: 700; font-size: 20px; color: #111111;">Corporate Event Coverage & Visual Storytelling</p>
             <p style="color: #444444; margin-bottom: 24px; font-size: 15px;">
-              An institutional event is not just a protocol; it is a key piece of strategic content for corporate reputation, marketing, and PR. Backed by over 20 years of experience, my focus translates your organization's vision into high-impact, timeless images.
+              An institutional event is not just a protocol; it is a key piece of strategic content for corporate reputation, marketing, and PR. Backed by 15 years of experience, my focus translates your organization's vision into high-impact, timeless images.
             </p>
-            <div style="overflow-x: auto; background: #ffffff; padding: 24px; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,0.04); margin-bottom: 28px;">
-              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 15px;">
-                <thead>
-                  <tr style="border-bottom: 2px solid var(--line); color: #111111;">
-                    <th style="padding: 12px; font-size: 15px;">Service / Concept</th>
-                    <th style="padding: 12px; font-size: 15px;">Scope Description</th>
-                    <th style="padding: 12px; font-size: 15px; text-align: right;">Investment</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid var(--line); color: #333333;">
-                    <td style="padding: 14px 12px; font-weight: 700; font-size: 15px;">Premium Hourly Coverage</td>
-                    <td style="padding: 14px 12px; color: #555555; font-size: 14px;">Lead photographer, high-end equipment, art direction, and full program coverage. (2-hour minimum).</td>
-                    <td style="padding: 14px 12px; text-align: right; font-weight: 700; font-size: 16px; white-space: nowrap; color: #111111;">S/ 200.00 <span style="font-size:12px; font-weight:400; color:#666666;">/ h</span></td>
-                  </tr>
-                  <tr style="color: #333333;">
-                    <td style="padding: 14px 12px; font-weight: 700; font-size: 15px;">Full-Day Fee (8 Hours)</td>
-                    <td style="padding: 14px 12px; color: #555555; font-size: 14px;">Preferred corporate rate for long-duration congresses, symposiums, or continuous sessions.</td>
-                    <td style="padding: 14px 12px; text-align: right; font-weight: 700; font-size: 16px; white-space: nowrap; color: #111111;">S/ 170.00 <span style="font-size:12px; font-weight:400; color:#666666;">/ h</span></td>
-                  </tr>
-                </tbody>
-              </table>
-              <p style="font-size: 12px; color: #666666; margin: 14px 0 0 8px;">* Reference base values. Tax not included. Available to travel. Fast-Track real-time delivery available for social media.</p>
+            <div class="quote-box">
+              <div>
+                <strong>Hourly or full-day coverage.</strong>
+                <span>Available to travel, with fast delivery for social media. Custom quote for your event.</span>
+              </div>
+              <a class="btn btn-primary" target="_blank" rel="noopener" href="${waLink("Hi Miguel, I'd like a quote for photo coverage of an event.")}">Request a quote</a>
             </div>
             <p style="margin: 0 0 16px 0; font-weight: 700; font-size: 17px; color: #111111;">Sample Gallery:</p>
           `;
@@ -1431,7 +1469,26 @@
         if (gBody) gBody.insertBefore(infoDiv, freshGrid);
       }
 
-      list.forEach((url, idx)=>{
+      // Primero una selección; el resto, con «Ver todas»
+      const GALLERY_PREVIEW = 18;
+      const addItems = (items, offset) => items.forEach((url, i)=> addItem(url, offset + i));
+      addItems(list.slice(0, GALLERY_PREVIEW), 0);
+      if (list.length > GALLERY_PREVIEW && gBody) {
+        const moreWrap = document.createElement("div");
+        moreWrap.className = "gmore";
+        const moreBtn = document.createElement("button");
+        moreBtn.type = "button";
+        moreBtn.className = "btn btn-secondary";
+        moreBtn.textContent = `${t("btnAllPhotos")} (${list.length})`;
+        moreBtn.addEventListener("click", ()=>{
+          addItems(list.slice(GALLERY_PREVIEW), GALLERY_PREVIEW);
+          moreWrap.remove();
+        });
+        moreWrap.appendChild(moreBtn);
+        gBody.appendChild(moreWrap);
+      }
+
+      function addItem(url, idx){
         const a = document.createElement("a");
         a.className = "gitem";
         a.href = url;
@@ -1446,7 +1503,7 @@
 
         a.appendChild(img);
         freshGrid.appendChild(a);
-      });
+      }
 
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
@@ -1633,6 +1690,21 @@
         openServiceModal(svcKey);
       }
     }
+
+    // Menú celular
+    (function(){
+      const header = document.querySelector("header.nav");
+      const btn = document.getElementById("menuBtn");
+      const links = document.getElementById("navLinks");
+      if (!header || !btn || !links) return;
+      const setOpen = (open)=>{
+        header.classList.toggle("menu-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+      btn.addEventListener("click", ()=> setOpen(!header.classList.contains("menu-open")));
+      links.addEventListener("click", (e)=>{ if (e.target.closest("a")) setOpen(false); });
+      document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") setOpen(false); });
+    })();
 
     // Event Listeners Idioma
     document.getElementById("langES").addEventListener("click", ()=> setLang("es"));
