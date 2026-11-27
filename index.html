@@ -750,6 +750,7 @@
       .ai-play{width:48px;height:48px}
     }
   </style>
+  <script src="medicion.js" defer></script>
 </head>
 <body>
   <div class="site">
@@ -1043,7 +1044,9 @@
             "<strong>Packs mensuales:</strong> Contenido constante para tus redes, con estética y tono coherentes con tu marca."
           ],
           idealTitle: "Ideal para:",
-          ideal: "Marcas, agencias, instituciones educativas, empresas de reclutamiento y migración, y negocios que necesitan contenido frecuente sin el costo de un rodaje."
+          ideal: "Marcas, agencias, instituciones educativas, empresas de reclutamiento y migración, y negocios que necesitan contenido frecuente sin el costo de un rodaje.",
+          moreLink: "catalogo-ia.html",
+          moreLabel: "Ver fotos de catálogo de moda con IA"
         },
         en: {
           title: "AI Content for Brands",
@@ -1057,7 +1060,9 @@
             "<strong>Monthly packs:</strong> Consistent content for your social channels, on-brand in look and tone."
           ],
           idealTitle: "Ideal for:",
-          ideal: "Brands, agencies, educational institutions, recruitment and immigration companies, and businesses that need frequent content without the cost of a shoot."
+          ideal: "Brands, agencies, educational institutions, recruitment and immigration companies, and businesses that need frequent content without the cost of a shoot.",
+          moreLink: "catalogo-ia.html?lang=en",
+          moreLabel: "See AI fashion catalog photos"
         }
       },
       catalogo: {
@@ -1663,6 +1668,19 @@
         gBody.innerHTML = '<div class="ggrid" id="gGrid"></div>';
       }
       const freshGrid = document.getElementById("gGrid");
+
+      // MODA: enlace a la página de catálogo con IA
+      if (key === "Fashion" && gBody) {
+        const modaDiv = document.createElement("div");
+        modaDiv.className = "quote-box";
+        modaDiv.style.marginBottom = "28px";
+        modaDiv.innerHTML = (LANG === "es")
+          ? `<div><strong>Nuevo: fotos de catálogo con IA</strong><span>De la foto del celular a fotos con modelo, en varias vistas. Para boutiques y marcas de moda.</span></div>
+             <a class="btn btn-primary" href="catalogo-ia.html">Ver ejemplos y precios</a>`
+          : `<div><strong>New: AI catalog photos</strong><span>From a phone snapshot to on-model photos in several angles. For boutiques and fashion brands.</span></div>
+             <a class="btn btn-primary" href="catalogo-ia.html?lang=en">See examples</a>`;
+        gBody.insertBefore(modaDiv, freshGrid);
+      }
 
       // INYECCIÓN DE TARIFARIO DE EVENTOS (ESTILO CLARO ELEGANTE)
       if (key === "Eventos") {

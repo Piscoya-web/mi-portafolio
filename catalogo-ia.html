@@ -102,13 +102,32 @@
     .cierre .datos{font-size:15px;color:#fff}
     .cierre .datos span{user-select:all;font-weight:600}
     footer{padding-block:24px 48px;font-size:13px;color:var(--muted)}
+    /* Más ejemplos (antes pequeño sobre el después) */
+    .ejemplos{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-top:22px}
+    .moda-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .moda-pair{position:relative;aspect-ratio:16/10;background:#eee;overflow:hidden}
+    .moda-pair > a{display:block;width:100%;height:100%}
+    .moda-after{width:100%;height:100%;object-fit:cover}
+    .moda-before{position:absolute;left:10px;bottom:10px;width:24%;border-radius:10px;overflow:hidden;border:3px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.28);background:#fff}
+    .moda-before img{width:100%;aspect-ratio:4/5;object-fit:cover}
+    .moda-before span{position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);white-space:nowrap;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;border-radius:999px;padding:3px 6px;background:rgba(0,0,0,.72);color:#fff}
+    .moda-meta{padding:16px}
+    .moda-meta h3{font-size:15px;margin:0 0 4px}
+    .moda-meta p{font-size:13px;color:var(--muted);line-height:1.45}
+
+    /* Precios: soles en español, dólares en inglés */
+    html[lang="en"] .solo-es, html[lang="es"] .solo-en{display:none !important}
+    .paquete .btn{justify-self:start;height:40px;font-size:13px}
+
     @media (max-width:820px){
+      .ejemplos{grid-template-columns:1fr}
       .hero{grid-template-columns:1fr}
       main section{padding-block:44px}
       .caso{grid-template-columns:minmax(0,110px) minmax(0,1fr)}
       .flecha{display:none}
     }
   </style>
+  <script src="medicion.js" defer></script>
 </head>
 <body>
   <header class="top">
@@ -145,6 +164,13 @@
       <div class="casos" id="casos"></div>
     </section>
 
+    <section id="mas-ejemplos">
+      <p class="kicker" data-t="kMas">Más ejemplos</p>
+      <h2 data-t="hMas">Ropa de dormir, baño y hombre</h2>
+      <p class="lead" data-t="pMas">La foto pequeña es la que me enviaron, aunque estuviera en un gancho o tomada de noche; la grande, el resultado. Toca una imagen para verla completa.</p>
+      <div class="ejemplos" id="ejemplosGrid"></div>
+    </section>
+
     <section id="incluye">
       <p class="kicker" data-t="k3">Qué incluye</p>
       <h2 data-t="h3">Todo lo que una tienda necesita para mostrar sus productos</h2>
@@ -171,7 +197,22 @@
     <section id="paquetes">
       <p class="kicker" data-t="k5">Paquetes</p>
       <h2 data-t="h5">Precio por producto, con descuento por volumen</h2>
-      <p class="lead" data-t="p5">Cada producto incluye sus 4 tomas. Precios en dólares estadounidenses (USD).</p>
+      <p class="lead" data-t="p5">Cada prenda incluye 4 vistas. Precios en soles (S/) para Perú.</p>
+
+      <!-- Español: precios en soles -->
+      <div class="solo-es">
+        <div class="paquetes" id="paquetesSoles"></div>
+        <p class="nota" style="margin-top:14px">¿Estás fuera del Perú? Cambia la página a inglés (EN) para ver los precios en dólares.</p>
+        <h3 style="margin-top:32px">Extras</h3>
+        <div class="extras">
+          <div><span>Sesión de fotos del producto, si tus fotos no muestran bien el color o los detalles</span><span>S/ 150</span></div>
+          <div><span>Catálogo PDF con tu marca y botones de WhatsApp</span><span>A cotizar</span></div>
+          <div><span>Reel corto de la colección para Instagram y TikTok</span><span>Ver servicio de IA</span></div>
+        </div>
+      </div>
+
+      <!-- Inglés: precios en dólares -->
+      <div class="solo-en">
       <div class="paquetes">
         <article class="paquete">
           <h3 data-t="pk1n">Prueba</h3>
@@ -200,6 +241,7 @@
         <div><span data-t="ex2">Tomas adicionales de un producto (4 fotos más, otra locación)</span><span>USD 12</span></div>
         <div><span data-t="ex3">Reel corto de la colección para Instagram y TikTok</span><span data-t="ex3p">Ver servicio de IA</span></div>
       </div>
+      </div>
     </section>
 
     <section id="proceso">
@@ -221,7 +263,7 @@
         <details><summary data-t="q1">¿La prenda se ve igual a la real?</summary><p data-t="a1">Sí, ese es el trabajo. Comparo cada foto con la original: color, estampado, largo, botones y costuras. Si algo no coincide, la rehago. Por eso necesito buenas fotos de frente y de espalda.</p></details>
         <details><summary data-t="q2">¿Qué fotos tengo que enviar?</summary><p data-t="a2">Con el celular basta: la prenda completa, de frente y de espalda, con luz de día y sin filtros. Si tiene un detalle importante (un botón, un bordado), una foto de cerca.</p></details>
         <details><summary data-t="q3">¿Las modelos son personas reales?</summary><p data-t="a3">No. Las modelos y las locaciones se crean con IA, así no hay derechos de imagen que pagar ni sesiones que coordinar. Las fotos son tuyas para usarlas en tu tienda, tus redes y tu publicidad.</p></details>
-        <details><summary data-t="q4">¿En cuánto tiempo está listo?</summary><p data-t="a4">Como referencia: Prueba, 2 días hábiles; Colección, de 3 a 5 días hábiles; Temporada, de 7 a 10 días hábiles. Confirmo la fecha al recibir las fotos.</p></details>
+        <details><summary data-t="q4">¿En cuánto tiempo está listo?</summary><p data-t="a4">Como referencia: la prueba, 2 días hábiles; los packs de 20 o 50 imágenes, de 3 a 5 días hábiles; un catálogo mensual, de 7 a 10 días hábiles. Confirmo la fecha al recibir las fotos.</p></details>
         <details><summary data-t="q5">¿Sirve para otros productos además de ropa?</summary><p data-t="a5">Sí: calzado, carteras, accesorios y trajes de baño. Para otros productos, escríbeme y vemos si el resultado es el que necesitas.</p></details>
         <details><summary data-t="q6">¿Trabajas a distancia?</summary><p data-t="a6">Sí. Todo se hace en línea: me envías las fotos por WhatsApp o correo y te entrego las fotos por un enlace de descarga. Trabajo con tiendas de Perú, Canadá y Latinoamérica.</p></details>
       </div>
@@ -248,7 +290,64 @@
       { id: 'oliva', es: 'Vestido de gasa con volados. El detalle del cuello y las mangas se conserva.', en: 'Ruffled gauze dress. The neckline and sleeve details are preserved.' },
       { id: 'jean', es: 'Casaca jean. La misma prenda, combinada en un look completo.', en: 'Denim jacket. The same garment, styled into a full look.' }
     ];
+    // Más ejemplos (imágenes en la carpeta moda-ia/)
+    const EJEMPLOS = [
+      { img: 'pijama',          es: ['Pijama short', 'Fotos nocturnas con flash → catálogo en 3 tomas'],       en: ['Pajama set', 'Night flash snapshots → 3-shot catalog'] },
+      { img: 'vestido-verde',   es: ['Vestido smocked', 'Prenda en percha → 4 vistas con modelo'],              en: ['Smocked dress', 'Hanger photo → 4 on-model angles'] },
+      { img: 'enterizo-marron', es: ['Enterizo drapeado', 'Foto en tienda → frente, espalda, perfil y detalle'], en: ['Draped swimsuit', 'In-store photo → front, back, side and detail'] },
+      { img: 'polo-salvia',     es: ['Polo piqué de hombre', 'Foto en percha → 4 vistas en exterior'],          en: ["Men's piqué polo", 'Hanger photo → 4 outdoor angles'] },
+      { img: 'bikini-negro',    es: ['Bikini halter', 'Foto en percha → toma de playa'],                        en: ['Halter bikini', 'Hanger photo → beach shot'] },
+      { img: 'enterizo-azul',   es: ['Enterizo con ojales', 'Foto en tienda → toma en piscina'],                en: ['Lace-up swimsuit', 'In-store photo → poolside shot'] }
+    ];
+
+    // Precios en soles (versión en español): edítalos aquí
+    const PAQUETES_SOLES = [
+      { nombre: 'Prueba', detalle: '1 prenda · 4 vistas', precio: 'S/ 60', unidad: 'Ideal para probar el servicio' },
+      { nombre: 'Pack 20', detalle: '5 prendas · 20 imágenes', precio: 'S/ 250', unidad: 'S/ 12.50 por imagen' },
+      { nombre: 'Pack 50', detalle: '12 prendas · 50 imágenes', precio: 'S/ 500', unidad: 'S/ 10 por imagen', destacado: 'Mejor precio por foto' },
+      { nombre: 'Catálogo mensual', detalle: 'Más de 50 imágenes', precio: 'A cotizar', unidad: 'Precio según la cantidad de prendas' }
+    ];
+
+    function ejemplos() {
+      const grid = document.getElementById('ejemplosGrid');
+      const antes = LANG === 'en' ? 'Original photo' : 'Foto original';
+      grid.innerHTML = '';
+      EJEMPLOS.forEach(c => {
+        const [titulo, desc] = c[LANG];
+        const card = document.createElement('article');
+        card.className = 'moda-card';
+        card.innerHTML = `
+          <div class="moda-pair">
+            <a href="moda-ia/${c.img}-despues.webp" target="_blank" rel="noopener"><img class="moda-after" loading="lazy" src="moda-ia/${c.img}-despues.webp" alt=""></a>
+            <div class="moda-before"><img loading="lazy" src="moda-ia/${c.img}-antes.webp" alt=""><span></span></div>
+          </div>
+          <div class="moda-meta"><h3></h3><p></p></div>`;
+        card.querySelector('.moda-after').alt = titulo;
+        card.querySelector('.moda-before img').alt = `${titulo} – ${antes}`;
+        card.querySelector('.moda-before span').textContent = antes;
+        card.querySelector('h3').textContent = titulo;
+        card.querySelector('p').textContent = desc;
+        grid.appendChild(card);
+      });
+    }
+
+    function paquetesSoles() {
+      document.getElementById('paquetesSoles').innerHTML = PAQUETES_SOLES.map(p => {
+        const msg = `Hola Miguel, quiero cotizar fotos de catálogo con IA.\n• Paquete: ${p.nombre} (${p.detalle}) · ${p.precio}`;
+        return `
+        <article class="paquete${p.destacado ? ' destacado' : ''}">
+          ${p.destacado ? `<span class="sello">${p.destacado}</span>` : ''}
+          <h3>${p.nombre}</h3>
+          <p class="fotos">${p.detalle}</p>
+          <p class="precio">${p.precio}<small>${p.unidad}</small></p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/51943753742?text=${encodeURIComponent(msg)}">Elegir por WhatsApp</a>
+        </article>`;
+      }).join('');
+    }
+
     const EN = {
+      kMas: 'More examples', hMas: 'Sleepwear, swimwear and menswear',
+      pMas: 'The small photo is what the client sent, even if it was on a hanger or taken at night; the large one is the result. Tap an image to see it full size.',
       volver: '← Miguel Piscoya', kicker: 'Service · Product photos', titulo: 'Catalog photos with a model, no photo shoot',
       lead: 'Send me phone photos of your garments and I send back catalog photos with a model and a setting, made with AI: the same garment, with its color, print and details. Ready for your online store, Instagram and WhatsApp.',
       ctaWa: 'Get a quote on WhatsApp', ctaEj: 'See examples',
@@ -320,8 +419,10 @@
       document.title = l === 'en' ? 'AI Product & Catalog Photos | Miguel Piscoya' : 'Fotos de Producto y Catálogo con IA | Miguel Piscoya';
       ['waHero', 'waCierre'].forEach(id => { document.getElementById(id).href = 'https://wa.me/51943753742?text=' + encodeURIComponent(MSG[l]); });
       casos();
+      ejemplos();
     }
 
+    paquetesSoles();
     document.getElementById('langES').addEventListener('click', () => setLang('es'));
     document.getElementById('langEN').addEventListener('click', () => setLang('en'));
     const urlLang = new URLSearchParams(location.search).get('lang');
